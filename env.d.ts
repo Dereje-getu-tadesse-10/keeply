@@ -9,6 +9,7 @@ declare global {
             GOOGLE_CLIENT_SECRET: string;
             NEXTAUTH_URL: string;
             NEXT_AUTH_SECRET: string;
+            DATABASE_URL: string;
         }
     }
 }
