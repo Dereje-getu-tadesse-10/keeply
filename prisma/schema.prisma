@@ -69,6 +69,8 @@ model VerificationToken {
 model Collection {
   id                 String  @id @default(cuid())
   name               String
+  description        String?
+  image              String?
   items              Item[]
   status             CollectionStatus
   userId             String
@@ -78,6 +80,8 @@ model Collection {
 model Item {
   id                 String  @id @default(cuid())
   name               String
+  description        String?
+  image              String?
   collectionId       String
   status             ItemStatus
   dragPosition       Int @unique
