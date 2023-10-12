@@ -1,8 +1,11 @@
+import { Button } from "$/components/ui";
 
 export default function Home() {
   return (
     <main>
-      <button className="t">Click me</button>
+      <Button intent={"primary"}>
+        Hello world
+      </Button>
     </main>
   )
 }
