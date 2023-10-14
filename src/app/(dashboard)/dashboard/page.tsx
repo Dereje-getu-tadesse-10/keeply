@@ -9,25 +9,11 @@ const Page = async () => {
   const getMyCollections = await getCollections(user?.user.id)
   const getCollectionsCount = await countCollections(user?.user.id)
   const getItemCount = await countItems(user?.user.id)
-  console.log(getMyCollections)
-  const collections = getMyCollections?.map((collection) => {
-    return (
-      <div key={collection.id}>
-        <h2>{collection.name}</h2>
-        <p>{collection.status}</p>
-      </div>
-    )
-  })
+
   return (
     <main>
       <CreateCollection userId={user?.user.id} />
-      <div>
-        <h1>Dashboard</h1>
-        <p>
-          You have {getCollectionsCount} collections and {getItemCount} items
-        </p>
-        {collections}
-      </div>
+      <div></div>
     </main>
   )
 }

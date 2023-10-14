@@ -37,7 +37,7 @@ export const config = {
     strategy: 'jwt',
   },
   callbacks: {
-    jwt({ token, account, user }) {
+    jwt({ token, account, user, session }) {
       if (account) {
         token.accessToken = account.access_token
         token.id = user?.id
@@ -49,7 +49,6 @@ export const config = {
       return session
     },
   },
-  debug: process.env.NODE_ENV !== 'production',
   pages: {
     signIn: '/login',
     error: '/login',

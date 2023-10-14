@@ -1,57 +1,18 @@
-import { prisma } from '$/lib/prisma'
-import { CollectionStatus } from '@prisma/client'
-import { revalidatePath } from 'next/cache'
-
-type Collection = {
-  name: string
-  description: string
-  status: CollectionStatus
-}
+import { addCollection } from '$/lib/server-actions'
 
 export const CreateCollection = async ({ userId }: { userId: string }) => {
-  const addCollection = async (e: FormData) => {
-    'use server'
-    const collectionName = e.get('collectionName')?.toString()
-    const collectionDescription = e.get('collectionDescription')?.toString()
-    const collectionType = e.get('collectionType')?.toString()
-
-    if (!collectionName || !collectionDescription || !collectionType)
-      return console.log('Missing data')
-
-    const collection: Collection = {
-      name: collectionName,
-      description: collectionDescription,
-      status: collectionType === 'PUBLIC' ? 'PUBLIC' : 'PRIVATE',
-    }
-    const create = await prisma.collection.create({
-      data: {
-        name: collection.name,
-        userId: userId,
-        status: collection.status,
-        description: collection.description,
-      },
-    })
-
-    if (!create) return 'Error creating collection'
-    revalidatePath('/dashboard')
-    return 'Collection created'
-  }
-
   return (
     <div>
       <form action={addCollection}>
+        <input name={'name'} type="text" placeholder="Collection name" />
+        <input name={'userId'} type="hidden" value={userId} hidden={true} />
         <input
-          name={'collectionName'}
-          type="text"
-          placeholder="Collection name"
-        />
-        <input
-          name={'collectionDescription'}
+          name={'description'}
           type="text"
           placeholder="Collection description"
         />
         <select
-          name={'collectionType'}
+          name={'status'}
           id="collectionType"
           placeholder="Collection type"
         >
