@@ -4,9 +4,13 @@ import { prisma } from '$/lib/prisma'
 import { revalidatePath } from 'next/cache'
 
 const addToCollectionSchema = z.object({
-  name: z.string().min(1),
-  description: z.string().min(1),
-  userId: z.string().min(1),
+  name: z
+    .string()
+    .min(1, 'Le nom de la collection doit faire au moins 1 caractère'),
+  description: z.string().min(1, 'La description est obligatoire'),
+  userId: z
+    .string()
+    .min(1, "L'id de l'utilisateur doit faire au moins 1 caractère"),
   status: z.enum(['PUBLIC', 'PRIVATE']),
 })
 
@@ -15,13 +19,14 @@ const deleteCollectionSchema = z.object({
 })
 
 export const addCollection = async (e: FormData) => {
-  const collection = addToCollectionSchema.parse({
-    name: e.get('name'),
-    description: e.get('description'),
-    userId: e.get('userId'),
-    status: e.get('status'),
-  })
   try {
+    const collection = addToCollectionSchema.parse({
+      name: e.get('name'),
+      description: e.get('description'),
+      userId: e.get('userId'),
+      status: e.get('status'),
+    })
+
     await prisma.collection.create({
       data: {
         name: collection.name,
@@ -30,6 +35,7 @@ export const addCollection = async (e: FormData) => {
         description: collection.description,
       },
     })
+    
     revalidatePath('/dashboard')
     return { message: `La collection ${collection.name} a bien été créée` }
   } catch (e) {
