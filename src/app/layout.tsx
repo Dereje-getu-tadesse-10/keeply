@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Gabarito } from "next/font/google"
 import { NextAuthProvider } from './provider'
+import { Header } from '$/components/common'
 
 const gabarito = Gabarito({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="fr">
       <body className={gabarito.className}>
         <NextAuthProvider>
+          <Header />
           {children}
         </NextAuthProvider>
         </body>

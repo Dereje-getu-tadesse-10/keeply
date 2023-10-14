@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    /* width: 300px; */
+}
+
+.header__nav button {
+    max-width: max-content;
+}
