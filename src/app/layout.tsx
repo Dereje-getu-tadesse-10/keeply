@@ -1,8 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Gabarito } from "next/font/google"
+import { Gabarito } from 'next/font/google'
 import { NextAuthProvider } from './provider'
-import { Header } from '$/components/common'
+import { Header } from '../components/commons'
 
 const gabarito = Gabarito({ subsets: ['latin'] })
 
@@ -23,7 +23,7 @@ export default function RootLayout({
           <Header />
           {children}
         </NextAuthProvider>
-        </body>
+      </body>
     </html>
   )
 }
