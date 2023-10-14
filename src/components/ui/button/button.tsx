@@ -3,11 +3,11 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import styles from "./button.module.css";
 
-const button = cva(styles.base, {
+const button = cva(styles.button, {
   variants: {
     intent: {
-      primary: [styles.button, styles.primary],
-      secondary: [styles.button, styles.secondary],
+      primary: styles.primary,
+      secondary: styles.secondary,
     },
   },
   defaultVariants: {

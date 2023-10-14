@@ -1,15 +1,15 @@
 .button {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    text-align: center;
+    display: flex;
+    padding: var(--padding-md);
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 8px;
+    font-size: 14px;
     cursor: pointer;
-    user-select: none;
-    transition: all 0.15s ease-in-out;
     border: 1px solid transparent;
-    outline: none;
+    transition: all 0.15s ease-in-out;
+    text-align: center;
 }
 
 .primary {

@@ -3,11 +3,11 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import styles from "./badge.module.css";
 
-const badge = cva(styles.base, {
+const badge = cva(styles.badge, {
   variants: {
     intent: {
-      primary: [styles.badge, styles.primary],
-      secondary: [styles.badge, styles.secondary],
+      primary: styles.primary,
+      secondary: styles.secondary,
     },
   },
   defaultVariants: {
