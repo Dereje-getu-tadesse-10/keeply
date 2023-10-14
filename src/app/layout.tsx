@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className={gabarito.className}>
+      <body className={`${gabarito.className} layout__global`}>
         <NextAuthProvider>
           <Header />
           {children}
