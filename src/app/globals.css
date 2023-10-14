@@ -29,3 +29,11 @@
 
   --padding-md: 10px 14px;
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}

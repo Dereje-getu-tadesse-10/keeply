@@ -33,6 +33,11 @@ export const config = {
         strategy: "jwt",
     },
     debug: process.env.NODE_ENV !== "production",
+    pages: {
+        signIn: "/login",
+        error: "/login",
+        signOut: "/"
+    },
 } satisfies NextAuthOptions
 
 export function auth(...args: [GetServerSidePropsContext["req"], GetServerSidePropsContext["res"]] | [NextApiRequest, NextApiResponse] | []) {
