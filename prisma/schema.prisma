@@ -21,18 +21,18 @@ enum ItemStatus {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  
-  access_token       String?  
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -48,9 +48,9 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String       @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?      @unique
   emailVerified DateTime?
   image         String?
   accounts      Account[]
@@ -67,23 +67,23 @@ model VerificationToken {
 }
 
 model Collection {
-  id                 String  @id @default(cuid())
-  name               String
-  description        String?
-  image              String?
-  items              Item[]
-  status             CollectionStatus
-  userId             String
-  user               User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id          String           @id @default(cuid())
+  name        String
+  description String?
+  image       String?
+  items       Item[]
+  status      CollectionStatus
+  userId      String
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Item {
-  id                 String  @id @default(cuid())
-  name               String
-  description        String?
-  image              String?
-  collectionId       String
-  status             ItemStatus
-  dragPosition       Int @unique
-  collection         Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  id           String     @id @default(cuid())
+  name         String
+  description  String?
+  image        String?
+  collectionId String
+  status       ItemStatus
+  dragPosition Int        @unique
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
 }
