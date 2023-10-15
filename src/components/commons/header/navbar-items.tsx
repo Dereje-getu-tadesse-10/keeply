@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button } from '$/components/ui'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import { useNavbarStore } from '$/stores/navbar'
+import { useNavbarStore } from '$/stores/useNavbar'
 
 export const NavbarItems = () => {
   const { data: session } = useSession()
