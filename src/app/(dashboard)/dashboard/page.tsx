@@ -9,7 +9,7 @@ const Page = async () => {
   const getMyCollections = await getCollections(user?.user.id)
   const getCollectionsCount = await countCollections(user?.user.id)
   const getItemCount = await countItems(user?.user.id)
-
+  console.log(user?.user.id)
   return (
     <main>
       <CreateCollection userId={user?.user.id} />
