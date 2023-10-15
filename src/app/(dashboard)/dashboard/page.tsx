@@ -13,7 +13,6 @@ const Page = async () => {
   return (
     <main>
       <CreateCollection userId={user?.user.id} />
-      <div></div>
     </main>
   )
 }

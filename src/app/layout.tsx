@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Gabarito } from 'next/font/google'
 import { NextAuthProvider } from './provider'
 import { Header } from '../components/commons'
+import { Toaster } from 'react-hot-toast'
 
 const gabarito = Gabarito({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <NextAuthProvider>
           <Header />
           {children}
+          <Toaster />
         </NextAuthProvider>
       </body>
     </html>

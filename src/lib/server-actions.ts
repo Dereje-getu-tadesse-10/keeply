@@ -1,4 +1,5 @@
 'use server'
+
 import { z } from 'zod'
 import { prisma } from '$/lib/prisma'
 import { revalidatePath } from 'next/cache'
@@ -35,7 +36,7 @@ export const addCollection = async (e: FormData) => {
         description: collection.description,
       },
     })
-    
+
     revalidatePath('/dashboard')
     return { message: `La collection ${collection.name} a bien été créée` }
   } catch (e) {
@@ -58,5 +59,35 @@ export const deleteCollection = async (e: FormData) => {
     return { message: `La collection a bien été supprimée ${collection.id}` }
   } catch (e) {
     return { message: `La collection n'a pas pu être supprimée` }
+  }
+}
+
+export const updateCollection = async (e: FormData) => {
+  const collection = addToCollectionSchema.parse({
+    name: e.get('name'),
+    description: e.get('description'),
+    userId: e.get('userId'),
+    status: e.get('status'),
+  })
+
+  try {
+    await prisma.collection.update({
+      where: {
+        id: collection.userId,
+      },
+      data: {
+        name: collection.name,
+        description: collection.description,
+        status: collection.status,
+      },
+    })
+    revalidatePath('/dashboard')
+    return {
+      message: `La collection ${collection.name} a bien été mise à jour`,
+    }
+  } catch (e) {
+    return {
+      message: `La collection ${collection.name} n'a pas pu être mise à jour`,
+    }
   }
 }

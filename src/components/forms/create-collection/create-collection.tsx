@@ -1,13 +1,18 @@
 'use client'
 import { addCollection } from '$/lib/server-actions'
 import { ButtonState } from './form-state'
+import toast from 'react-hot-toast'
+
 export const CreateCollection = async ({ userId }: { userId: string }) => {
   const formStatus = async (formData: FormData) => {
     const res = await addCollection(formData)
     if (res.message) {
-      console.log(res.message)
+      toast.success(res.message, {
+        icon: '👏',
+      })
     }
   }
+
   return (
     <div>
       <form action={formStatus}>

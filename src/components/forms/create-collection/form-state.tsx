@@ -1,4 +1,3 @@
-'use client'
 import { experimental_useFormStatus as useFormStatus } from 'react-dom'
 export const ButtonState = () => {
   const { pending } = useFormStatus()
