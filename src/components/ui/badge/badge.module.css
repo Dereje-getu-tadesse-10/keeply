@@ -1,22 +1,21 @@
-
 .badge {
-    display: inline-block;
-    padding: 4px 7px;
-    font-size: 0.8rem;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: 0.25rem;
-    border-radius: var(--border-radius-md);
+  display: inline-block;
+  padding: 4px 7px;
+  font-size: 0.8rem;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  border-radius: var(--border-radius-md);
 }
 
 .primary {
-    border: 1px solid #ABEFC6;
-    background:  #ECFDF3;
+  border: 1px solid #abefc6;
+  background: #ecfdf3;
 }
 
 .secondary {
-    border: 1px solid  #FEDF89;
-    background: #FFFAEB;
+  border: 1px solid #fedf89;
+  background: #fffaeb;
 }

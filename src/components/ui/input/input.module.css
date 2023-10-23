@@ -1,13 +1,13 @@
-
 .input {
-    display: flex;
-    padding: var(--padding-md);
-    align-items: center;
-    gap: 8px;
-    align-self: stretch;
-    border-radius: var(--border-radius-md);
-    border: 1px solid var(--gray-300, #D0D5DD);
-    background: var(--base-white, #FFF);
-    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-    height: 40px;
+  display: flex;
+  padding: var(--padding-md);
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--gray-300, #d0d5dd);
+  background: var(--base-white, #fff);
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  height: 40px;
+  width: 100%;
 }

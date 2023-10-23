@@ -1,1 +1,1 @@
-export {Auth} from "$/components/forms/auth/auth"
+export { Auth } from '$/components/forms/auth/auth';

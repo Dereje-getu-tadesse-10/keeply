@@ -1,17 +1,17 @@
 .auth {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .auth__form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .auth__separator {
-   border: 1px solid #D0D5DD;
-   border-radius: 12px;
-   margin: 1rem 0;
+  border: 1px solid #d0d5dd;
+  border-radius: 12px;
+  margin: 1rem 0;
 }

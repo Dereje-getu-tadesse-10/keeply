@@ -1,13 +1,13 @@
-'use client'
-import React from 'react'
-import styles from './modal.module.css'
-import { useModalStore } from '$/stores/useModalStore'
-import { X } from 'lucide-react'
+'use client';
+import React from 'react';
+import styles from './modal.module.css';
+import { useModalStore } from '$/stores/useModalStore';
+import { X } from 'lucide-react';
 
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export const Modal: React.FC<ModalProps> = ({ className, ...props }) => {
-  const { isOpen, toggleModal } = useModalStore()
+  const { isOpen, toggleModal } = useModalStore();
   return (
     <div className={styles.modal__backdrop}>
       <div className={styles.modal} {...props}>
@@ -18,5 +18,5 @@ export const Modal: React.FC<ModalProps> = ({ className, ...props }) => {
         {props.children}
       </div>
     </div>
-  )
-}
+  );
+};
