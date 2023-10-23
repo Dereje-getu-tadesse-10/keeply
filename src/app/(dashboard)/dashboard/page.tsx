@@ -1,7 +1,7 @@
 import { auth } from '$/lib/auth';
 import { countCollections, countItems, getCollections } from '$/lib/queries';
 import { Session } from 'next-auth';
-import { CreateCollection } from '$/components/forms/create-collection/create-collection';
+import { CreateCollection } from '$/components/forms/create/create-collection';
 
 const Page = async () => {
   const user: Session | null = await auth();

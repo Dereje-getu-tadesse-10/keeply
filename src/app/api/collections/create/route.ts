@@ -6,7 +6,7 @@ import { z } from 'zod';
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
 
-const bodySchema = z.object({
+export const bodySchema = z.object({
   name: z
     .string()
     .min(1, 'Le nom de la collection est trop court')
@@ -24,11 +24,6 @@ export async function POST(req: Request, res: Response) {
   const body = await req.json();
   const response = bodySchema.safeParse(body);
 
-  // On vérifie que la session est valide
-  const sessionError = verifySession(session, body.userId);
-  // Si la session n'existe pas, on renvoie une erreur
-  if (sessionError)
-    return NextResponse.json(sessionError, { status: sessionError.status });
   // Si le body n'est pas conforme au schéma, on renvoie une erreur
   if (!response.success) {
     return NextResponse.json(
@@ -36,8 +31,16 @@ export async function POST(req: Request, res: Response) {
       { status: 400 }
     );
   }
+
+  // On vérifie que la session est valide
+  const sessionError = verifySession(session, { userId: response.data.userId });
+  if (sessionError) {
+    return NextResponse.json(sessionError, { status: sessionError.status });
+  }
+
   // On récupère les données de la collection
-  const { name, description, status, userId } = response.data;
+  const { name, description, status, userId: collectionUserId } = response.data;
+  const userId = collectionUserId as string;
   // On vérifie que l'utilisateur existe
   await prisma.collection.create({
     data: {

@@ -17,14 +17,7 @@ export async function DELETE(
 ) {
   const session = await getServerSession(config);
   const body = await req.json();
-  const response = bodySchema.safeParse(body);
-
-  // On vérifie que la session est valide
-  const sessionError = verifySession(session, body);
-
-  // Si la session n'existe pas, on renvoie une erreur
-  if (sessionError)
-    return NextResponse.json(sessionError, { status: sessionError.status });
+  const response = bodySchema.safeParse(params);
 
   // Si le body n'est pas conforme au schéma, on renvoie une erreur
   if (!response.success) {
@@ -32,6 +25,12 @@ export async function DELETE(
       { message: "Oups, une erreur s'est produite" },
       { status: 400 }
     );
+  }
+
+  // On vérifie que la session est valide
+  const sessionError = verifySession(session, { userId: response.data.userId });
+  if (sessionError) {
+    return NextResponse.json(sessionError, { status: sessionError.status });
   }
 
   // On récupère les données de la collection
@@ -51,7 +50,7 @@ export async function DELETE(
   }
 
   // Si l'utilisateur n'est pas le propriétaire de la collection, on renvoie une erreur
-  if (collection.userId !== body.userId) {
+  if (collection.userId !== response.data.userId) {
     return NextResponse.json(
       { message: "Vous n'avez pas les droits pour supprimer cette collection" },
       { status: 401 }
@@ -63,7 +62,7 @@ export async function DELETE(
 
   // On renvoie une réponse
   return NextResponse.json(
-    { message: `La collection ${collection.name} a bien été supprimée !` },
+    { message: `La collection a bien été supprimée !` },
     { status: 200 }
   );
 }
