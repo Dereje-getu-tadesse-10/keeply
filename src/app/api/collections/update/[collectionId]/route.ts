@@ -43,8 +43,6 @@ export async function PUT(
     );
   }
 
-  // On récupère les données de la collection
-  const { } = response.data;
 
   // On vérifie que la collection existe
   const collection = await prisma.collection.findUnique({

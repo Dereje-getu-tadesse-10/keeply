@@ -7,7 +7,8 @@ const Page = async () => {
   const user: Session | null = await auth();
 
   const collections = await getCollections(user?.user.id);
-
+  console.log(collections);
+  console.log(user?.user.id);
   return (
     <main>
       <CreateCollection userId={user?.user.id} />
