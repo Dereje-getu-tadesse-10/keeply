@@ -80,13 +80,18 @@ const getUser = async (currentUser: string) => {
             },
             orderBy: {
               id: 'asc',
-            }
-          }
+            },
+          },
         },
       },
     },
   });
-}
+};
 
-
-export { getCollections, countCollections, getGetCollection, getCollectibles, getUser };
+export {
+  getCollections,
+  countCollections,
+  getGetCollection,
+  getCollectibles,
+  getUser,
+};

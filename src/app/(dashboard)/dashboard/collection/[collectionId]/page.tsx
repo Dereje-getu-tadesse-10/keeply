@@ -13,10 +13,7 @@ const Page = async ({ params }: { params: { collectionId: string } }) => {
   if (!collection) notFound();
   console.log(collection, 'ma collection');
   console.log(collectibles, 'mes collectibles');
-  return (
-    <main>
-    </main>
-  );
+  return <main></main>;
 };
 
 export default Page;

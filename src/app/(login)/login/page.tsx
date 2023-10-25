@@ -27,6 +27,6 @@ const Login = async () => {
       </footer>
     </main>
   );
-}
+};
 
 export default Login;
