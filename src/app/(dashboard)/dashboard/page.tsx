@@ -8,7 +8,6 @@ const Page = async () => {
 
   const collections = await getCollections(user?.user.id);
 
-
   return (
     <main>
       <CreateCollection userId={user?.user.id} />
@@ -18,7 +17,7 @@ const Page = async () => {
           {collection.name}
         </Link>
         <Link href={`/dashboard/collection/${collection.id}/update`}>
-        Mettre à jour
+          Mettre à jour 
         </Link>
         </div>
        
