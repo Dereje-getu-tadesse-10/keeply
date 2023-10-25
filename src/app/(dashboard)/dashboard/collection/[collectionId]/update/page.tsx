@@ -12,7 +12,11 @@ const Page = async ({ params }: { params: { collectionId: string } }) => {
 
   if (!collection) notFound();
 
-  return <UpdateCollection collection={collection} />;
+  return (
+    <main>
+      <UpdateCollection collection={collection} />
+    </main>
+  );
 };
 
 export default Page;

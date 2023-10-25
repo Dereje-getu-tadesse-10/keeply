@@ -38,14 +38,26 @@ const getGetCollection = async (id: string, userId: string) => {
       status: true,
       description: true,
       created_at: true,
-      updated_at: true,
-      _count: {
-        select: {
-          items: true,
-        },
-      },
+      updated_at: true
     },
   });
 };
 
-export { getCollections, countCollections, getGetCollection };
+const getCollectibles = async (id: string) => {
+  return await prisma.collectible.findMany({
+    where: {
+      collectionId: id,
+    },
+    select: {
+      id: true,
+      name: true,
+      description: true,
+      image: true,
+      collectionId: true,
+      created_at: true,
+      updated_at: true
+    },
+  });
+}
+
+export { getCollections, countCollections, getGetCollection, getCollectibles };

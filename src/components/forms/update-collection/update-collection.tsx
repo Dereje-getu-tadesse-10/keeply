@@ -20,9 +20,6 @@ type Props = {
   description: string | null;
   created_at: Date | null;
   updated_at: Date | null;
-  _count: {
-    items: number;
-  };
 };
 
 type FormData = z.infer<typeof updateCollectionSchema>;
@@ -70,14 +67,14 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
         <p className={styles.description}>
           Mis à jour le {dayjs(collection.updated_at).format('DD/MM/YYYY')}
         </p>
-        <p className={styles.description}>
+        {/* <p className={styles.description}>
           Cette collection contient{' '}
           {collection._count.items === 0
             ? 'aucun item'
             : collection._count.items === 1
             ? 'un item'
             : `${collection._count.items} items`}
-        </p>
+        </p> */}
         <Button intent={'secondary'} onClick={() => handleDelete()}>
           Supprimer la collection
         </Button>
