@@ -1,6 +1,6 @@
 import { auth } from '$/lib/auth';
 import { Session } from 'next-auth';
-import { getCollectibles, getGetCollection,  } from '$/lib/queries';
+import { getCollectibles, getGetCollection } from '$/lib/queries';
 import { notFound } from 'next/navigation';
 
 const Page = async ({ params }: { params: { collectionId: string } }) => {
@@ -8,12 +8,15 @@ const Page = async ({ params }: { params: { collectionId: string } }) => {
 
   const currentCollection = params.collectionId;
   const collection = await getGetCollection(currentCollection, user?.user.id);
-  const collectibles = await getCollectibles("clo5h63r30003noomijwgxp85");
+  const collectibles = await getCollectibles(currentCollection);
 
   if (!collection) notFound();
-  console.log(collection,"ma collection");
-  console.log(collectibles,"mes collectibles");
-  return <main></main>;
+  console.log(collection, 'ma collection');
+  console.log(collectibles, 'mes collectibles');
+  return (
+    <main>
+    </main>
+  );
 };
 
 export default Page;

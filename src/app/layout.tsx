@@ -21,9 +21,9 @@ export default function RootLayout({
     <html lang='fr'>
       <body className={`${gabarito.className} layout__global`}>
         <NextAuthProvider>
-          <Header />
-          {children}
-          <Toaster />
+            <Header />
+            {children}
+            <Toaster />
         </NextAuthProvider>
       </body>
     </html>

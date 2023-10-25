@@ -38,7 +38,7 @@ const getGetCollection = async (id: string, userId: string) => {
       status: true,
       description: true,
       created_at: true,
-      updated_at: true
+      updated_at: true,
     },
   });
 };
@@ -55,9 +55,38 @@ const getCollectibles = async (id: string) => {
       image: true,
       collectionId: true,
       created_at: true,
-      updated_at: true
+      updated_at: true,
+    },
+  });
+};
+
+const getUser = async (currentUser: string) => {
+  return await prisma.user.findUnique({
+    where: {
+      id: currentUser,
+    },
+    select: {
+      id: true,
+      collections: {
+        select: {
+          id: true,
+          name: true,
+          description: true,
+          items: {
+            select: {
+              id: true,
+              name: true,
+              description: true,
+            },
+            orderBy: {
+              id: 'asc',
+            }
+          }
+        },
+      },
     },
   });
 }
 
-export { getCollections, countCollections, getGetCollection, getCollectibles };
+
+export { getCollections, countCollections, getGetCollection, getCollectibles, getUser };
