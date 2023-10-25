@@ -15,7 +15,7 @@ enum CollectionStatus {
   PRIVATE
 }
 
-enum ItemStatus {
+enum CollectibleStatus {
   ACQUIRED
   PLANNED
 }
@@ -71,7 +71,7 @@ model Collection {
   name        String
   description String
   image       String?
-  items       Item[]
+  items       Collectible[]
   status      CollectionStatus
   userId      String
   user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -79,13 +79,13 @@ model Collection {
   updated_at DateTime         @updatedAt @default(now())
 }
 
-model Item {
+model Collectible {
   id           String     @id @default(cuid())
   name         String
   description  String
   image        String
   collectionId String
-  status       ItemStatus
+  status       CollectibleStatus
   dragPosition Int        @unique
   collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
   created_at DateTime?         @default(now())
