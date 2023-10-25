@@ -29,7 +29,7 @@ const updateCollection = async (
   data: UpdateCollection,
   collectionId: string
 ) => {
-  const response = await fetch(`/api/collections/update/${collectionId}`, {
+  const response = await fetch(`/api/collections/${collectionId}/update/`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const updateCollection = async (
 
 // Fonctions d'appel à l'API pour supprimer une collection
 const deleteCollection = async (collectionId: string, userId: string) => {
-  const response = await fetch(`/api/collections/delete/${collectionId}`, {
+  const response = await fetch(`/api/collections/${collectionId}/delete/`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

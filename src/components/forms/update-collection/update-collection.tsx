@@ -10,7 +10,7 @@ import { Select } from '$/components/ui/select/select';
 import { CollectionStatus } from '@prisma/client';
 import { updateCollectionSchema } from '$/schemas/collections-schema';
 import dayjs from 'dayjs';
-import { updateCollection } from '$/lib/fetchs';
+import { updateCollection, deleteCollection } from '$/lib/fetchs';
 
 type Props = {
   userId: string;
@@ -54,17 +54,7 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
   };
 
   const handleDelete = async () => {
-    const res = await fetch(`/api/collections/delete/${collection.id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        userId: collection.userId,
-      }),
-    });
-    const response = await res.json();
-    console.log(response);
+    const response = await deleteCollection(collection.id, collection.userId);
     toast.success(response.message);
     router.push(`/dashboard`);
     router.refresh();
