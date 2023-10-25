@@ -10,6 +10,7 @@ const collectiblesSchema = z.object({
     collectionId: z.string(),
     status: z.enum(['ACQUIRED', 'PLANNED']),
     dragPosition: z.number(),
+    userId: z.string(),
 });
 
 const updateCollectionSchema = collectiblesSchema.partial();
