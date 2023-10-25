@@ -5,7 +5,7 @@ import { Auth } from '$/components/forms/index';
 import { auth } from '$/lib/auth';
 import { redirect } from 'next/navigation';
 
-export default async function Login() {
+const Login = async () => {
   const session = await auth();
 
   if (session) {
@@ -28,3 +28,5 @@ export default async function Login() {
     </main>
   );
 }
+
+export default Login;

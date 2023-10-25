@@ -3,12 +3,12 @@ import { getCollections } from '$/lib/queries';
 import { Session } from 'next-auth';
 import { CreateCollection } from '$/components/forms';
 import Link from 'next/link';
+
 const Page = async () => {
   const user: Session | null = await auth();
 
   const collections = await getCollections(user?.user.id);
-  console.log(collections);
-  console.log(user?.user.id);
+
   return (
     <main>
       <CreateCollection userId={user?.user.id} />
