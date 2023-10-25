@@ -19,7 +19,6 @@ export async function DELETE(
   req: Request,
   { params }: { params: { collectionId: string } }
 ) {
-
   const session = await getServerSession(config);
   const response = paramsUrl.safeParse(params);
   const body = await req.json();
@@ -48,7 +47,9 @@ export async function DELETE(
   }
 
   // On vérifie que la session est valide
-  const sessionError = verifySession(session, { userId: bodyResponse.data.userId });
+  const sessionError = verifySession(session, {
+    userId: bodyResponse.data.userId,
+  });
   if (sessionError) {
     return NextResponse.json(sessionError, { status: sessionError.status });
   }

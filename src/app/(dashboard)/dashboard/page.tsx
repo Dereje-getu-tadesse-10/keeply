@@ -14,14 +14,16 @@ const Page = async () => {
       <CreateCollection userId={user?.user.id} />
       {collections.map((collection) => (
         <div key={collection.id}>
-         <Link key={collection.id} href={`/dashboard/collection/${collection.id}`}>
-          {collection.name}
-        </Link>
-        <Link href={`/dashboard/collection/${collection.id}/update`}>
-          Mettre à jour 
-        </Link>
+          <Link
+            key={collection.id}
+            href={`/dashboard/collection/${collection.id}`}
+          >
+            {collection.name}
+          </Link>
+          <Link href={`/dashboard/collection/${collection.id}/update`}>
+            Mettre à jour
+          </Link>
         </div>
-       
       ))}
     </main>
   );

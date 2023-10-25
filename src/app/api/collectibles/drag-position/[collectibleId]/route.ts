@@ -75,10 +75,7 @@ export async function PUT(
       status,
     },
   });
-
+  console.log('Collectible mis à jour');
   // On renvoie une réponse
-  return NextResponse.json(
-    { message: `Le collectible ${name} a bien été modifié !` },
-    { status: 201 }
-  );
+  return NextResponse.json({ status: 201 });
 }

@@ -5,9 +5,7 @@ import { z } from 'zod';
 
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
-import {
-  updateCollectionSchema,
-} from '$/schemas/collections-schema';
+import { updateCollectionSchema } from '$/schemas/collections-schema';
 
 const paramsUrl = z.object({
   collectionId: z.string(),
@@ -42,7 +40,6 @@ export async function PUT(
       { status: 400 }
     );
   }
-
 
   // On vérifie que la collection existe
   const collection = await prisma.collection.findUnique({

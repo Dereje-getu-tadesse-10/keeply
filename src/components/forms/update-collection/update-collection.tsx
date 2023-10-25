@@ -62,13 +62,13 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
       body: JSON.stringify({
         userId: collection.userId,
       }),
-    })
+    });
     const response = await res.json();
     console.log(response);
     toast.success(response.message);
     router.push(`/dashboard`);
     router.refresh();
-  }
+  };
 
   return (
     <section className={styles.container}>
@@ -88,7 +88,7 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
             ? 'un item'
             : `${collection._count.items} items`}
         </p>
-        <Button intent={"secondary"} onClick={() => handleDelete()}>
+        <Button intent={'secondary'} onClick={() => handleDelete()}>
           Supprimer la collection
         </Button>
       </div>

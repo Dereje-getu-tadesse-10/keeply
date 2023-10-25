@@ -32,7 +32,7 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
       ...data,
       userId: userId,
     };
-    
+
     const response = await createCollection(datas, userId);
     toast.success(response.message);
     router.refresh();
