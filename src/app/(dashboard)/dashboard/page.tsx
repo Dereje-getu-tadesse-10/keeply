@@ -1,19 +1,28 @@
 import { auth } from '$/lib/auth';
-import { countCollections, countItems, getCollections } from '$/lib/queries';
+import { getCollections } from '$/lib/queries';
 import { Session } from 'next-auth';
-import { CreateCollection } from '$/components/forms/create/create-collection';
-
+import { CreateCollection } from '$/components/forms';
+import Link from 'next/link';
 const Page = async () => {
   const user: Session | null = await auth();
 
-  const getMyCollections = await getCollections(user?.user.id);
-  const getCollectionsCount = await countCollections(user?.user.id);
-  const getItemCount = await countItems(user?.user.id);
-  console.log(user?.user.id);
+  const collections = await getCollections(user?.user.id);
+
 
   return (
     <main>
       <CreateCollection userId={user?.user.id} />
+      {collections.map((collection) => (
+        <div key={collection.id}>
+         <Link key={collection.id} href={`/dashboard/collection/${collection.id}`}>
+          {collection.name}
+        </Link>
+        <Link href={`/dashboard/collection/${collection.id}/update`}>
+        Mettre à jour
+        </Link>
+        </div>
+       
+      ))}
     </main>
   );
 };

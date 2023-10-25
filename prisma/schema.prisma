@@ -69,21 +69,25 @@ model VerificationToken {
 model Collection {
   id          String           @id @default(cuid())
   name        String
-  description String?
+  description String
   image       String?
   items       Item[]
   status      CollectionStatus
   userId      String
   user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  created_at DateTime         @default(now())
+  updated_at DateTime         @updatedAt @default(now())
 }
 
 model Item {
   id           String     @id @default(cuid())
   name         String
-  description  String?
-  image        String?
+  description  String
+  image        String
   collectionId String
   status       ItemStatus
   dragPosition Int        @unique
   collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  created_at DateTime?         @default(now())
+  updated_at DateTime?         @updatedAt @default(now())
 }

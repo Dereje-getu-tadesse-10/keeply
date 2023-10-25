@@ -5,10 +5,12 @@ import { z } from 'zod';
 
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
+import {
+  updateCollectionSchema,
+} from '$/schemas/collections-schema';
 
-const bodySchema = z.object({
+const paramsUrl = z.object({
   collectionId: z.string(),
-  userId: z.string(),
 });
 
 export async function PUT(
@@ -17,7 +19,16 @@ export async function PUT(
 ) {
   const session = await getServerSession(config);
   const body = await req.json();
-  const response = bodySchema.safeParse(params);
+  const collectionId = paramsUrl.safeParse(params);
+  const response = updateCollectionSchema.safeParse(body);
+
+  if (!collectionId.success) {
+    console.log(collectionId.error);
+    return NextResponse.json(
+      { message: "Oups, une erreur s'est produite" },
+      { status: 400 }
+    );
+  }
 
   // On vérifie que la session est valide
   const sessionError = verifySession(session, body);
@@ -33,11 +44,11 @@ export async function PUT(
   }
 
   // On récupère les données de la collection
-  const { collectionId } = response.data;
+  const { } = response.data;
 
   // On vérifie que la collection existe
   const collection = await prisma.collection.findUnique({
-    where: { id: collectionId },
+    where: { id: collectionId.data.collectionId },
   });
 
   // Si la collection n'existe pas, on renvoie une erreur
@@ -58,7 +69,7 @@ export async function PUT(
 
   // On met à jour la collection
   await prisma.collection.update({
-    where: { id: collectionId },
+    where: { id: collectionId.data.collectionId },
     data: {
       name: body.name,
       description: body.description,

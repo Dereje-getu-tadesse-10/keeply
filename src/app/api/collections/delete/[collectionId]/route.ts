@@ -5,9 +5,13 @@ import { z } from 'zod';
 
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
+import { collectionWithId } from '$/schemas/collections-schema';
+
+const paramsUrl = z.object({
+  collectionId: z.string(),
+});
 
 const bodySchema = z.object({
-  collectionId: z.string(),
   userId: z.string(),
 });
 
@@ -15,9 +19,25 @@ export async function DELETE(
   req: Request,
   { params }: { params: { collectionId: string } }
 ) {
+
   const session = await getServerSession(config);
+  const response = paramsUrl.safeParse(params);
   const body = await req.json();
-  const response = bodySchema.safeParse(params);
+  const bodyResponse = bodySchema.safeParse(body);
+
+  if (!response.success) {
+    return NextResponse.json(
+      { message: "Oups, une erreur s'est produite" },
+      { status: 400 }
+    );
+  }
+
+  if (!bodyResponse.success) {
+    return NextResponse.json(
+      { message: "Oups, une erreur s'est produite" },
+      { status: 400 }
+    );
+  }
 
   // Si le body n'est pas conforme au schéma, on renvoie une erreur
   if (!response.success) {
@@ -28,7 +48,7 @@ export async function DELETE(
   }
 
   // On vérifie que la session est valide
-  const sessionError = verifySession(session, { userId: response.data.userId });
+  const sessionError = verifySession(session, { userId: bodyResponse.data.userId });
   if (sessionError) {
     return NextResponse.json(sessionError, { status: sessionError.status });
   }
@@ -50,7 +70,7 @@ export async function DELETE(
   }
 
   // Si l'utilisateur n'est pas le propriétaire de la collection, on renvoie une erreur
-  if (collection.userId !== response.data.userId) {
+  if (collection.userId !== bodyResponse.data.userId) {
     return NextResponse.json(
       { message: "Vous n'avez pas les droits pour supprimer cette collection" },
       { status: 401 }
@@ -62,7 +82,7 @@ export async function DELETE(
 
   // On renvoie une réponse
   return NextResponse.json(
-    { message: `La collection a bien été supprimée !` },
+    { message: `La collection a bien été supprimée ! jhbjh` },
     { status: 200 }
   );
 }

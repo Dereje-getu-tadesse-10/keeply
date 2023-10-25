@@ -1,5 +1,6 @@
 import { prisma } from '$/lib/prisma';
 
+// Fonction pour récupérer les collections de l'utilisateur
 const getCollections = async (id: string) => {
   return await prisma.collection.findMany({
     where: {
@@ -15,6 +16,7 @@ const getCollections = async (id: string) => {
   });
 };
 
+// Fonction pour compter le nombre de collections de l'utilisateur
 const countCollections = async (id: string) => {
   return await prisma.collection.count({
     where: {
@@ -23,14 +25,27 @@ const countCollections = async (id: string) => {
   });
 };
 
-const countItems = async (id: string) => {
-  return await prisma.item.count({
+// Fonction pour récupérer une collection
+const getGetCollection = async (id: string, userId: string) => {
+  return await prisma.collection.findUnique({
     where: {
-      collection: {
-        userId: id,
+      id: id,
+    },
+    select: {
+      userId: true,
+      id: true,
+      name: true,
+      status: true,
+      description: true,
+      created_at: true,
+      updated_at: true,
+      _count: {
+        select: {
+          items: true,
+        },
       },
     },
   });
 };
 
-export { getCollections, countCollections, countItems };
+export { getCollections, countCollections, getGetCollection };

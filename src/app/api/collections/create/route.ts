@@ -5,27 +5,16 @@ import { z } from 'zod';
 
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
-
-export const bodySchema = z.object({
-  name: z
-    .string()
-    .min(1, 'Le nom de la collection est trop court')
-    .max(50, 'Le nom de la collection est trop long'),
-  description: z
-    .string()
-    .min(1, 'La description est obligatoire')
-    .max(500, 'La description est trop longue'),
-  status: z.enum(['PUBLIC', 'PRIVATE']),
-  userId: z.string(),
-});
+import { collectionsSchema } from '$/schemas/collections-schema';
 
 export async function POST(req: Request, res: Response) {
   const session = await getServerSession(config);
   const body = await req.json();
-  const response = bodySchema.safeParse(body);
+  const response = collectionsSchema .safeParse(body);
 
   // Si le body n'est pas conforme au schéma, on renvoie une erreur
   if (!response.success) {
+    console.log(response.error);
     return NextResponse.json(
       { message: "Oups, une erreur s'est produite" },
       { status: 400 }
@@ -35,6 +24,7 @@ export async function POST(req: Request, res: Response) {
   // On vérifie que la session est valide
   const sessionError = verifySession(session, { userId: response.data.userId });
   if (sessionError) {
+    console.log(sessionError);
     return NextResponse.json(sessionError, { status: sessionError.status });
   }
 
