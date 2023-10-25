@@ -42,7 +42,7 @@ const getGetCollection = async (id: string, userId: string) => {
       _count: {
         select: {
           items: true,
-        },
+        }
       },
     },
   });
