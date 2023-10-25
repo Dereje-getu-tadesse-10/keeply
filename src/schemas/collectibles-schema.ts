@@ -15,9 +15,5 @@ const collectiblesSchema = z.object({
 
 const updateCollectionSchema = collectiblesSchema.partial();
 
-const deleteCollectibleSchema = z.object({
-    collectibleId: z.string(),
-});
-
-export { collectiblesSchema, updateCollectionSchema, deleteCollectibleSchema };
+export { collectiblesSchema, updateCollectionSchema };
 

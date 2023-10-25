@@ -20,12 +20,12 @@ export async function POST(req: Request, res: Response) {
         );
     }
 
-    // On vérifie que la session est valide
-    const sessionError = verifySession(session, { userId: response.data.userId });
-    if (sessionError) {
-        console.log(sessionError);
-        return NextResponse.json(sessionError, { status: sessionError.status });
-    }
+    // // On vérifie que la session est valide
+    // const sessionError = verifySession(session, { userId: response.data.userId });
+    // if (sessionError) {
+    //     console.log(sessionError);
+    //     return NextResponse.json(sessionError, { status: sessionError.status });
+    // }
 
     // On récupère les données de la collection
     const { name, description, status, userId, collectionId, dragPosition } = response.data;

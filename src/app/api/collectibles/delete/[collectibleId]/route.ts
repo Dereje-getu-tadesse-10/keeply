@@ -7,10 +7,10 @@ import { updateCollectionSchema } from "$/schemas/collectibles-schema";
 import z from "zod";
 
 const paramsUrl = z.object({
-    collectibleId: z.string().min(1, "Le collectibleId doit être renseigné"),
+    collectibleId: z.string(),
 });
 
-export async function PUT(
+export async function DELETE(
     req: Request,
     { params }: { params: { collectibleId: string } }
 ) {
@@ -22,6 +22,7 @@ export async function PUT(
 
     // Si le params n'est pas conforme au schéma, on renvoie une erreur
     if (!collectibleParams.success) {
+        console.log(collectibleParams.error, "lsfdsd");
         return NextResponse.json(
             { message: "Oups, une erreur s'est produite héhé" },
             { status: 400 }
@@ -30,31 +31,29 @@ export async function PUT(
 
     // Si le body n'est pas conforme au schéma, on renvoie une erreur
     if (!response.success) {
+        console.log(response.error, "lsfdsd");
         return NextResponse.json(
             { message: "Oups, une erreur s'est produite" },
             { status: 400 }
         );
     }
 
-    // On vérifie que la session est valide
-    const sessionError = verifySession(session, { userId: response.data.userId as string });
-    if (sessionError) {
-        console.log(sessionError);
-        return NextResponse.json(sessionError, { status: sessionError.status });
-    }
+    // // On vérifie que la session est valide
+    // const sessionError = verifySession(session, { userId: response.data.userId as string });
+    // if (sessionError) {
+    //     console.log(sessionError);
+    //     return NextResponse.json(sessionError, { status: sessionError.status });
+    // }
 
-
+    // // On récupère les données de la collection
     const { collectibleId } = collectibleParams.data;
 
-    // On récupère les données de la collection
-    const { collectionId, description, dragPosition, name, status, userId } = response.data;
-
-    // Vérifiez que le collectible existe
+    // // Vérifiez que le collectible existe
     const collectible = await prisma.collectible.findUnique({
         where: { id: collectibleId },
     });
 
-    // Si le collectible n'existe pas, on renvoie une erreur
+    // // Si le collectible n'existe pas, on renvoie une erreur
     if (!collectible) {
         console.log('Collectible non trouvé');
         return NextResponse.json(
@@ -64,22 +63,14 @@ export async function PUT(
     }
 
     // On crée le collectible
-    await prisma.collectible.update({
+    await prisma.collectible.delete({
         where: { id: collectibleId },
-        data: {
-            collectionId,
-            description,
-            dragPosition,
-            name,
-            status,
-        },
     });
 
-    // On renvoie une réponse
+    // // On renvoie une réponse
     return NextResponse.json(
-        { message: `Le collectible ${name} a bien été modifié !` },
+        { message: `Le collectible a bien été supprimé` },
         { status: 201 }
     );
-
 }
 
