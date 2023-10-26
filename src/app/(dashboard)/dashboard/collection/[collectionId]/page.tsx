@@ -3,6 +3,7 @@ import { Session } from 'next-auth';
 import { getCollectibles, getGetCollection } from '$/lib/queries';
 import { notFound } from 'next/navigation';
 import { CollectionCard } from '$/components/commons';
+import { Collection } from '@prisma/client';
 
 const Page = async ({ params }: { params: { collectionId: string } }) => {
   const user: Session | null = await auth();
@@ -12,11 +13,10 @@ const Page = async ({ params }: { params: { collectionId: string } }) => {
   const collectibles = await getCollectibles(currentCollection);
 
   if (!collection) notFound();
-  console.log(collection, 'ma collection');
-  console.log(collectibles, 'mes collectibles');
+
   return (
     <main>
-      <CollectionCard collection={collection} collectibles={collectibles} />
+      <CollectionCard collection={collection}/>
     </main>
   );
 };
