@@ -37,7 +37,7 @@ export const config = {
     strategy: 'jwt',
   },
   callbacks: {
-    jwt({ token, account, user, session }) {
+    jwt({ token, account, user }) {
       if (account) {
         token.accessToken = account.access_token;
         token.id = user?.id;
