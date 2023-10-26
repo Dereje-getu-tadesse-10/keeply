@@ -53,5 +53,19 @@ const deleteCollection = async (collectionId: string, userId: string) => {
   return await response.json();
 };
 
+// Fonction d'appel pour mettre à jour les positions des collections
+const updateCollectiblesPostions = async (userId: string, updates: any) => {
+  const response = await fetch(`/api/collectibles/update-drag-positions`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      userId: userId,
+      updates: updates,
+    }),
+  });
+}
+
 // Export
-export { updateCollection, deleteCollection, createCollection };
+export { updateCollection, deleteCollection, createCollection, updateCollectiblesPostions };

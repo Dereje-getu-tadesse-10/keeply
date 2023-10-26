@@ -26,4 +26,3 @@ const Page = async ({ params }: { params: { collectionId: string } }) => {
 };
 
 export default Page;
-

@@ -2,11 +2,12 @@
 import { useState } from 'react';
 import { arrayMoveImmutable } from 'array-move';
 import { SortableList } from '$/components/ui/sortable/sortable-list';
-import { Prisma, Collectible, CollectibleStatus } from '@prisma/client';
+import {  Collectible } from '@prisma/client';
+import { updateCollectiblesPostions } from '$/lib/fetchs';
 
 type Props = {
   collectibles: Collectible[];
-  userId: Prisma.UserWhereUniqueInput;
+  userId: string;
 };
 
 export const CollectibleContainer = ({ collectibles, userId }: Props) => {
@@ -27,23 +28,22 @@ export const CollectibleContainer = ({ collectibles, userId }: Props) => {
         items.findIndex((originalItem) => originalItem.id === item.id) !== index
       );
     });
-
-    changedItems.forEach((item, index) => {
+    
+    const updates = changedItems.map((item) => {
       const updatedIndex = updatedItems.findIndex(
         (updatedItem) => updatedItem.id === item.id
       );
-      fetch(`/api/collectibles/${item.id}/drag-position`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: userId,
-          dragPosition: updatedIndex,
-        }),
-      });
+      return {
+        id: item.id,
+        dragPosition: updatedIndex,
+      };
     });
+    
+    updateCollectiblesPostions(userId, updates);
+    
   };
+
+
 
   return (
     <section>

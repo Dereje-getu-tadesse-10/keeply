@@ -2,13 +2,15 @@ import { SortableContainer, SortableContainerProps } from 'react-sortable-hoc';
 import { SortableItem } from './sortable-item';
 import { Collectible, CollectibleStatus } from '@prisma/client';
 
-// interface Props {
-//   items: Collectible[];
-//   onSortEnd: ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => void;
-// }
-
-interface Props extends SortableContainerProps {
-  items: (Collectible & { status?: CollectibleStatus })[];
+interface Props {
+  items: Collectible[];
+  onSortEnd: ({
+    oldIndex,
+    newIndex,
+  }: {
+    oldIndex: number;
+    newIndex: number;
+  }) => void;
 }
 
 export const SortableList = ({ items, onSortEnd }: Props) => {
