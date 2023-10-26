@@ -2,7 +2,7 @@ import { auth } from '$/lib/auth';
 import { Session } from 'next-auth';
 import { getCollectibles, getGetCollection } from '$/lib/queries';
 import { notFound } from 'next/navigation';
-import { CollectionCard } from '$/components/commons';
+import { CollectibleContainer, CollectionCard } from '$/components/commons';
 import { Collection } from '@prisma/client';
 
 const Page = async ({ params }: { params: { collectionId: string } }) => {
@@ -16,9 +16,14 @@ const Page = async ({ params }: { params: { collectionId: string } }) => {
 
   return (
     <main>
-      <CollectionCard collection={collection}/>
+      <CollectionCard collection={collection} />
+      <CollectibleContainer
+        collectibles={collectibles}
+        userId={user?.user.id}
+      />
     </main>
   );
 };
 
 export default Page;
+

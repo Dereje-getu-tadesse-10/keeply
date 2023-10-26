@@ -61,6 +61,11 @@ const getCollectibles = async (id: string) => {
       collectionId: true,
       created_at: true,
       updated_at: true,
+      dragPosition: true,
+      status: true,
+    },
+    orderBy: {
+      dragPosition: 'asc',
     },
   });
 };
