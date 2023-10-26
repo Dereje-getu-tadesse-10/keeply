@@ -1,11 +1,11 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Gabarito } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 import { NextAuthProvider } from './provider';
 import { Header } from '../components/commons';
 import { Toaster } from 'react-hot-toast';
 
-const gabarito = Gabarito({ subsets: ['latin'] });
+const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='fr'>
-      <body className={`${gabarito.className} layout__global`}>
+      <body className={`${outfit.className} layout__global`}>
         <NextAuthProvider>
           <Header />
           {children}

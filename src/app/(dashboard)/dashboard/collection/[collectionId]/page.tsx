@@ -2,6 +2,7 @@ import { auth } from '$/lib/auth';
 import { Session } from 'next-auth';
 import { getCollectibles, getGetCollection } from '$/lib/queries';
 import { notFound } from 'next/navigation';
+import { CollectionCard } from '$/components/commons';
 
 const Page = async ({ params }: { params: { collectionId: string } }) => {
   const user: Session | null = await auth();
@@ -13,7 +14,11 @@ const Page = async ({ params }: { params: { collectionId: string } }) => {
   if (!collection) notFound();
   console.log(collection, 'ma collection');
   console.log(collectibles, 'mes collectibles');
-  return <main></main>;
+  return (
+    <main>
+      <CollectionCard collection={collection} collectibles={collectibles} />
+    </main>
+  );
 };
 
 export default Page;

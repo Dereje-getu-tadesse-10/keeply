@@ -39,6 +39,11 @@ const getGetCollection = async (id: string, userId: string) => {
       description: true,
       created_at: true,
       updated_at: true,
+      _count: {
+        select: {
+          items: true,
+        },
+      },
     },
   });
 };
