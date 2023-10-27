@@ -7,6 +7,7 @@ const buttonLink = cva(styles['button-link'], {
   variants: {
     intent: {
       primary: styles.primary,
+      secondary: styles.secondary,
     },
     size: {
       small: styles.small,
@@ -28,7 +29,7 @@ export const ButtonLink: React.FC<LinkButtonProps> = ({
   size,
   ...props
 }) => (
-  <Link passHref={true} href={props.href || '/'} {...props}>
-    <a className={buttonLink({ intent, size })}>{props.children}</a>
+  <Link passHref={true} href={props.href || '/'} className={buttonLink({ intent, size })} {...props}>
+    {props.children}
   </Link>
 );

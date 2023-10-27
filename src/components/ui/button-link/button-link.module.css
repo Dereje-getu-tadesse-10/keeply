@@ -26,6 +26,22 @@
   background-color: var(--primary-hover);
 }
 
+/* Styles secondary */
+.secondary {
+  background: #fff;
+  color: #121212;
+  border: 1px solid rgba(0,0,0,.15);
+  box-shadow: none;
+}
+
+.secondary:hover{
+  background-color: #f6f5f4;
+}
+
+.secondary:focus {
+  background-color: #f6f5f4;
+}
+
 /* Styles medium */
 .medium {
   height: 36px;
