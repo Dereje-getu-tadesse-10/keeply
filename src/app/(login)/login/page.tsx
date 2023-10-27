@@ -21,7 +21,6 @@ const Login = async () => {
         </Heading>
       </header>
       <Auth />
-      <footer className={styles.main__footer}>
       <Paragraph variant='hightlight'>
         Vous n&apos;avez pas de compte ? Pas de problème,{' '}  
         Vous pouvez quand même vous connecter avec votre compte Google ou Github.
@@ -37,7 +36,6 @@ const Login = async () => {
         </Link>
         .
       </Paragraph>
-      </footer>
     </main>
   );
 };
