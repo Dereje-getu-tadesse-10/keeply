@@ -1,35 +1,11 @@
 :root {
-  --primary: hsl(320, 58%, 39%);
-  --primary-hover: hsl(320, 82%, 60%, 0.9);
-  --primary-shadow: 0px 0px 0px 4px hsla(261, 77%, 70%, 0.24),
-    0px 1px 2px 0px hsla(220, 43%, 11%, 0.05);
-
-  --secondary: hsl(0, 0%, 100%);
-  --secondary-hover: hsl(210, 10%, 98%);
-  --secondary-shadow: 0px 0px 0px 4px hsl(220, 15%, 65%, 0.14),
-    0px 1px 2px 0px hsl(220, 43%, 11%, 0.05);
-
-  --border-radius-md: 8px;
-  --border-radius-full: 9999px;
-
-  --text-md: 1rem;
-  --line-height-md: 1.5rem;
-
-  --text-sm: 0.875rem;
-  --line-height-sm: 1.25rem;
-
-  --fw-regular: 400;
-  --fw-medium: 500;
-  --fw-semibold: 600;
-  --fw-bold: 700;
-
-  --success-color: hsl(154, 77%, 39%);
-  --success-color-hover: hsl(154, 77%, 39%, 0.9);
-
-  --error-color: hsl(4, 90%, 59%);
-  --error-color-hover: hsl(4, 90%, 59%, 0.9);
-
-  --padding-md: 10px 14px;
+  --primary: #121212;
+  --primary-hover: #333;
+  --color-text: #121212;
+  --box-shadow: 0 0.3259259164px 0.7333333492px 0 rgba(0,0,0,.12), 0 1.5407407284px 2.8666665554px 0 rgba(0,0,0,.07), 0 4px 9px 0 rgba(0,0,0,.05);
+  --primary-active: #404040;
+  --padding-btn-m: .25rem .875rem;
+  --padding-btn-s: .25rem .6875rem;
 }
 
 * {
@@ -38,10 +14,4 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
-}
-
-.layout__global {
-  max-width: 1000px;
-  margin: auto;
-  padding: 0 1rem;
 }

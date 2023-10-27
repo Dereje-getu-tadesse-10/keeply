@@ -3,7 +3,6 @@ import { Session } from 'next-auth';
 import { getCollectibles, getGetCollection } from '$/lib/queries';
 import { notFound } from 'next/navigation';
 import { CollectibleContainer, CollectionCard } from '$/components/commons';
-import { Collection } from '@prisma/client';
 
 const Page = async ({ params }: { params: { collectionId: string } }) => {
   const user: Session | null = await auth();

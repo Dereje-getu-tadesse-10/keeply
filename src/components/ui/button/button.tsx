@@ -8,10 +8,16 @@ const button = cva(styles.button, {
     intent: {
       primary: styles.primary,
       secondary: styles.secondary,
+      danger: styles.danger,
+    },
+    size: {
+      small: styles.small,
+      medium: styles.medium,
     },
   },
   defaultVariants: {
     intent: 'primary',
+    size: 'small',
   },
 });
 
@@ -22,5 +28,6 @@ export interface ButtonProps
 export const Button: React.FC<ButtonProps> = ({
   className,
   intent,
+  size,
   ...props
-}) => <button className={button({ intent, className })} {...props} />;
+}) => <button className={button({ intent, size, className })} {...props} />;

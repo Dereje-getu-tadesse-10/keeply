@@ -1,11 +1,11 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Outfit } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { NextAuthProvider } from './provider';
 import { Header } from '../components/commons';
 import { Toaster } from 'react-hot-toast';
 
-const outfit = Outfit({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='fr'>
-      <body className={`${outfit.className} layout__global`}>
+      <body className={`${inter.className} layout__global`}>
         <NextAuthProvider>
           <Header />
           {children}
