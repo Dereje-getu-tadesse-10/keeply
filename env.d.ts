@@ -8,8 +8,13 @@ declare global {
       NEXTAUTH_URL: string;
       NEXT_AUTH_SECRET: string;
       DATABASE_URL: string;
+      EMAIL_SERVER_HOST: string;
+      EMAIL_SERVER_PORT: string;
+      EMAIL_SERVER_USER: string;
+      EMAIL_SERVER_PASSWORD: string;
+      EMAIL_FROM: string;
     }
   }
 }
 
-export {};
+export { };
