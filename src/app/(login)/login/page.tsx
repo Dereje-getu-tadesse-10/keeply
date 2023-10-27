@@ -1,9 +1,10 @@
 import styles from './page.module.css';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Auth } from '$/components/forms/index';
 import { auth } from '$/lib/auth';
 import { redirect } from 'next/navigation';
+import { Heading } from '$/components/ui';
+import { Paragraph } from '$/components/ui/paragraph/paragraph';
 
 const Login = async () => {
   const session = await auth();
@@ -15,15 +16,27 @@ const Login = async () => {
   return (
     <main className={styles.main}>
       <header className={styles.main__header}>
-        <Image src='/keeply.svg' alt='keeply logo' width={80} height={80} />
-        <h1>Me connecter</h1>
+        <Heading as='h1' variant='h1'>
+          Connexion
+        </Heading>
       </header>
-      <section className={styles.main__section}>
-        <Auth />
-      </section>
+      <Auth />
       <footer className={styles.main__footer}>
-        <Link href='/'>Retour à l&apos;accueil</Link>
-        <Link href='/'>Politique de confidentialité</Link>
+      <Paragraph variant='hightlight'>
+        Vous n&apos;avez pas de compte ? Pas de problème,{' '}  
+        Vous pouvez quand même vous connecter avec votre compte Google ou Github.
+      </Paragraph>
+      <Paragraph variant='p'>
+        En vous connectant, vous acceptez nos{' '} 
+        <Link href='/terms'>
+          Conditions d&apos;utilisation
+        </Link>{' '}
+        et notre{' '}
+        <Link href='/privacy'>
+          Politique de confidentialité
+        </Link>
+        .
+      </Paragraph>
       </footer>
     </main>
   );

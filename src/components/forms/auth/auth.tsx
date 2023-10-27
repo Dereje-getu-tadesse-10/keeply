@@ -6,9 +6,14 @@ import { signIn } from 'next-auth/react';
 
 export const Auth = () => {
   return (
-    <div className={styles.auth}>
+    <section className={styles.auth}>
       <form className={styles.auth__form}>
-        <Input type='email' name='email' placeholder='Entrez votre email' />
+        <Input
+          type='email'
+          name='email'
+          placeholder='Entrez votre email'
+          id='email'
+        />
         <Button type='submit' intent={'primary'}>
           Envoyer le lien
         </Button>
@@ -64,6 +69,6 @@ export const Auth = () => {
         </svg>
         Se connecter avec Github
       </Button>
-    </div>
+    </section>
   );
 };
