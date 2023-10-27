@@ -1,24 +1,58 @@
 'use client';
 import styles from './auth.module.css';
-import { Button } from '$/components/ui';
+import { Button, Paragraph, Separator } from '$/components/ui';
 import { Input } from '$/components/ui/input/input';
 import { signIn } from 'next-auth/react';
+import { z } from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const schema = z.object({
+  email: z
+    .string()
+    .email({ message: 'Email invalide' })
+    .min(1, "L'email est obligatoire"),
+});
+
+type FormData = z.infer<typeof schema>;
 
 export const Auth = () => {
+  const {
+    handleSubmit,
+    register,
+    formState: { isSubmitting, isDirty, isValid },
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      email: sessionStorage.getItem('emailForSignIn') || '',
+    },
+  });
+
+  const onSubmit = async (data: FormData) => {
+    sessionStorage.setItem('emailForSignIn', data.email);
+    await signIn('email', { email: data.email });
+  };
+
   return (
     <section className={styles.auth}>
-      <form className={styles.auth__form}>
+      <form className={styles.auth__form} onSubmit={handleSubmit(onSubmit)}>
         <Input
           type='email'
-          name='email'
-          placeholder='Entrez votre email'
+          placeholder='Email'
           id='email'
+          defaultValue={sessionStorage.getItem('emailForSignIn') || ''}
+          {...register('email')}
         />
-        <Button type='submit' intent={'primary'}>
-          Envoyer le lien
+        <Button type='submit' intent={'primary'} disabled={isSubmitting}>
+          Recevoir le lien magic
         </Button>
+        {!isValid && (
+          <Paragraph variant='p' isError>
+            L&apos;email est incorrect...
+          </Paragraph>
+        )}
       </form>
-      <hr className={styles.auth__separator} data-content='ou' />
+      <Separator />
       <Button
         intent={'secondary'}
         onClick={() => {

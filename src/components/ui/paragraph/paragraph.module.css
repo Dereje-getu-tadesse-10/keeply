@@ -1,27 +1,32 @@
 .p {
-    width: 100%;
-    margin-top: 64px;
-    margin-bottom: 0px;
-    font-size: 12px;
-    color: rgba(55, 53, 47, 0.5);
-    text-align: left;
+  width: 100%;
+  margin-bottom: 0px;
+  font-size: 12px;
+  color: rgba(55, 53, 47, 0.5);
+  text-align: left;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .p a {
-    color: rgba(55, 53, 47, 0.5);
-    text-decoration: underline;
+  color: rgba(55, 53, 47, 0.5);
+  text-decoration: underline;
 }
 
 .hightlight {
-    color: rgba(55, 53, 47, 0.65);
-    font-size: 14px;
-    line-height: 1.6;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    text-align: center;
+  color: rgba(55, 53, 47, 0.65);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  text-align: center;
 }
 
 .hightlight a {
-    color: rgba(55, 53, 47, 0.65);
-    text-decoration: underline;
+  color: rgba(55, 53, 47, 0.65);
+  text-decoration: underline;
+}
+
+.error {
+  color: red;
 }

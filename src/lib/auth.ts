@@ -6,7 +6,6 @@ import EmailProvider from 'next-auth/providers/email';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { prisma } from '$/lib/prisma';
 
-
 import type {
   GetServerSidePropsContext,
   NextApiRequest,
@@ -67,6 +66,7 @@ export const config = {
     signIn: '/login',
     error: '/login',
     signOut: '/',
+    verifyRequest: '/verify-request/',
   },
 } satisfies NextAuthOptions;
 

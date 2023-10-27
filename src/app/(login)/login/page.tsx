@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Auth } from '$/components/forms/index';
 import { auth } from '$/lib/auth';
 import { redirect } from 'next/navigation';
-import { Heading } from '$/components/ui';
+import { Heading, Separator } from '$/components/ui';
 import { Paragraph } from '$/components/ui/paragraph/paragraph';
 
 const Login = async () => {
@@ -22,19 +22,14 @@ const Login = async () => {
       </header>
       <Auth />
       <Paragraph variant='hightlight'>
-        Vous n&apos;avez pas de compte ? Pas de problème,{' '}  
-        Vous pouvez quand même vous connecter avec votre compte Google ou Github.
+        Vous n&apos;avez pas de compte ? Pas de problème, Vous pouvez quand même
+        vous connecter avec votre compte Google ou Github.
       </Paragraph>
+      <Separator />
       <Paragraph variant='p'>
-        En vous connectant, vous acceptez nos{' '} 
-        <Link href='/terms'>
-          Conditions d&apos;utilisation
-        </Link>{' '}
-        et notre{' '}
-        <Link href='/privacy'>
-          Politique de confidentialité
-        </Link>
-        .
+        En vous connectant, vous acceptez nos{' '}
+        <Link href='/terms'>Conditions d&apos;utilisation</Link> et notre{' '}
+        <Link href='/privacy'>Politique de confidentialité</Link>.
       </Paragraph>
     </main>
   );

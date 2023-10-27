@@ -2,6 +2,11 @@
   margin: 5rem auto;
   padding: 0 1rem;
 }
+
+.main:last-child {
+  margin-bottom: 0;
+}
+
 .main__header {
   text-align: center;
 }

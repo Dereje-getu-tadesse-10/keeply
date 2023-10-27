@@ -19,7 +19,7 @@
 /* Styles primary */
 .primary {
   background: var(--primary);
-  color: white;
+  color: white !important;
 }
 
 .primary:hover {
