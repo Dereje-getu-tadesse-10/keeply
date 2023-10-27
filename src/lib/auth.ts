@@ -6,11 +6,13 @@ import EmailProvider from 'next-auth/providers/email';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { prisma } from '$/lib/prisma';
 
+
 import type {
   GetServerSidePropsContext,
   NextApiRequest,
   NextApiResponse,
 } from 'next';
+import { sendVerificationRequest } from './sendEmail';
 
 const {
   GITHUB_CLIENT_ID,
@@ -41,6 +43,7 @@ export const config = {
         },
       },
       from: process.env.EMAIL_FROM,
+      sendVerificationRequest,
     }),
   ],
   secret: NEXTAUTH_SECRET,
@@ -61,7 +64,7 @@ export const config = {
     },
   },
   pages: {
-    // signIn: '/login',
+    signIn: '/login',
     error: '/login',
     signOut: '/',
   },
