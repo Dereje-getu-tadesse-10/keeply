@@ -8,7 +8,7 @@ export const SortableItem = SortableElement(
     <li>
       <div>Name: {name}</div>
       <div>Description: {description}</div>
-         <p>only this paragraph will get the style :)</p>
+      <p>only this paragraph will get the style :)</p>
     </li>
   )
 );

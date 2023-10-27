@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { arrayMoveImmutable } from 'array-move';
 import { SortableList } from '$/components/ui/sortable/sortable-list';
-import {  Collectible } from '@prisma/client';
+import { Collectible } from '@prisma/client';
 import { updateCollectiblesPostions } from '$/lib/fetchs';
 
 type Props = {
@@ -28,7 +28,7 @@ export const CollectibleContainer = ({ collectibles, userId }: Props) => {
         items.findIndex((originalItem) => originalItem.id === item.id) !== index
       );
     });
-    
+
     const updates = changedItems.map((item) => {
       const updatedIndex = updatedItems.findIndex(
         (updatedItem) => updatedItem.id === item.id
@@ -38,12 +38,9 @@ export const CollectibleContainer = ({ collectibles, userId }: Props) => {
         dragPosition: updatedIndex,
       };
     });
-    
+
     updateCollectiblesPostions(userId, updates);
-    
   };
-
-
 
   return (
     <section>

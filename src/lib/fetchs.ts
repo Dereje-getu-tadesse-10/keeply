@@ -65,7 +65,12 @@ const updateCollectiblesPostions = async (userId: string, updates: any) => {
       updates: updates,
     }),
   });
-}
+};
 
 // Export
-export { updateCollection, deleteCollection, createCollection, updateCollectiblesPostions };
+export {
+  updateCollection,
+  deleteCollection,
+  createCollection,
+  updateCollectiblesPostions,
+};

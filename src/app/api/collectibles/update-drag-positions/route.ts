@@ -6,8 +6,6 @@ import { verifySession } from '$/lib/verify-session';
 import { updateCollectionSchema } from '$/schemas/collectibles-schema';
 import z from 'zod';
 
-
-
 const bodySchema = z.object({
   userId: z.string(),
   updates: z.array(
@@ -16,7 +14,7 @@ const bodySchema = z.object({
       dragPosition: z.number(),
     })
   ),
-})
+});
 
 export async function PUT(req: Request) {
   const session = await getServerSession(config);
@@ -39,7 +37,6 @@ export async function PUT(req: Request) {
     console.log(sessionError);
     return NextResponse.json(sessionError, { status: sessionError.status });
   }
-
 
   // On récupère les données de la collection
   const collectibles = await prisma.collectible.findMany({
