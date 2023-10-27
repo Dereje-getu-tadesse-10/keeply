@@ -16,7 +16,7 @@ const button = cva(styles.button, {
   },
   defaultVariants: {
     intent: 'primary',
-    size: 'small',
+    size: 'medium',
   },
 });
 
