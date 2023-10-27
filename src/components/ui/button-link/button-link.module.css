@@ -1,3 +1,4 @@
+/* Styles de base boutons-liens */
 .button-link {
   display: flex;
   align-items: center;
@@ -10,11 +11,12 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.button:focus {
+.button-link:focus {
   outline: none;
   background-color: #404040;
 }
 
+/* Styles primary */
 .primary {
   background: var(--primary);
   color: white;
@@ -24,6 +26,7 @@
   background-color: var(--primary-hover);
 }
 
+/* Styles medium */
 .medium {
   height: 36px;
   padding: 0.25rem 0.875rem;
@@ -33,6 +36,7 @@
   font-weight: 570;
 }
 
+/* Styles small */
 .small {
   height: 30px;
   padding: var(--padding-btn-s);

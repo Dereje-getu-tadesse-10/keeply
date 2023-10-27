@@ -1,6 +1,5 @@
 import React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-
 import styles from './button-link.module.css';
 import Link from 'next/link';
 
@@ -29,10 +28,7 @@ export const ButtonLink: React.FC<LinkButtonProps> = ({
   size,
   ...props
 }) => (
-  <Link
-    passHref={true}
-    href={props.href || '/'}
-    className={buttonLink({ intent, size })}
-    {...props}
-  />
+  <Link passHref={true} href={props.href || '/'} {...props}>
+    <a className={buttonLink({ intent, size })}>{props.children}</a>
+  </Link>
 );

@@ -1,35 +1,67 @@
+/* Styles boutons */
 .button {
   border: none;
   border-radius: 0.3125rem;
   cursor: pointer;
-  box-shadow: var(--box-shadow);
   font-smooth: antialiased;
 }
 
-.button:focus {
-  outline: none;
-  background-color: #404040;
-}
-
+/* Styles primary */
 .primary {
   background: var(--primary);
   color: white;
+  box-shadow: var(--box-shadow);
 }
 
 .primary:hover {
   background-color: var(--primary-hover);
 }
 
+.primary:focus {
+  outline: none;
+  background-color: #404040;
+}
+
+/* Styles secondary */
+.secondary {
+  padding: 0 12px;
+  height: 36px;
+  background: #fff;
+  color: rgb(17, 17, 17);
+  font-size: 14px;
+  border: 1px solid rgba(15, 15, 15, 0.15);
+  box-shadow: rgba(15, 15, 15, 0.05) 0px 1px 2px;
+  font-weight: 500 !important;
+}
+
+.secondary:hover,
+.secondary:focus {
+  background-color: rgba(55, 53, 47, 0.08);
+}
+
+.secondary:focus {
+  box-shadow: rgba(35, 131, 226, 0.57) 0px 0px 0px 1px inset, rgba(35, 131, 226, 0.35) 0px 0px 0px 2px;
+}
+
+/* Styles danger */
+.danger {
+  composes: secondary;
+  background-color: rgb(253, 245, 242);
+  color: rgb(235, 87, 87);
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 1px 2px, rgba(235, 87, 87, 0.3) 0px 0px 0px 1px inset;
+}
+
+/* Styles bouton medium */
 .medium {
   height: 36px;
   padding: var(--padding-btn-m);
   font-size: 1rem;
   line-height: 1.4375;
   letter-spacing: 0.0005em;
-  padding: 0.25rem 0.6875rem;
   font-weight: 570;
 }
 
+/* Styles bouton small */
 .small {
   height: 30px;
   padding: var(--padding-btn-s);

@@ -4,9 +4,9 @@ import { ButtonLink } from '$/components/ui/button-link/button-link';
 const Home = () => {
   return (
     <main>
-      <ButtonLink intent={'primary'} size={'medium'} href='/about'>
+      <Button intent={'danger'} size={'medium'}>
         Bonjour le monde
-      </ButtonLink>
+      </Button>
     </main>
   );
 };
