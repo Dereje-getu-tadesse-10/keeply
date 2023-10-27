@@ -1,13 +1,28 @@
-.input {
+.container {
   display: flex;
-  padding: var(--padding-md);
-  align-items: center;
-  gap: 8px;
-  align-self: stretch;
-  border-radius: 2px;
-  border: 1px solid var(--gray-300, #d0d5dd);
-  background: var(--base-white, #fff);
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-  height: 40px;
-  width: 100%;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: rgba(55, 53, 47, 0.65);
+}
+
+.input {
+  padding: 4px 10px;
+  font-size: 15px;
+  border-radius: 4px;
+  background: rgba(242, 241, 238, 0.6);
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset;
+  border: 0;
+  line-height: 26px;
+}
+
+.input:active,
+.input:focus {
+  outline: none;
+  box-shadow:
+    rgba(35, 131, 226, 0.57) 0px 0px 0px 1px inset,
+    rgba(35, 131, 226, 0.35) 0px 0px 0px 2px;
 }

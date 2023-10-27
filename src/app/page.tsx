@@ -1,12 +1,9 @@
-import { Button } from '$/components/ui';
-import { ButtonLink } from '$/components/ui/button-link/button-link';
+import { Input } from '$/components/ui';
 
 const Home = () => {
   return (
     <main>
-      <Button intent={'danger'} size={'medium'}>
-        Bonjour le monde
-      </Button>
+      <Input placeholder='Quii moi ?' id='email' />
     </main>
   );
 };
