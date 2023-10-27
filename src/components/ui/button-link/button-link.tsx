@@ -29,7 +29,12 @@ export const ButtonLink: React.FC<LinkButtonProps> = ({
   size,
   ...props
 }) => (
-  <Link passHref={true} href={props.href || '/'} className={buttonLink({ intent, size })} {...props}>
+  <Link
+    passHref={true}
+    href={props.href || '/'}
+    className={buttonLink({ intent, size })}
+    {...props}
+  >
     {props.children}
   </Link>
 );

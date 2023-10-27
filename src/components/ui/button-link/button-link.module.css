@@ -30,11 +30,11 @@
 .secondary {
   background: #fff;
   color: #121212;
-  border: 1px solid rgba(0,0,0,.15);
+  border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: none;
 }
 
-.secondary:hover{
+.secondary:hover {
   background-color: #f6f5f4;
 }
 
