@@ -6,8 +6,8 @@ const Page = async ({ params }: { params: { username: string } }) => {
 
   const userProfil = await getUser(currentUser);
   if (!userProfil) notFound();
-
-  return <main></main>;
+  console.log(userProfil)
+  return <main>hello</main>;
 };
 
 export default Page;

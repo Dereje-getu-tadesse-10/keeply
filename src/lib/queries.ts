@@ -73,7 +73,7 @@ const getCollectibles = async (id: string) => {
 const getUser = async (currentUser: string) => {
   return await prisma.user.findUnique({
     where: {
-      id: currentUser,
+      username: currentUser,
     },
     select: {
       id: true,
