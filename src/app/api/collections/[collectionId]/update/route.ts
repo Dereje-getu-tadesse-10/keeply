@@ -57,7 +57,9 @@ export async function PUT(
   // Si l'utilisateur n'est pas le propriétaire de la collection, on renvoie une erreur
   if (collection.userId !== response.data.userId) {
     return NextResponse.json(
-      { message: "Vous n'avez pas les droits pour supprimer cette collection" },
+      {
+        message: "Vous n'avez pas les droits pour supprimer cette collection",
+      },
       { status: 401 }
     );
   }

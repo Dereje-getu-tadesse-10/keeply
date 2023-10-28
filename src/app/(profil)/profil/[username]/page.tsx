@@ -6,7 +6,7 @@ const Page = async ({ params }: { params: { username: string } }) => {
 
   const userProfil = await getUser(currentUser);
   if (!userProfil) notFound();
-  console.log(userProfil)
+  console.log(userProfil);
   return <main>hello</main>;
 };
 
