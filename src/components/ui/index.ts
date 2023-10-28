@@ -7,3 +7,4 @@ export { ButtonLink } from '$/components/ui/button-link/button-link';
 export { Heading } from '$/components/ui/heading/heading';
 export { Paragraph } from '$/components/ui/paragraph/paragraph';
 export { Separator } from '$/components/ui/separator/separator';
+export { Card } from '$/components/ui/card/card';

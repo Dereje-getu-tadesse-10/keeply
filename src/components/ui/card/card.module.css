@@ -1,0 +1,22 @@
+
+.card {
+    padding: 8px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
+    transition: background-color 100ms ease-out 0s;
+}
+
+.card p {
+    text-align: left;
+}
+
+.card span {
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width: 842px) {
+    .card {
+        padding: 16px;
+    }
+}

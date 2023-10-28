@@ -12,6 +12,7 @@ const getCollections = async (id: string) => {
       name: true,
       status: true,
       items: true,
+      description: true,
     },
   });
 };
