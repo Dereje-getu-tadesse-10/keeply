@@ -6,7 +6,7 @@ declare global {
       GOOGLE_CLIENT_ID: string;
       GOOGLE_CLIENT_SECRET: string;
       NEXTAUTH_URL: string;
-      NEXT_AUTH_SECRET: string;
+      NEXTAUTH_SECRET: string;
       DATABASE_URL: string;
       EMAIL_SERVER_HOST: string;
       EMAIL_SERVER_PORT: string;
