@@ -5,6 +5,7 @@ import { auth } from '$/lib/auth';
 import { redirect } from 'next/navigation';
 import { Heading, Separator } from '$/components/ui';
 import { Paragraph } from '$/components/ui/paragraph/paragraph';
+import { Navbar } from '$/components/commons';
 
 const Login = async () => {
   const session = await auth();
@@ -32,6 +33,7 @@ const Login = async () => {
         <Link href='/privacy'>Politique de confidentialité</Link>.
       </Paragraph>
     </main>
+
   );
 };
 

@@ -1,5 +1,7 @@
+import Navbar from '$/components/commons/navbar/navbar';
+
 const Home = () => {
-  return <main>dereje</main>;
+  return <main></main>;
 };
 
 export default Home;

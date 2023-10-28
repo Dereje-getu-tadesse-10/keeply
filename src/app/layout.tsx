@@ -2,8 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { NextAuthProvider } from './provider';
-import { Header } from '../components/commons';
 import { Toaster } from 'react-hot-toast';
+import { Navbar } from '$/components/commons';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,7 +17,7 @@ export const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang='fr'>
       <body className={inter.className}>
         <NextAuthProvider>
-          {/* <Header /> */}
+          <Navbar />
           {children}
           <Toaster />
         </NextAuthProvider>
