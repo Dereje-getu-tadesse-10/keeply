@@ -72,7 +72,6 @@ model Collection {
   id          String           @id @default(cuid())
   name        String
   description String
-  image       String?
   items       Collectible[]
   status      CollectionStatus
   userId      String
@@ -85,7 +84,6 @@ model Collectible {
   id           String     @id @default(cuid())
   name         String
   description  String
-  image        String?
   collectionId String
   status       CollectibleStatus
   dragPosition Int        
