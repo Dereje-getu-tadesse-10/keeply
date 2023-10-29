@@ -1,4 +1,4 @@
-import { getUser } from '$/lib/queries';
+import { getUser } from '$/server/users';
 import { notFound } from 'next/navigation';
 
 const Page = async ({ params }: { params: { username: string } }) => {

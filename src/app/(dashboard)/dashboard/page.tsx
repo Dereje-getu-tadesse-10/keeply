@@ -1,5 +1,5 @@
 import { auth } from '$/lib/auth';
-import { getCollections } from '$/lib/queries';
+import { getCollections } from '$/server/collections';
 import { Session } from 'next-auth';
 import { Badge, ButtonLink, Card, Heading, Paragraph, Separator } from '$/components/ui';
 

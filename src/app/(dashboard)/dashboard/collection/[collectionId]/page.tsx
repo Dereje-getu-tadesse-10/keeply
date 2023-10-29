@@ -1,6 +1,7 @@
 import { auth } from '$/lib/auth';
 import { Session } from 'next-auth';
-import { getCollectibles, getGetCollection } from '$/lib/queries';
+import { getGetCollection } from '$/server/collections';
+import { getCollectibles } from '$/server/collectibles';
 import { notFound } from 'next/navigation';
 import { CollectibleContainer, CollectionCard } from '$/components/commons';
 
