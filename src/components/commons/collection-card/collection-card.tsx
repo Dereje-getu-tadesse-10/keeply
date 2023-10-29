@@ -1,29 +1,30 @@
 import styles from './collection-card.module.css';
 import dayjs from 'dayjs';
 import { Collection } from '@prisma/client';
+import { Badge, Heading, Paragraph } from '$/components/ui';
 
 type Props = Partial<
-  Collection & {
-    image?: string | null;
+  Collection
+  & {
     _count: {
       items: number;
     };
-    profil: boolean;
   }
 >;
 
 export const CollectionCard = ({ collection }: { collection: Props }) => {
   return (
-    <div className={styles.card}>
-      <h1>{collection.name}</h1>
-      <p>{collection.description}</p>
-      <p>Crée le {dayjs(collection.created_at).format('DD/MM/YYYY')}</p>
-      <p>Mis a jour le {dayjs(collection.updated_at).format('DD/MM/YYYY')}</p>
-      <p>
-        {collection._count
-          ? `${collection._count.items} collectibles`
-          : '0 collectibles'}
-      </p>
+    <div>
+      <Heading as='h1' variant='h1'>
+        {collection.name}
+      </Heading>
+      <Paragraph variant='hightlight'>{collection.description}</Paragraph>
+      <Paragraph variant='hightlight'>
+        <b>{collection._count?.items}</b> objets dans cette collection
+      </Paragraph>
+      <Paragraph variant='hightlight'>
+        La collection est {collection.status ? 'publique' : 'privée'}
+      </Paragraph>
     </div>
   );
 };
