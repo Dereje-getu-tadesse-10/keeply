@@ -1,4 +1,5 @@
 import { prisma } from '$/lib/prisma';
+import { Collection } from '@prisma/client';
 
 // Fonction pour récupérer les collections de l'utilisateur
 const getCollections = async (id: string) => {

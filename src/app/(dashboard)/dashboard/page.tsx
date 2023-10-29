@@ -2,12 +2,12 @@ import { auth } from '$/lib/auth';
 import { getCollections } from '$/server/collections';
 import { Session } from 'next-auth';
 import { Badge, ButtonLink, Card, Heading, Paragraph, Separator } from '$/components/ui';
-import { Collections } from '$/components/commons/collections/collections';
+import { Collections } from '$/components/commons';
 
 const Page = async () => {
   const user: Session | null = await auth();
 
-  const collections = await getCollections(user?.user.id);
+  const collections = await getCollections(user?.user.id)
 
   return (
     <>

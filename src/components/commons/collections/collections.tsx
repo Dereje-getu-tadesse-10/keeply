@@ -1,7 +1,7 @@
 import { Collection } from "@prisma/client"
 import { Badge, Button, ButtonLink, Card, Heading, Paragraph } from "$/components/ui"
 
-export const Collections = ({ collections }: { collections: Collection[] }) => {
+export const Collections = ({ collections }: { collections: Partial<Collection>[] }) => {
     return (
         <>
             {collections.length > 0 ?
