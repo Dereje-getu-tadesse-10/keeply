@@ -22,7 +22,7 @@ const button = cva(styles.button, {
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof button> {}
+  VariantProps<typeof button> { }
 
 export const Button: React.FC<ButtonProps> = ({
   className,

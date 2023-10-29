@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
 }
 
 /* Styles primary */
@@ -24,7 +23,7 @@
 /* Styles secondary */
 .secondary {
   padding: 0 12px;
-  height: 36px;
+  /* height: 36px; */
   background: #fff;
   color: rgb(17, 17, 17);
   font-size: 14px;
