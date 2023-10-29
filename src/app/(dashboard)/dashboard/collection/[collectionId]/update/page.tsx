@@ -1,6 +1,6 @@
 import { auth } from '$/lib/auth';
 import { Session } from 'next-auth';
-import { getGetCollection } from '$/lib/queries';
+import { getGetCollection } from '$/server/collections';
 import { notFound } from 'next/navigation';
 import { UpdateCollection } from '$/components/forms/update-collection/update-collection';
 

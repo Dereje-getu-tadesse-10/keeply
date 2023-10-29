@@ -1,5 +1,5 @@
-.modal__backdrop {
-  position: fixed;
+.modal__container {
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 0;
@@ -17,7 +17,7 @@
   max-width: 500px;
   width: 100%;
   margin: 10px;
-  padding: var(--padding-md);
+  padding: var(--padding-md, 10px);
   background-color: #ffffff;
   border-radius: 4px;
 }

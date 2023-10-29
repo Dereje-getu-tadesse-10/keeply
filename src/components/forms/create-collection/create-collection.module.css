@@ -26,9 +26,11 @@
 
 .warning_status {
   background-color: var(--warning-color, #fb923c);
-  font-size: 14px;
-  color: white;
-  padding: 12px 8px;
+  padding: 8px;
   border-radius: 2px;
   font-weight: 300;
+}
+
+.warning_status > p {
+  color: white;
 }

@@ -3,26 +3,30 @@ import React from 'react';
 import styles from './modal.module.css';
 import { useModalStore } from '$/stores/useModalStore';
 import { X } from 'lucide-react';
+import { Heading, Paragraph } from '..';
 
 export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   subtitle?: string;
+  modalId: string;
 }
 
-export const Modal: React.FC<ModalProps> = ({ className, ...props }) => {
+export const Modal: React.FC<ModalProps> = ({ className, modalId, ...props }) => {
   const { toggleModal } = useModalStore();
   return (
-    <div className={styles.modal__backdrop}>
+    <div className={styles.modal__container}>
       <div className={styles.modal} {...props}>
         <X
-          onClick={toggleModal}
+          onClick={() => toggleModal(modalId)}
           cursor={'pointer'}
           className={styles.close_icon}
           size={'20'}
         />
         <div className={styles.modal__header}>
-          <h2 className={styles.modal__title}>{props.title}</h2>
-          <p className={styles.modal__subtitle}>{props.subtitle}</p>
+          <Heading as='h2' variant='h2'>
+            {props.title}
+          </Heading>
+          <Paragraph>{props.subtitle}</Paragraph>
         </div>
         {props.children}
       </div>

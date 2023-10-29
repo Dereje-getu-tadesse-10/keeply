@@ -3,6 +3,7 @@ import { getCollections } from '$/server/collections';
 import { Session } from 'next-auth';
 import { Badge, ButtonLink, Card, Heading, Paragraph, Separator } from '$/components/ui';
 import { Collections } from '$/components/commons';
+import { CreateCollection } from '$/components/forms';
 
 const Page = async () => {
   const user: Session | null = await auth();
@@ -24,6 +25,7 @@ const Page = async () => {
       </Paragraph>
       <Separator />
       <Collections collections={collections} />
+      <CreateCollection userId={user?.user.id} />
     </>
   );
 };
