@@ -1,6 +1,6 @@
 # Keeply
 
-__Projet pour ma soutenance.__
+**Projet pour ma soutenance.**
 
 Keeply est une application web qui permet de gérer ses collections de vinyles, de cartes, de timbres, etc., et de partager ces collections sur son profil. Elle offre également la possibilité de visualiser l'avancée de ses collections en temps réel.
 
@@ -15,38 +15,38 @@ Keeply est une application web qui permet de gérer ses collections de vinyles, 
 
 Pour lancer le projet, il faut créer un fichier `.env` à la racine du projet et y ajouter les variables d'environnement suivantes :
 
-__La base de données (serverless) du projet est hébergée sur [CockroachCloud](https://www.cockroachlabs.com/).__
+**La base de données (serverless) du projet est hébergée sur [CockroachCloud](https://www.cockroachlabs.com/).**
 
 ```plaintext
-GITHUB_CLIENT_ID=  
-GITHUB_CLIENT_SECRET= 
-GOOGLE_CLIENT_ID= 
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
-NEXTAUTH_URL=http://localhost:3000 
-NEXTAUTH_SECRET= 
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=
 DATABASE_URL=
-EMAIL_SERVER_HOST= 
-EMAIL_SERVER_PORT= 
-EMAIL_SERVER_USER= 
-EMAIL_SERVER_PASSWORD= 
-EMAIL_FROM= 
+EMAIL_SERVER_HOST=
+EMAIL_SERVER_PORT=
+EMAIL_SERVER_USER=
+EMAIL_SERVER_PASSWORD=
+EMAIL_FROM=
 ```
 
 ### Explications
-- Github 
-    - Il faut créer une application OAuth sur Github pour obtenir ces variables [Voir la documentation](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app).
+
+- Github
+  - Il faut créer une application OAuth sur Github pour obtenir ces variables [Voir la documentation](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app).
 - Google
-    - Il faut créer une application OAuth sur Google pour obtenir ces variables. [Voir la documentation](https://developers.google.com/identity/protocols/oauth2).
+  - Il faut créer une application OAuth sur Google pour obtenir ces variables. [Voir la documentation](https://developers.google.com/identity/protocols/oauth2).
 - NextAuth
-    - Il faut générer une clé secrète pour NextAuth.  `openssl rand -base64 32`
+  - Il faut générer une clé secrète pour NextAuth. `openssl rand -base64 32`
 - Database
-    - Il faut créer une base de données sur CockroachCloud pour obtenir cette variable. [Voir la documentation](https://www.cockroachlabs.com/docs/).
+  - Il faut créer une base de données sur CockroachCloud pour obtenir cette variable. [Voir la documentation](https://www.cockroachlabs.com/docs/).
 - Email
-    - Utilisez un service SMTP (Mailtrap, Gmail, etc.) pour obtenir ces variables. [Voir la documentation nodemailer](https://nodemailer.com/about/).
-
-
+  - Utilisez un service SMTP (Mailtrap, Gmail, etc.) pour obtenir ces variables. [Voir la documentation nodemailer](https://nodemailer.com/about/).
 
 ### Fonctionnalités (api)
+
 - [x] Authentification
 - [x] Création de compte
 - [x] Connexion
@@ -54,7 +54,7 @@ EMAIL_FROM=
 - [x] Création d'une collection
 - [x] Suppression d'une collection
 - [x] Modification d'une collection
-- [x] Création d'un collectible 
+- [x] Création d'un collectible
 - [x] Suppression d'un collectible
 - [x] Modification d'un collectible
 - [x] Drag and drop des collectibles
@@ -62,6 +62,7 @@ EMAIL_FROM=
 - [x] Modification du nom d'utilisateur
 
 ### Pages
+
 - [ ] Page d'accueil
 - [x] Page de connexion / inscription
 - [x] Page tableau de bord
@@ -76,6 +77,7 @@ EMAIL_FROM=
 - [ ] Page politique de confidentialité
 
 ### Stack
+
 - [Next.js](https://nextjs.org/)
 - [Prisma](https://www.prisma.io/)
 - [CSS Modules](https://nextjs.org/docs/app/building-your-application/styling/css-modules)

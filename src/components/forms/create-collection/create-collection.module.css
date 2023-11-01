@@ -24,13 +24,6 @@
   border-radius: 2px;
 }
 
-.warning_status {
-  background-color: var(--warning-color, #fb923c);
-  padding: 8px;
-  border-radius: 2px;
-  font-weight: 300;
-}
-
 .warning_status > p {
   color: white;
 }

@@ -7,10 +7,11 @@ type ModalState = {
 
 export const useModalStore = create<ModalState>((set) => ({
   modals: {},
-  toggleModal: (id) => set((state) => ({
-    modals: {
-      ...state.modals,
-      [id]: !state.modals[id],
-    }
-  })),
+  toggleModal: (id) =>
+    set((state) => ({
+      modals: {
+        ...state.modals,
+        [id]: !state.modals[id],
+      },
+    })),
 }));

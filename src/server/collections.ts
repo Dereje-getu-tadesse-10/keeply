@@ -3,51 +3,51 @@ import { Collection } from '@prisma/client';
 
 // Fonction pour récupérer les collections de l'utilisateur
 const getCollections = async (id: string) => {
-    return await prisma.collection.findMany({
-        where: {
-            userId: id,
-        },
-        select: {
-            userId: true,
-            id: true,
-            name: true,
-            status: true,
-            items: true,
-            description: true,
-        },
-    });
+  return await prisma.collection.findMany({
+    where: {
+      userId: id,
+    },
+    select: {
+      userId: true,
+      id: true,
+      name: true,
+      status: true,
+      items: true,
+      description: true,
+    },
+  });
 };
 
 // Fonction pour compter le nombre de collections de l'utilisateur
 const countCollections = async (id: string) => {
-    return await prisma.collection.count({
-        where: {
-            userId: id,
-        },
-    });
+  return await prisma.collection.count({
+    where: {
+      userId: id,
+    },
+  });
 };
 
 // Fonction pour récupérer une collection
 const getGetCollection = async (id: string, userId: string) => {
-    return await prisma.collection.findUnique({
-        where: {
-            id: id,
-        },
+  return await prisma.collection.findUnique({
+    where: {
+      id: id,
+    },
+    select: {
+      userId: true,
+      id: true,
+      name: true,
+      status: true,
+      description: true,
+      created_at: true,
+      updated_at: true,
+      _count: {
         select: {
-            userId: true,
-            id: true,
-            name: true,
-            status: true,
-            description: true,
-            created_at: true,
-            updated_at: true,
-            _count: {
-                select: {
-                    items: true,
-                },
-            },
+          items: true,
         },
-    });
+      },
+    },
+  });
 };
 
 export { getCollections, countCollections, getGetCollection };

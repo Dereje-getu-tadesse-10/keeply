@@ -4,6 +4,7 @@ import { getGetCollection } from '$/server/collections';
 import { getCollectibles } from '$/server/collectibles';
 import { notFound } from 'next/navigation';
 import { CollectibleContainer, CollectionCard } from '$/components/commons';
+import { UpdateCollection } from '$/components/forms';
 
 const Page = async ({ params }: { params: { collectionId: string } }) => {
   const user: Session | null = await auth();
@@ -20,6 +21,9 @@ const Page = async ({ params }: { params: { collectionId: string } }) => {
       <CollectibleContainer
         collectibles={collectibles}
         userId={user?.user.id}
+      />
+      <UpdateCollection
+        collection={collection}
       />
     </main>
   );

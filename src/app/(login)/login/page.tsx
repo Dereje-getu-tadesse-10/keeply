@@ -33,7 +33,6 @@ const Login = async () => {
         <Link href='/privacy'>Politique de confidentialité</Link>.
       </Paragraph>
     </main>
-
   );
 };
 

@@ -9,13 +9,19 @@ export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   subtitle?: string;
   modalId: string;
+  size?: 'medium' | 'large';
 }
 
-export const Modal: React.FC<ModalProps> = ({ className, modalId, ...props }) => {
+export const Modal: React.FC<ModalProps> = ({
+  className,
+  modalId,
+  ...props
+}) => {
   const { toggleModal } = useModalStore();
+  const sizeStyle = props.size === 'medium' ? styles.medium : styles.large;
   return (
-    <div className={styles.modal__container}>
-      <div className={styles.modal} {...props}>
+    <div className={`${styles.modal__container}`}>
+      <div className={`${styles.modal} ${sizeStyle}`} {...props}>
         <X
           onClick={() => toggleModal(modalId)}
           cursor={'pointer'}
@@ -30,6 +36,6 @@ export const Modal: React.FC<ModalProps> = ({ className, modalId, ...props }) =>
         </div>
         {props.children}
       </div>
-    </div>
+    </div >
   );
 };

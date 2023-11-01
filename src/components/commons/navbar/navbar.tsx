@@ -6,13 +6,13 @@ import Link from 'next/link';
 import { ButtonLink, Paragraph } from '$/components/ui';
 import { Button } from '$/components/ui';
 import { signOut } from 'next-auth/react';
-import { useSession } from "next-auth/react"
+import { useSession } from 'next-auth/react';
 
 export const Navbar = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const currentYear = new Date().getFullYear();
 
-  const { data: session, status } = useSession()
+  const { data: session, status } = useSession();
 
   return (
     <nav className={styles.navigation}>
@@ -43,18 +43,21 @@ export const Navbar = () => {
           <li>
             <Link href='/a-propos'>À propos</Link>
           </li>
-          {session && (<li>
-            <Link href='/dashboard'>
-              Tableau de bord
-            </Link>
-          </li>)}
+          {session && (
+            <li>
+              <Link href='/dashboard'>Tableau de bord</Link>
+            </li>
+          )}
           <li>
-            {session ? <Button onClick={() => signOut()} intent='danger' size={'small'}>
-              Déconnexion
-            </Button> : <ButtonLink href='/login' intent='primary' size={'small'}>
-              Connexion
-            </ButtonLink>}
-
+            {session ? (
+              <Button onClick={() => signOut()} intent='danger' size={'small'}>
+                Déconnexion
+              </Button>
+            ) : (
+              <ButtonLink href='/login' intent='primary' size={'small'}>
+                Connexion
+              </ButtonLink>
+            )}
           </li>
           <div className={styles.copyright}>
             <Paragraph>© {currentYear} Keeply.</Paragraph>

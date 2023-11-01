@@ -1,4 +1,4 @@
- .h1 {
+.h1 {
   font-size: clamp(1.5rem, 2vw, 2rem);
   font-weight: 700;
   color: #121212;
@@ -14,5 +14,3 @@
   font-size: clamp(1rem, 1.25vw, 1.25rem);
   font-weight: 400;
 }
-
-

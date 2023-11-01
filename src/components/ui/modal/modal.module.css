@@ -14,7 +14,6 @@
 
 .modal {
   position: relative;
-  max-width: 500px;
   width: 100%;
   margin: 10px;
   padding: var(--padding-md, 10px);
@@ -42,4 +41,13 @@
   margin-top: 7px;
   font-size: 14px;
   color: #334155;
+}
+
+.medium {
+  max-width: 500px !important;
+}
+
+.large {
+  max-width: 800px !important;
+  
 }

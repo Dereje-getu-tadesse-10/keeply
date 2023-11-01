@@ -4,13 +4,15 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { Button, Input, Modal } from '$/components/ui';
+import { Badge, Button, Heading, Input, Modal, Paragraph } from '$/components/ui';
 import { toast } from 'react-hot-toast';
 import { Select } from '$/components/ui/select/select';
 import { CollectionStatus } from '@prisma/client';
 import { updateCollectionSchema } from '$/schemas/collections-schema';
 import dayjs from 'dayjs';
 import { updateCollection, deleteCollection } from '$/lib/fetchs';
+import { useModalStore } from '$/stores/useModalStore';
+import { Warning } from '$/components/commons';
 
 type Props = {
   userId: string;
@@ -24,9 +26,11 @@ type Props = {
 
 type FormData = z.infer<typeof updateCollectionSchema>;
 
+const MODAL_ID = 'update-collection';
+
 export const UpdateCollection = ({ collection }: { collection: Props }) => {
   const router = useRouter();
-
+  const { modals, toggleModal } = useModalStore();
   const {
     handleSubmit,
     register,
@@ -47,7 +51,7 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
     };
     const res = await updateCollection(datas, collection.id);
     toast.success(res.message);
-    router.push(`/dashboard`);
+    router.refresh();
   };
 
   const handleDelete = async () => {
@@ -55,37 +59,62 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
     toast.success(response.message);
     router.push(`/dashboard`);
     router.refresh();
+    toggleModal(MODAL_ID);
   };
 
   return (
-    <section className={styles.container}>
-      <div className={styles.header}>
-        <h1 className={styles.title}>{collection.name}</h1>
-        <p className={styles.description}>
-          Créé le {dayjs(collection.created_at).format('DD/MM/YYYY')}
-        </p>
-        <p className={styles.description}>
-          Mis à jour le {dayjs(collection.updated_at).format('DD/MM/YYYY')}
-        </p>
-        <Button intent={'secondary'} onClick={() => handleDelete()}>
-          Supprimer la collection
-        </Button>
-      </div>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-        <h2 className={styles.subtitle}>Modifier la collection</h2>
-        <Input {...register('name')} />
-        {errors.name && <p>{errors.name.message}</p>}
-        <Input {...register('description')} />
-        {errors.description && <p>{errors.description.message}</p>}
-        <Select {...register('status')}>
-          <option value='PUBLIC'>Public</option>
-          <option value='PRIVATE'>Private</option>
-        </Select>
-        {errors.status && <p>{errors.status.message}</p>}
-        <Button type='submit'>
-          {isSubmitting ? 'En cours...' : 'Modifier la collection'}
-        </Button>
-      </form>
-    </section>
+    <>
+      {modals[MODAL_ID] && (<Modal
+        modalId={MODAL_ID}
+        title='Modifier la collection'
+      >
+        <div className={styles.form__container}>
+          <div className={styles.header}>
+            <Heading as={"h3"} variant='h3'>{collection.name}</Heading>
+            <Paragraph variant='hightlight'>
+              {collection.description}
+            </Paragraph>
+            <Badge>
+              {collection.status ? 'Publique' : 'Privée'}
+            </Badge>
+            <Button intent={'danger'} onClick={() => handleDelete()}>
+              Supprimer la collection
+            </Button>
+            <Warning
+              text="En fonction du statut, votre collection sera visible par tout le
+                  monde ou seulement par vous sur votre profil."
+            />
+          </div>
+          <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+            <Input
+              label='Nom de la collection'
+              id='name'
+              {...register('name')} />
+            {errors.name && <Paragraph isError>{errors.name.message}</Paragraph>}
+            <Input
+              label='Description'
+              id='description'
+              {...register('description')} />
+            {errors.description && <Paragraph isError>{errors.description.message}</Paragraph>}
+            <Select
+              id='status'
+              label='Status'
+              {...register('status')}>
+              <option value='PUBLIC'>
+                Publique
+              </option>
+              <option value='PRIVATE'>
+                Privée (visible uniquement par vous)
+              </option>
+            </Select>
+            {errors.status && <Paragraph isError>{errors.status.message}</Paragraph>}
+            <Button type='submit'>
+              {isSubmitting ? 'En cours...' : 'Modifier la collection'}
+            </Button>
+          </form>
+        </div>
+
+      </Modal>)}
+    </>
   );
 };

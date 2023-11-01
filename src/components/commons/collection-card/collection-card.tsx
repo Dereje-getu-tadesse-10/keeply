@@ -1,17 +1,14 @@
-"use client";
+'use client';
 import { Collection } from '@prisma/client';
 import { Button, Heading, Modal, Paragraph } from '$/components/ui';
 import { useModalStore } from '$/stores/useModalStore';
 import { UpdateCollection } from '$/components/forms';
 
-type Props =
-  Collection
-  & {
-    _count: {
-      items: number;
-    };
-  }
-  ;
+type Props = Collection & {
+  _count: {
+    items: number;
+  };
+};
 
 export const CollectionCard = ({ collection }: { collection: Props }) => {
   const { modals, toggleModal } = useModalStore();
@@ -27,9 +24,9 @@ export const CollectionCard = ({ collection }: { collection: Props }) => {
       <Paragraph variant='hightlight'>
         La collection est {collection.status ? 'publique' : 'privée'}
       </Paragraph>
-      <Button size='medium'>
-        Modifier la collection
-      </Button>
+      <Button size='medium'
+        onClick={() => toggleModal('update-collection')}
+      >Modifier la collection</Button>
     </div>
   );
 };

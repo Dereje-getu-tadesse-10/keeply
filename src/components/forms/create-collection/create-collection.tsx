@@ -10,12 +10,15 @@ import { Select } from '$/components/ui/select/select';
 import { useModalStore } from '$/stores/useModalStore';
 import { collectionWithoutUserIdSchema } from '$/schemas/collections-schema';
 import { createCollection } from '$/lib/fetchs';
+import { Warning } from '$/components/commons';
 
 type FormData = z.infer<typeof collectionWithoutUserIdSchema>;
 
+const MODAL_KEY = 'create-collection';
+
 export const CreateCollection = ({ userId }: { userId: string }) => {
   const { modals, toggleModal } = useModalStore();
-  console.log(modals['c'])
+
   const router = useRouter();
 
   const {
@@ -36,17 +39,18 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
     const response = await createCollection(datas, userId);
     toast.success(response.message);
     router.refresh();
-    toggleModal('c')
+    toggleModal(MODAL_KEY);
     reset();
   };
 
   return (
     <>
-      {modals['c'] ? (
+      {modals[MODAL_KEY] ? (
         <Modal
           title='Créer une collection'
           subtitle='La collection vous permet de regrouper vos objets collectionnés'
-          modalId='c'
+          modalId={MODAL_KEY}
+          size='medium'
         >
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <div className={styles.form__control}>
@@ -73,11 +77,10 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
                 </option>
               </Select>
             </div>
-            <div className={styles.warning_status}>
-              <Paragraph variant='hightlight'>En fonction du statut, votre collection sera visible par tout le
-                monde ou seulement par vous sur votre profil.
-              </Paragraph>
-            </div>
+            <Warning
+              text="En fonction du statut, votre collection sera visible par tout le
+            monde ou seulement par vous sur votre profil."
+            />
             {isDirty && !isValid && (
               <Paragraph variant='p' isError>
                 Veuillez remplir tous les champs

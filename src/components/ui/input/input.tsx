@@ -13,7 +13,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <label className={styles.label} htmlFor={props.id}>
         {props.label}
       </label>
-      <input placeholder={props.placeholder} className={styles.input} ref={ref} {...props} />
+      <input
+        placeholder={props.placeholder}
+        className={styles.input}
+        ref={ref}
+        {...props}
+      />
     </div>
   )
 );
