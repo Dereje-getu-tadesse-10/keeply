@@ -1,0 +1,22 @@
+.list_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.list > div {
+    display: flex;
+    gap: 10px;
+}
+
+.list > div >  div > span {
+    margin: 0;
+}
+
+.list > div >  div > button {
+    margin-top: 10px;
+}
+.list > div >  div  {
+    cursor: pointer;
+}

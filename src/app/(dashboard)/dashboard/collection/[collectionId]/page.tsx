@@ -22,9 +22,7 @@ const Page = async ({ params }: { params: { collectionId: string } }) => {
         collectibles={collectibles}
         userId={user?.user.id}
       />
-      <UpdateCollection
-        collection={collection}
-      />
+      <UpdateCollection collection={collection} />
     </main>
   );
 };

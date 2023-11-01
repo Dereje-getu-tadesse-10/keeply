@@ -1,6 +1,8 @@
+import styles from "./sortable.module.css"
 import { SortableContainer, SortableContainerProps } from 'react-sortable-hoc';
 import { SortableItem } from './sortable-item';
 import { Collectible, CollectibleStatus } from '@prisma/client';
+import { Card } from '..';
 
 interface Props {
   items: Collectible[];
@@ -13,10 +15,11 @@ interface Props {
   }) => void;
 }
 
+
 export const SortableList = ({ items, onSortEnd }: Props) => {
   const SortableList = SortableContainer(() => {
     return (
-      <ul>
+      <ul className={styles.list_container}>
         {items.map((value, index) => (
           <SortableItem
             key={`item-${value.dragPosition}`}
@@ -28,5 +31,5 @@ export const SortableList = ({ items, onSortEnd }: Props) => {
     );
   });
 
-  return <SortableList onSortEnd={onSortEnd} />;
+  return <SortableList onSortEnd={onSortEnd} useDragHandle />;
 };

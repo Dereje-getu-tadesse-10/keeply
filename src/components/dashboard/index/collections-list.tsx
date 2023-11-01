@@ -6,7 +6,7 @@ export const CollectionsList = ({
 }: {
   collections: Partial<Collection>[];
 }) => (
-  <section>
+  <section className='collections'>
     {collections.map((collection) => (
       <Card key={collection.id}>
         <Heading as='h3' variant='h3'>
