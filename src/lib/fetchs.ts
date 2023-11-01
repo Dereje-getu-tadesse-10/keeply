@@ -3,10 +3,12 @@ import {
   collectionWithoutUserIdSchema,
   updateCollectionSchema,
 } from '$/schemas/collections-schema';
+import { createCollectiblesSchema } from '$/schemas/collectibles-schema';
 
 // Types
 type CreateCollection = z.infer<typeof collectionWithoutUserIdSchema>;
 type UpdateCollection = z.infer<typeof updateCollectionSchema>;
+type CreateCollectible = z.infer<typeof createCollectiblesSchema>;
 
 // Fonctions d'appel à l'API pour créer, une collection
 const createCollection = async (data: CreateCollection, userId: string) => {
@@ -67,10 +69,27 @@ const updateCollectiblesPostions = async (userId: string, updates: any) => {
   });
 };
 
+// Fonction d'appel pour créer un collectible
+const createCollectible = async (data: CreateCollectible, userId: string) => {
+  const response = await fetch(`/api/collectibles/create/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      ...data,
+      userId: userId,
+    }),
+  });
+
+  return await response.json();
+};
+
 // Export
 export {
   updateCollection,
   deleteCollection,
   createCollection,
   updateCollectiblesPostions,
+  createCollectible
 };

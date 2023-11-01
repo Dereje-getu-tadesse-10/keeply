@@ -17,4 +17,6 @@ const collectiblesSchema = z.object({
 
 const updateCollectionSchema = collectiblesSchema.partial();
 
-export { collectiblesSchema, updateCollectionSchema };
+const createCollectiblesSchema = collectiblesSchema.omit({ dragPosition: true, userId: true, collectionId: true });
+
+export { collectiblesSchema, updateCollectionSchema, createCollectiblesSchema };

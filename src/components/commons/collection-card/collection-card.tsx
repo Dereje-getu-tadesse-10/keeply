@@ -2,7 +2,7 @@
 import { Collection } from '@prisma/client';
 import { Button, Heading, Modal, Paragraph } from '$/components/ui';
 import { useModalStore } from '$/stores/useModalStore';
-import { UpdateCollection } from '$/components/forms';
+import styles from './collection-card.module.css'
 
 type Props = Collection & {
   _count: {
@@ -11,7 +11,7 @@ type Props = Collection & {
 };
 
 export const CollectionCard = ({ collection }: { collection: Props }) => {
-  const { modals, toggleModal } = useModalStore();
+  const { toggleModal } = useModalStore();
   return (
     <div>
       <Heading as='h1' variant='h1'>
@@ -24,9 +24,14 @@ export const CollectionCard = ({ collection }: { collection: Props }) => {
       <Paragraph variant='hightlight'>
         La collection est {collection.status ? 'publique' : 'privée'}
       </Paragraph>
-      <Button size='medium'
-        onClick={() => toggleModal('update-collection')}
-      >Modifier la collection</Button>
+      <div className={styles.btn_container}>
+        <Button size='small'
+          onClick={() => toggleModal('update-collection')}
+        >Modifier la collection</Button>
+        <Button intent={'secondary'} size={'small'} onClick={() => toggleModal("create-collectible")}>
+          Ajouter un objet
+        </Button>
+      </div>
     </div>
   );
 };

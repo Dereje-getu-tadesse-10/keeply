@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { arrayMoveImmutable } from 'array-move';
 import { SortableList } from '$/components/ui/sortable/sortable-list';
 import { Collectible } from '@prisma/client';
@@ -12,6 +12,10 @@ type Props = {
 
 export const CollectibleContainer = ({ collectibles, userId }: Props) => {
   const [items, setItems] = useState(collectibles);
+
+  useEffect(() => {
+    setItems(collectibles);
+  }, [collectibles]);
 
   const onSortEnd = ({
     oldIndex,

@@ -67,9 +67,9 @@ EMAIL_FROM=
 - [x] Page de connexion / inscription
 - [x] Page tableau de bord
 - [x] Page verifications de l'email
-- [ ] Modal de création d'une collection
-- [ ] Modal de modification d'une collection
-- [ ] Modal de création d'un collectible
+- [x] Modal de création d'une collection
+- [x] Modal de modification d'une collection
+- [x] Modal de création d'un collectible
 - [ ] Modal de modification d'un collectible
 - [ ] Page profil utilisateur public
 - [ ] Page paramètres utilisateur

@@ -1,8 +1,7 @@
 import styles from "./sortable.module.css"
 import { SortableContainer, SortableContainerProps } from 'react-sortable-hoc';
 import { SortableItem } from './sortable-item';
-import { Collectible, CollectibleStatus } from '@prisma/client';
-import { Card } from '..';
+import { Collectible } from '@prisma/client';
 
 interface Props {
   items: Collectible[];

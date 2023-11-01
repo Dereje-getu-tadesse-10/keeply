@@ -9,7 +9,7 @@ type Props = Collectible;
 
 const DragHandle = SortableHandle(() => <span className={styles.drag}><Grip cursor={'grab'} /></span>);
 
-const MODAL_ID = 'update-collectible';
+const MODAL_ID = 'create-collectible';
 
 export const SortableItem = SortableElement(
   ({ name, description, ...rest }: Props) => {
