@@ -67,14 +67,6 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
         <p className={styles.description}>
           Mis à jour le {dayjs(collection.updated_at).format('DD/MM/YYYY')}
         </p>
-        {/* <p className={styles.description}>
-          Cette collection contient{' '}
-          {collection._count.items === 0
-            ? 'aucun item'
-            : collection._count.items === 1
-            ? 'un item'
-            : `${collection._count.items} items`}
-        </p> */}
         <Button intent={'secondary'} onClick={() => handleDelete()}>
           Supprimer la collection
         </Button>

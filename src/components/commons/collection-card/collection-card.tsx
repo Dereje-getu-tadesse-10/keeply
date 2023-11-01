@@ -1,18 +1,20 @@
-import styles from './collection-card.module.css';
-import dayjs from 'dayjs';
+"use client";
 import { Collection } from '@prisma/client';
-import { Badge, Heading, Paragraph } from '$/components/ui';
+import { Button, Heading, Modal, Paragraph } from '$/components/ui';
+import { useModalStore } from '$/stores/useModalStore';
+import { UpdateCollection } from '$/components/forms';
 
-type Props = Partial<
+type Props =
   Collection
   & {
     _count: {
       items: number;
     };
   }
->;
+  ;
 
 export const CollectionCard = ({ collection }: { collection: Props }) => {
+  const { modals, toggleModal } = useModalStore();
   return (
     <div>
       <Heading as='h1' variant='h1'>
@@ -25,6 +27,9 @@ export const CollectionCard = ({ collection }: { collection: Props }) => {
       <Paragraph variant='hightlight'>
         La collection est {collection.status ? 'publique' : 'privée'}
       </Paragraph>
+      <Button size='medium'>
+        Modifier la collection
+      </Button>
     </div>
   );
 };
