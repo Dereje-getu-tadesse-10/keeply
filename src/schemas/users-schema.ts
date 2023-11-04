@@ -14,6 +14,7 @@ const usernameSchema = z.object({
       message:
         "Le nom d'utilisateur ne doit contenir que des lettres, des chiffres, des tirets et des underscores",
     }),
+    description: z.string().max(500, 'La description est trop longue'),
 });
 
 const createUsernameSchema = usernameSchema.extend({

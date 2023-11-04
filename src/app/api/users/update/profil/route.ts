@@ -28,7 +28,7 @@ export async function PUT(req: Request, res: Response) {
   }
 
   // On récupère les données de la collection
-  const { username, userId } = response.data;
+  const { username, userId, description } = response.data;
 
   const userExists = await prisma.user.findUnique({
     where: {
@@ -50,6 +50,7 @@ export async function PUT(req: Request, res: Response) {
     },
     data: {
       username,
+      description,
     },
   });
 
