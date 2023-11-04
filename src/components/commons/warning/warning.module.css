@@ -1,11 +1,11 @@
 .warning_status {
-    background-color: var(--warning-color, #fb923c);
-    border-radius: 2px;
-    font-weight: 300;
-    padding: 2px 4px;
-    margin-top: 20px;
+  background-color: var(--warning-color, #fb923c);
+  border-radius: 2px;
+  font-weight: 300;
+  padding: 2px 4px;
+  margin-top: 20px;
 }
 
 .warning_status > p {
-    color: white
+  color: white;
 }

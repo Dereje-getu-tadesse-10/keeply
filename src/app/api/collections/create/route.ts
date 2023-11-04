@@ -4,7 +4,7 @@ import { prisma } from '$/lib/prisma';
 
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
-import {  collectionSchema} from '$/schemas/collections-schema';
+import { collectionSchema } from '$/schemas/collections-schema';
 
 export async function POST(req: Request, res: Response) {
   const session = await getServerSession(config);

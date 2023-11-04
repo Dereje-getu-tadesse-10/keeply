@@ -45,15 +45,13 @@ export const Navbar = () => {
           </li>
           {session && (
             <>
-            <li>
-              <Link href='/dashboard'>Tableau de bord</Link>
-            </li>
-            <li>
-            <Link href='/parametres'>
-              Paramètres
-            </Link>
-          </li>
-          </>
+              <li>
+                <Link href='/dashboard'>Tableau de bord</Link>
+              </li>
+              <li>
+                <Link href='/parametres'>Paramètres</Link>
+              </li>
+            </>
           )}
           <li>
             {session ? (

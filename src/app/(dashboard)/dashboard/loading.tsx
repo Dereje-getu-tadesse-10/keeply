@@ -1,8 +1,7 @@
-import { DashboardSkeleton } from "$/components/loadings";
+import { DashboardSkeleton } from '$/components/loadings';
 
-
-const Loading = () => {
-    return <DashboardSkeleton/>
-}
+const Loading = () => {
+  return <DashboardSkeleton />;
+};
 
 export default Loading;

@@ -17,7 +17,7 @@ export async function DELETE(
   const session = await getServerSession(config);
   const body = await req.json();
   const collectibleParams = paramsUrl.safeParse(params);
-  const response =  updateCollectibleSchema.safeParse(body);
+  const response = updateCollectibleSchema.safeParse(body);
 
   // Si le params n'est pas conforme au schéma, on renvoie une erreur
   if (!collectibleParams.success) {

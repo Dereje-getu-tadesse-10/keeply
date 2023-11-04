@@ -1,18 +1,22 @@
-import styles from "./page.module.css";
+import styles from './page.module.css';
 import { Session } from 'next-auth';
 import { notFound } from 'next/navigation';
 import { auth } from '$/lib/auth';
 import { getCollection } from '$/server/collections';
 import { getCollectibles } from '$/server/collectibles';
 import { CollectionHeader, DndContainer } from '$/components/dashboard';
-import { CreateCollectible, UpdateCollection, UpdateCollectible } from '$/components/forms';
-import { Heading } from "$/components/ui";
+import {
+  CreateCollectible,
+  UpdateCollection,
+  UpdateCollectible,
+} from '$/components/forms';
+import { Heading } from '$/components/ui';
 
-type  PageProps = {
+type PageProps = {
   params: {
     collectionId: string;
   };
-}
+};
 
 const Page = async ({ params: { collectionId } }: PageProps) => {
   const user: Session | null = await auth();

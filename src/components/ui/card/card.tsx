@@ -1,4 +1,3 @@
-
 import styles from './card.module.css';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -6,5 +5,9 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Card = ({ children, ...props }: CardProps) => {
-  return <div className={styles.card} {...props}>{children}</div>;
+  return (
+    <div className={styles.card} {...props}>
+      {children}
+    </div>
+  );
 };

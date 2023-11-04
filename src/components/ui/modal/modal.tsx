@@ -36,6 +36,6 @@ export const Modal: React.FC<ModalProps> = ({
         </div>
         {props.children}
       </div>
-    </div >
+    </div>
   );
 };

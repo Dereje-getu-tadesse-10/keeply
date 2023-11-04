@@ -1,4 +1,4 @@
-import { CollectionPageSkeleton } from "$/components/loadings"
+import { CollectionPageSkeleton } from '$/components/loadings';
 export default function Loading() {
-    return <CollectionPageSkeleton />
+  return <CollectionPageSkeleton />;
 }

@@ -4,7 +4,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { Badge, Button, Heading, Input, Modal, Paragraph } from '$/components/ui';
+import {
+  Badge,
+  Button,
+  Heading,
+  Input,
+  Modal,
+  Paragraph,
+} from '$/components/ui';
 import { toast } from 'react-hot-toast';
 import { Select } from '$/components/ui/select/select';
 import { CollectionStatus } from '@prisma/client';
@@ -65,45 +72,50 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
 
   return (
     <>
-      {modals[MODAL_ID] && (<Modal
-        modalId={MODAL_ID}
-        title='Modifier la collection'
-      >
-        <div className={styles.form__container}>
-          <CollectionCard collection={collection} authenticated onDelete={handleDelete} />
-          <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-            <div>
-              <Input
-                label='Nom de la collection'
-                id='name'
-                {...register('name')} />
-              {errors.name && <Paragraph isError>{errors.name.message}</Paragraph>}
-              <Input
-                label='Description'
-                id='description'
-                {...register('description')} />
-              {errors.description && <Paragraph isError>{errors.description.message}</Paragraph>}
-              <Select
-                id='status'
-                label='Status'
-                {...register('status')}>
-                <option value='PUBLIC'>
-                  Publique
-                </option>
-                <option value='PRIVATE'>
-                  Privée (visible uniquement par vous)
-                </option>
-              </Select>
-              {errors.status && <Paragraph isError>{errors.status.message}</Paragraph>}
-            </div>
+      {modals[MODAL_ID] && (
+        <Modal modalId={MODAL_ID} title='Modifier la collection'>
+          <div className={styles.form__container}>
+            <CollectionCard
+              collection={collection}
+              authenticated
+              onDelete={handleDelete}
+            />
+            <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+              <div>
+                <Input
+                  label='Nom de la collection'
+                  id='name'
+                  {...register('name')}
+                />
+                {errors.name && (
+                  <Paragraph isError>{errors.name.message}</Paragraph>
+                )}
+                <Input
+                  label='Description'
+                  id='description'
+                  {...register('description')}
+                />
+                {errors.description && (
+                  <Paragraph isError>{errors.description.message}</Paragraph>
+                )}
+                <Select id='status' label='Status' {...register('status')}>
+                  <option value='PUBLIC'>Publique</option>
+                  <option value='PRIVATE'>
+                    Privée (visible uniquement par vous)
+                  </option>
+                </Select>
+                {errors.status && (
+                  <Paragraph isError>{errors.status.message}</Paragraph>
+                )}
+              </div>
 
-            <Button type='submit'>
-              {isSubmitting ? 'En cours...' : 'Modifier la collection'}
-            </Button>
-          </form>
-        </div>
-
-      </Modal>)}
+              <Button type='submit'>
+                {isSubmitting ? 'En cours...' : 'Modifier la collection'}
+              </Button>
+            </form>
+          </div>
+        </Modal>
+      )}
     </>
   );
 };

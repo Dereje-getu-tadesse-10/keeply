@@ -1,4 +1,4 @@
-import styles from "./sortable.module.css"
+import styles from './sortable.module.css';
 import { SortableContainer, SortableContainerProps } from 'react-sortable-hoc';
 import { SortableItem } from './sortable-item';
 import { Collectible } from '@prisma/client';
@@ -13,7 +13,6 @@ interface Props {
     newIndex: number;
   }) => void;
 }
-
 
 export const SortableList = ({ items, onSortEnd }: Props) => {
   const SortableList = SortableContainer(() => {

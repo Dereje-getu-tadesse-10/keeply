@@ -2,15 +2,12 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  margin-top: 20px ;
+  margin-top: 20px;
 }
 
-
-
-.form > div > div  {
+.form > div > div {
   margin-bottom: 15px !important;
 }
-
 
 .form > button {
   width: 100%;

@@ -7,7 +7,6 @@ import { CollectionsList } from '$/components/dashboard';
 import { EmptyCollections } from '$/components/dashboard';
 
 const Page = async () => {
-
   const user: Session | null = await auth();
 
   const collections = await getCollections(user?.user.id);

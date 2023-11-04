@@ -78,18 +78,15 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
               </Select>
             </div>
             <Warning
-              text="En fonction du statut, votre collection sera visible par tout le
-            monde ou seulement par vous sur votre profil."
+              text='En fonction du statut, votre collection sera visible par tout le
+            monde ou seulement par vous sur votre profil.'
             />
             {isDirty && !isValid && (
               <Paragraph variant='p' isError>
                 Veuillez remplir tous les champs
               </Paragraph>
             )}
-            <Button
-              type='submit'
-              disabled={isSubmitting || !isValid}
-            >
+            <Button type='submit' disabled={isSubmitting || !isValid}>
               {isSubmitting ? 'En cours...' : 'Créer'}
             </Button>
           </form>

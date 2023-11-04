@@ -26,11 +26,8 @@ const countCollections = async (id: string) => {
   });
 };
 
-
-
 // Fonction pour récupérer une collection
 const getCollection = async (id: string, userId: string) => {
-
   return await prisma.collection.findUnique({
     where: {
       id: id,
@@ -51,7 +48,5 @@ const getCollection = async (id: string, userId: string) => {
     },
   });
 };
-
-
 
 export { getCollections, countCollections, getCollection };

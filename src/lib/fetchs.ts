@@ -3,16 +3,16 @@ import {
   collectionWithoutUserIdSchema,
   updateCollectionSchema,
 } from '$/schemas/collections-schema';
-import { createCollectiblesSchema, updateCollectibleSchema } from '$/schemas/collectibles-schema';
+import {
+  createCollectiblesSchema,
+  updateCollectibleSchema,
+} from '$/schemas/collectibles-schema';
 
 // Types
 type CreateCollection = z.infer<typeof collectionWithoutUserIdSchema>;
 type UpdateCollection = z.infer<typeof updateCollectionSchema>;
 type CreateCollectible = z.infer<typeof createCollectiblesSchema>;
 type updateCollectible = z.infer<typeof updateCollectibleSchema>;
-
-
-
 
 // Fonctions d'appel à l'API pour créer, une collection
 const createCollection = async (data: CreateCollection, userId: string) => {
@@ -90,7 +90,10 @@ const createCollectible = async (data: CreateCollectible, userId: string) => {
 };
 
 // Fonction d'appel pour mettre à jour un collectible
-const updateCollectiblePut = async (data: updateCollectible, collectibleId: string) => {
+const updateCollectiblePut = async (
+  data: updateCollectible,
+  collectibleId: string
+) => {
   const response = await fetch(`/api/collectibles/${collectibleId}/update/`, {
     method: 'PUT',
     headers: {
@@ -101,17 +104,19 @@ const updateCollectiblePut = async (data: updateCollectible, collectibleId: stri
   return await response.json();
 };
 
-
 // Fonction d'appel pour obtenir un collectible
 
 const getCollectible = async (collectibleId: string | null, userId: string) => {
-  const response = await fetch(`/api/collectibles/${collectibleId}/${userId}/`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    cache: 'no-cache',
-  });
+  const response = await fetch(
+    `/api/collectibles/${collectibleId}/${userId}/`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      cache: 'no-cache',
+    }
+  );
   return await response.json();
 };
 
@@ -119,14 +124,14 @@ const deleteColletible = async (collectibleId: string, userId: string) => {
   const resposne = await fetch(`/api/collectibles/${collectibleId}/delete`, {
     method: 'DELETE',
     headers: {
-        'Content-Type': 'application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-        userId,
-    }), 
+      userId,
+    }),
   });
   return await resposne.json();
-}
+};
 
 // Export
 export {
@@ -137,5 +142,5 @@ export {
   createCollectible,
   updateCollectiblePut,
   getCollectible,
-  deleteColletible
+  deleteColletible,
 };

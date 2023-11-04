@@ -1,4 +1,3 @@
-
 import * as z from 'zod';
 
 const collectionSchema = z.object({
