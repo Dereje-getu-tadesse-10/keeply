@@ -23,15 +23,15 @@ export async function POST(req: Request, res: Response) {
 
   const { username, currentUsername } = response.data;
 
-  if(username === currentUsername) {
-    return NextResponse.json( { status: 200 } );
+  if (username === currentUsername) {
+    return NextResponse.json({ status: 200 });
   } else {
     const usernameExists = await prisma.user.findUnique({
       where: {
         username,
       },
     });
-  
+
     if (usernameExists) {
       return NextResponse.json(
         {
@@ -43,7 +43,7 @@ export async function POST(req: Request, res: Response) {
         { status: 200 }
       );
     }
-  
+
     return NextResponse.json(
       {
         data: {
@@ -54,6 +54,4 @@ export async function POST(req: Request, res: Response) {
       { status: 200 }
     );
   }
-
- 
 }

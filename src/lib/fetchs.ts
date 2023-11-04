@@ -149,8 +149,11 @@ const updateProfil = async (data: UpdateProfil) => {
 
 // Fonction d'appel pour vérifier si un nom d'utilisateur est déjà utilisé
 
-const checkUsername = async (username: string | null, currentUsername:string |null) => {
-  if(username === currentUsername) return
+const checkUsername = async (
+  username: string | null,
+  currentUsername: string | null
+) => {
+  if (username === currentUsername) return;
   const response = await fetch(`/api/users/check-username`, {
     method: 'POST',
     headers: {
@@ -158,7 +161,7 @@ const checkUsername = async (username: string | null, currentUsername:string |nu
     },
     body: JSON.stringify({
       username,
-      currentUsername
+      currentUsername,
     }),
   });
   return await response.json();

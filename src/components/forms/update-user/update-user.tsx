@@ -16,34 +16,43 @@ type FormValue = z.infer<typeof upddateUsernameSchema>;
 type Props = {
   userId: string;
   userInfos: {
-    description:string | null,
-    username:string | null,
-    id:string
+    description: string | null;
+    username: string | null;
+    id: string;
   };
-}
+};
 
 export const UpdateUser = ({ userId, userInfos }: Props) => {
-
-  const { handleSubmit, watch, register, formState: { isSubmitting, isDirty, isValid, errors } } = useForm<FormValue>({
+  const {
+    handleSubmit,
+    watch,
+    register,
+    formState: { isSubmitting, isDirty, isValid, errors },
+  } = useForm<FormValue>({
     resolver: zodResolver(upddateUsernameSchema),
     defaultValues: {
-        username: userInfos.username === null ? '' : userInfos.username,
-        description: userInfos.description === '' ? '' : userInfos.description as string,
-    }
+      username: userInfos.username === null ? '' : userInfos.username,
+      description:
+        userInfos.description === '' ? '' : (userInfos.description as string),
+    },
   });
 
   const [username] = useDebounce(watch('username'), 1000);
   const { data, isLoading } = useQuery({
     queryKey: ['check-username', username],
-    queryFn: () => checkUsername(username as string, userInfos.username === null ? '' : userInfos.username),
+    queryFn: () =>
+      checkUsername(
+        username as string,
+        userInfos.username === null ? '' : userInfos.username
+      ),
     enabled: username !== undefined,
   });
 
-  const { mutate, isPending} = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: (data: FormValue) => updateProfil(data),
     onSuccess: (data) => {
       toast.success(data.message);
-    }
+    },
   });
 
   const onSubmit = (data: FormValue) => {
@@ -59,40 +68,33 @@ export const UpdateUser = ({ userId, userInfos }: Props) => {
     <section className={styles.form__container}>
       <div className={styles.form_description}>
         <div>
-        <Paragraph>
-        Nom d&apos;utilisateur
-      </Paragraph>
-      <Paragraph variant='p'>
-        Le nom d&apos;utilisateur est unique et vous permet de vous identifier sur votre page de profil.
-      </Paragraph>
-      <Paragraph variant='p'>
-        Vous pouvez le modifier à tout moment.
-      </Paragraph>
+          <Paragraph>Nom d&apos;utilisateur</Paragraph>
+          <Paragraph variant='p'>
+            Le nom d&apos;utilisateur est unique et vous permet de vous
+            identifier sur votre page de profil.
+          </Paragraph>
+          <Paragraph variant='p'>
+            Vous pouvez le modifier à tout moment.
+          </Paragraph>
         </div>
-    <div>
-      <Paragraph>
-        Bio
-      </Paragraph>
-      <Paragraph variant='p'>
-        Décrivez-vous en quelques mots.
-      </Paragraph>
-      <Paragraph variant='p'>
-        Vous pouvez modifier votre bio à tout moment.
-      </Paragraph>
-    </div>
+        <div>
+          <Paragraph>Bio</Paragraph>
+          <Paragraph variant='p'>Décrivez-vous en quelques mots.</Paragraph>
+          <Paragraph variant='p'>
+            Vous pouvez modifier votre bio à tout moment.
+          </Paragraph>
+        </div>
       </div>
-    
+
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Input
             label="Nom d'utilisateur"
-            placeholder="mon-super-pseudo"
+            placeholder='mon-super-pseudo'
             id='username'
             {...register('username')}
           />
-          {isLoading ? null : (
-            <Paragraph>{data?.data?.message}</Paragraph>
-          )}
+          {isLoading ? null : <Paragraph>{data?.data?.message}</Paragraph>}
         </div>
         <TextArea
           label='Bio'
@@ -101,8 +103,9 @@ export const UpdateUser = ({ userId, userInfos }: Props) => {
           rows={5}
           {...register('description')}
         />
-        <Button type='submit'
-          size={"medium"}
+        <Button
+          type='submit'
+          size={'medium'}
           disabled={isSubmitting || !isDirty || !isValid || isPending}
         >
           {isPending ? 'Mise à jour du profil...' : 'Mettre à jour mon profil'}

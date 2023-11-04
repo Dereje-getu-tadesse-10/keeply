@@ -7,9 +7,9 @@ const SettingsPage = async () => {
   const user = await auth();
 
   const userInfos = await getUser(user?.user.id);
-  
-  if(!userInfos) {
-    return <div>loading...</div>
+
+  if (!userInfos) {
+    return <div>loading...</div>;
   }
 
   return (
