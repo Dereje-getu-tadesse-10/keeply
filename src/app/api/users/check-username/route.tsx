@@ -10,7 +10,10 @@ export async function POST(req: Request, res: Response) {
   if (!response.success) {
     const errorObj = JSON.parse(response.error.message)[0];
     const errorMessage = errorObj.message;
-    return NextResponse.json({ message: errorMessage }, { status: 400 });
+    return NextResponse.json({data:{
+      exists: false,
+      message: errorMessage
+    }},{status: 200});
   }
 
   const { username } = response.data;
@@ -22,8 +25,14 @@ export async function POST(req: Request, res: Response) {
   });
 
   if (usernameExists) {
-    return NextResponse.json({ status: 200, data: { exists: true } });
+    return NextResponse.json({data: { 
+      exists: true,
+      message: 'Ce nom d\'utilisateur est déjà utilisé'
+     } }, {status: 200});
   }
 
-  return NextResponse.json({ status: 200, data: { exists: false } });
+  return NextResponse.json({data: { 
+    exists: false,
+    message: 'Ce nom d\'utilisateur est disponible'
+   } }, {status: 200});
 }

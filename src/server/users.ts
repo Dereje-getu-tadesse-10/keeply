@@ -1,6 +1,6 @@
 import { prisma } from '$/lib/prisma';
 
-const getUser = async (currentUser: string) => {
+const getUserAndCollections = async (currentUser: string) => {
   return await prisma.user.findUnique({
     where: {
       username: currentUser,
@@ -28,4 +28,17 @@ const getUser = async (currentUser: string) => {
   });
 };
 
-export { getUser };
+const getUser = async (currentUser: string) => {
+  return await prisma.user.findUnique({
+    where: {
+      id: currentUser,
+    },
+    select: {
+      id: true,
+      username: true,
+      description: true,
+    },
+  });
+}
+
+export { getUserAndCollections, getUser };

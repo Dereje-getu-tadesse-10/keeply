@@ -12,7 +12,8 @@ import {
 type CreateCollection = z.infer<typeof collectionWithoutUserIdSchema>;
 type UpdateCollection = z.infer<typeof updateCollectionSchema>;
 type CreateCollectible = z.infer<typeof createCollectiblesSchema>;
-type updateCollectible = z.infer<typeof updateCollectibleSchema>;
+type UpdateCollectible = z.infer<typeof updateCollectibleSchema>;
+type UpdateProfil = z.infer<typeof updateCollectibleSchema>;
 
 // Fonctions d'appel à l'API pour créer, une collection
 const createCollection = async (data: CreateCollection, userId: string) => {
@@ -91,7 +92,7 @@ const createCollectible = async (data: CreateCollectible, userId: string) => {
 
 // Fonction d'appel pour mettre à jour un collectible
 const updateCollectiblePut = async (
-  data: updateCollectible,
+  data: UpdateCollectible,
   collectibleId: string
 ) => {
   const response = await fetch(`/api/collectibles/${collectibleId}/update/`, {
@@ -120,6 +121,7 @@ const getCollectible = async (collectibleId: string | null, userId: string) => {
   return await response.json();
 };
 
+// Fonction d'appel pour supprimer un collectible
 const deleteColletible = async (collectibleId: string, userId: string) => {
   const resposne = await fetch(`/api/collectibles/${collectibleId}/delete`, {
     method: 'DELETE',
@@ -133,6 +135,33 @@ const deleteColletible = async (collectibleId: string, userId: string) => {
   return await resposne.json();
 };
 
+// Fonction d'appel pour mettre à jour le profil
+const updateProfil = async (data:UpdateProfil) => {
+  const response = await fetch(`/api/users/update/profil`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  return await response.json();
+};
+
+// Fonction d'appel pour vérifier si un nom d'utilisateur est déjà utilisé
+
+const checkUsername = async (username: string) => {
+  const response = await fetch(`/api/users/check-username`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      username,
+    }),
+  });
+  return await response.json();
+};
+
 // Export
 export {
   updateCollection,
@@ -143,4 +172,6 @@ export {
   updateCollectiblePut,
   getCollectible,
   deleteColletible,
+  updateProfil,
+  checkUsername
 };

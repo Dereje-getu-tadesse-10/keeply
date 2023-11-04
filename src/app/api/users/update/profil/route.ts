@@ -4,12 +4,12 @@ import { prisma } from '$/lib/prisma';
 
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
-import { createUsernameSchema } from '$/schemas/users-schema';
+import { createUserSchema } from '$/schemas/users-schema';
 
 export async function PUT(req: Request, res: Response) {
   const session = await getServerSession(config);
   const body = await req.json();
-  const response = createUsernameSchema.safeParse(body);
+  const response = createUserSchema.safeParse(body);
 
   // Si le body n'est pas conforme au schéma, on renvoie une erreur
   if (!response.success) {

@@ -1,0 +1,11 @@
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+} 
+
+.username_status {
+    margin-top: 8px;
+    font-size: 14px;
+}
