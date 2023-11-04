@@ -70,7 +70,7 @@ EMAIL_FROM=
 - [x] Modal de création d'une collection
 - [x] Modal de modification d'une collection
 - [x] Modal de création d'un collectible
-- [ ] Modal de modification d'un collectible
+- [x] Modal de modification d'un collectible
 - [ ] Page profil utilisateur public
 - [ ] Page paramètres utilisateur
 - [ ] Page mentions légales
