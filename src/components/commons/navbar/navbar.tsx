@@ -49,7 +49,7 @@ export const Navbar = () => {
                 <Link href='/dashboard'>Tableau de bord</Link>
               </li>
               <li>
-                <Link href='/parametres'>Paramètres</Link>
+                <Link href='/dashboard/parametres'>Paramètres</Link>
               </li>
             </>
           )}
