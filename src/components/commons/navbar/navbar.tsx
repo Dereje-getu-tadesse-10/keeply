@@ -44,9 +44,16 @@ export const Navbar = () => {
             <Link href='/a-propos'>À propos</Link>
           </li>
           {session && (
+            <>
             <li>
               <Link href='/dashboard'>Tableau de bord</Link>
             </li>
+            <li>
+            <Link href='/parametres'>
+              Paramètres
+            </Link>
+          </li>
+          </>
           )}
           <li>
             {session ? (
