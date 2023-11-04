@@ -1,11 +1,23 @@
+.form__container{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 25px;
+  grid-auto-rows: minmax(100px, auto);
+}
 
 .form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-} 
-
-.username_status {
-    margin-top: 8px;
-    font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
+
+.form > button {
+  margin-top: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .form__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

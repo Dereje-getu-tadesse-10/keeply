@@ -39,6 +39,6 @@ const getUser = async (currentUser: string) => {
       description: true,
     },
   });
-}
+};
 
 export { getUserAndCollections, getUser };

@@ -8,4 +8,4 @@ export { Heading } from '$/components/ui/heading/heading';
 export { Paragraph } from '$/components/ui/paragraph/paragraph';
 export { Separator } from '$/components/ui/separator/separator';
 export { Card } from '$/components/ui/card/card';
-export { TextArea } from "$/components/ui/textarea/text-area";
+export { TextArea } from '$/components/ui/textarea/text-area';

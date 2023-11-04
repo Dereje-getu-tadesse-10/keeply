@@ -136,7 +136,7 @@ const deleteColletible = async (collectibleId: string, userId: string) => {
 };
 
 // Fonction d'appel pour mettre à jour le profil
-const updateProfil = async (data:UpdateProfil) => {
+const updateProfil = async (data: UpdateProfil) => {
   const response = await fetch(`/api/users/update/profil`, {
     method: 'PUT',
     headers: {
@@ -149,7 +149,8 @@ const updateProfil = async (data:UpdateProfil) => {
 
 // Fonction d'appel pour vérifier si un nom d'utilisateur est déjà utilisé
 
-const checkUsername = async (username: string) => {
+const checkUsername = async (username: string | null, currentUsername:string |null) => {
+  if(username === currentUsername) return
   const response = await fetch(`/api/users/check-username`, {
     method: 'POST',
     headers: {
@@ -157,6 +158,7 @@ const checkUsername = async (username: string) => {
     },
     body: JSON.stringify({
       username,
+      currentUsername
     }),
   });
   return await response.json();
@@ -173,5 +175,5 @@ export {
   getCollectible,
   deleteColletible,
   updateProfil,
-  checkUsername
+  checkUsername,
 };

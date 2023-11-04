@@ -5,24 +5,34 @@ const descriptionSchema = z.object({
   userId: z.string(),
 });
 
-const usernameSchema = z.object({
-  username: z
-    .string()
-    .min(3, "Le nom d'utilisateur est trop court")
-    .max(50, "Le nom d'utilisateur est trop long")
-    .refine((value) => /^[a-zA-Z0-9-_]+$/.test(value), {
-      message:
-        "Le nom d'utilisateur ne doit contenir que des lettres, des chiffres, des tirets et des underscores",
-    }),
+const usernameSchema = z
+  .object({
+    username: z
+      .string()
+      .min(3, "Le nom d'utilisateur est trop court")
+      .max(50, "Le nom d'utilisateur est trop long")
+      .refine((value) => /^[a-zA-Z0-9-_]+$/.test(value), {
+        message:
+          "Le nom d'utilisateur ne doit contenir que des lettres, des chiffres, des tirets et des underscores",
+      }),
     description: z.string().max(500, 'La description est trop longue'),
-}).partial();
+    currentUsername: z.string(),
+  })
+  .partial();
 
 const createUserSchema = usernameSchema.extend({
   userId: z.string(),
 });
 
-const upddateUsernameSchema = usernameSchema.extend({
-  userId: z.string(),
-}).partial();
+const upddateUsernameSchema = usernameSchema
+  .extend({
+    userId: z.string(),
+  })
+  .partial();
 
-export { descriptionSchema, usernameSchema, createUserSchema, upddateUsernameSchema };
+export {
+  descriptionSchema,
+  usernameSchema,
+  createUserSchema,
+  upddateUsernameSchema,
+};

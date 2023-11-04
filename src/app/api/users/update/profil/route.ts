@@ -28,7 +28,24 @@ export async function PUT(req: Request, res: Response) {
   }
 
   // On récupère les données de la collection
-  const { username, userId, description } = response.data;
+  const { username, userId, description, currentUsername  } = response.data;
+
+  // check if the current username is the same as the new one and if it the same update the description
+
+  if(currentUsername === username){
+    await prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        description
+      },
+    });
+    return NextResponse.json(
+      { message: `Votre profil a bien été mis à jour` },
+      { status: 201 }
+    );
+  } 
 
   const userExists = await prisma.user.findUnique({
     where: {
@@ -50,13 +67,13 @@ export async function PUT(req: Request, res: Response) {
     },
     data: {
       username,
-      description,
+      description
     },
   });
 
   // On renvoie une réponse
   return NextResponse.json(
-    { message: `Le nom d'utilisateur a bien été modifié` },
+    { message: `Votre profil a bien été mis à jour` },
     { status: 201 }
   );
 }
