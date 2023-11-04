@@ -7,6 +7,11 @@ const getUserAndCollections = async (currentUser: string) => {
     },
     select: {
       id: true,
+      backgroundColor:{
+        select:{
+          colorCode: true,
+        }
+      },
       collections: {
         select: {
           id: true,

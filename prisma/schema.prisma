@@ -48,16 +48,18 @@ model Session {
 }
 
 model User {
-  id            String        @id @default(cuid())
-  name          String?
-  username      String?       @unique 
-  description   String?
-  email         String?       @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  collections   Collection[]
+  id                String            @id @default(cuid())
+  name              String?
+  username          String?           @unique
+  description       String?
+  email             String?           @unique
+  emailVerified     DateTime?
+  image             String?
+  accounts          Account[]
+  sessions          Session[]
+  collections       Collection[]
+  backgroundColorId String?           @unique
+  backgroundColor   BackgroundColors? @relation(fields: [backgroundColorId], references: [id])
 }
 
 model VerificationToken {
@@ -76,18 +78,27 @@ model Collection {
   status      CollectionStatus
   userId      String
   user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  created_at DateTime         @default(now())
-  updated_at DateTime         @updatedAt @default(now())
+  created_at  DateTime         @default(now())
+  updated_at  DateTime         @default(now()) @updatedAt
+}
+
+model BackgroundColors {
+  id        String @id @default(cuid())
+  name      String
+  colorCode String
+  user      User?  @relation
 }
 
 model Collectible {
-  id           String     @id @default(cuid())
+  id           String            @id @default(cuid())
   name         String
   description  String
   collectionId String
   status       CollectibleStatus
-  dragPosition Int        
-  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
-  created_at DateTime?         @default(now())
-  updated_at DateTime?         @updatedAt @default(now())
+  dragPosition Int
+  collection   Collection        @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  created_at   DateTime?         @default(now())
+  updated_at   DateTime?         @default(now()) @updatedAt
 }
+
+

@@ -18,8 +18,12 @@
   list-style: none;
 }
 
-.body {
+body {
   background-color: fffefc;
+}
+
+.profil {
+  height: 100svh;
 }
 
 .no-collection {

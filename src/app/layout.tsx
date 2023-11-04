@@ -17,7 +17,6 @@ export const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang='fr'>
       <body className={inter.className}>
         <NextAuthProvider>
-          <Navbar />
           {children}
           <Toaster />
         </NextAuthProvider>

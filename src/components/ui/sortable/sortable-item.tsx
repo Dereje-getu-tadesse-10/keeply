@@ -30,9 +30,9 @@ export const SortableItem = SortableElement(
           }}
         >
           <DragHandle />
-          <Paragraph as='h3' variant='h3'>
+          <Heading as='h3' variant='h3'>
             {name}
-          </Paragraph>
+          </Heading>
           <Badge intent={rest.status === 'ACQUIRED' ? 'primary' : 'secondary'}>
             {rest.status === 'ACQUIRED' ? 'Acquéri' : 'Manquant'}
           </Badge>
