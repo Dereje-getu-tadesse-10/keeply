@@ -13,6 +13,7 @@ import dayjs from 'dayjs';
 import { updateCollection, deleteCollection } from '$/lib/fetchs';
 import { useModalStore } from '$/stores/useModalStore';
 import { Warning } from '$/components/commons';
+import { CollectionCard } from '$/components/dashboard';
 
 type Props = {
   userId: string;
@@ -69,45 +70,33 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
         title='Modifier la collection'
       >
         <div className={styles.form__container}>
-          <div className={styles.header}>
-            <Heading as={"h3"} variant='h3'>{collection.name}</Heading>
-            <Paragraph variant='hightlight'>
-              {collection.description}
-            </Paragraph>
-            <Badge>
-              {collection.status ? 'Publique' : 'Privée'}
-            </Badge>
-            <Button intent={'danger'} onClick={() => handleDelete()}>
-              Supprimer la collection
-            </Button>
-            <Warning
-              text="En fonction du statut, votre collection sera visible par tout le
-                  monde ou seulement par vous sur votre profil."
-            />
-          </div>
+          <CollectionCard collection={collection} authenticated onDelete={handleDelete} />
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-            <Input
-              label='Nom de la collection'
-              id='name'
-              {...register('name')} />
-            {errors.name && <Paragraph isError>{errors.name.message}</Paragraph>}
-            <Input
-              label='Description'
-              id='description'
-              {...register('description')} />
-            {errors.description && <Paragraph isError>{errors.description.message}</Paragraph>}
-            <Select
-              id='status'
-              label='Status'
-              {...register('status')}>
-              <option value='PUBLIC'>
-                Publique
-              </option>
-              <option value='PRIVATE'>
-                Privée (visible uniquement par vous)
-              </option>
-            </Select>
-            {errors.status && <Paragraph isError>{errors.status.message}</Paragraph>}
+            <div>
+              <Input
+                label='Nom de la collection'
+                id='name'
+                {...register('name')} />
+              {errors.name && <Paragraph isError>{errors.name.message}</Paragraph>}
+              <Input
+                label='Description'
+                id='description'
+                {...register('description')} />
+              {errors.description && <Paragraph isError>{errors.description.message}</Paragraph>}
+              <Select
+                id='status'
+                label='Status'
+                {...register('status')}>
+                <option value='PUBLIC'>
+                  Publique
+                </option>
+                <option value='PRIVATE'>
+                  Privée (visible uniquement par vous)
+                </option>
+              </Select>
+              {errors.status && <Paragraph isError>{errors.status.message}</Paragraph>}
+            </div>
+
             <Button type='submit'>
               {isSubmitting ? 'En cours...' : 'Modifier la collection'}
             </Button>

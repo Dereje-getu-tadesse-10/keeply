@@ -99,7 +99,7 @@ export const Template = ({
           </Text>
           <Hr style={hr} />
           <Text style={paragraph}>
-            Si tu n'as pas demandé à te connecter, tu peux ignorer cet email.
+            Si tu n&apos;as pas demandé à te connecter, tu peux ignorer cet email.
           </Text>
           <Text style={paragraph}>
             À bientôt sur{' '}

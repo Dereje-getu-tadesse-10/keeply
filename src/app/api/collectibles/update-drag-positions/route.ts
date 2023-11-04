@@ -3,7 +3,6 @@ import { getServerSession } from 'next-auth';
 import { prisma } from '$/lib/prisma';
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
-import { updateCollectionSchema } from '$/schemas/collectibles-schema';
 import z from 'zod';
 
 const bodySchema = z.object({

@@ -1,5 +1,4 @@
 import { prisma } from '$/lib/prisma';
-import { Collection } from '@prisma/client';
 
 // Fonction pour récupérer les collections de l'utilisateur
 const getCollections = async (id: string) => {
@@ -27,8 +26,11 @@ const countCollections = async (id: string) => {
   });
 };
 
+
+
 // Fonction pour récupérer une collection
-const getGetCollection = async (id: string, userId: string) => {
+const getCollection = async (id: string, userId: string) => {
+
   return await prisma.collection.findUnique({
     where: {
       id: id,
@@ -50,4 +52,6 @@ const getGetCollection = async (id: string, userId: string) => {
   });
 };
 
-export { getCollections, countCollections, getGetCollection };
+
+
+export { getCollections, countCollections, getCollection };

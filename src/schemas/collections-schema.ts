@@ -1,6 +1,7 @@
+
 import * as z from 'zod';
 
-const collectionsSchema = z.object({
+const collectionSchema = z.object({
   name: z
     .string()
     .min(1, 'Le nom de la collection est trop court')
@@ -13,16 +14,16 @@ const collectionsSchema = z.object({
   userId: z.string(),
 });
 
-const collectionWithoutUserIdSchema = collectionsSchema.omit({ userId: true });
+const collectionWithoutUserIdSchema = collectionSchema.omit({ userId: true });
 
-const collectionWithIdSchema = collectionsSchema.extend({
+const collectionWithIdSchema = collectionSchema.extend({
   collectionId: z.string(),
 });
 
-const updateCollectionSchema = collectionsSchema.partial();
+const updateCollectionSchema = collectionSchema.partial();
 
 export {
-  collectionsSchema,
+  collectionSchema,
   collectionWithoutUserIdSchema,
   collectionWithIdSchema,
   updateCollectionSchema,

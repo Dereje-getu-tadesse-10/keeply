@@ -12,9 +12,9 @@
   text-align: left;
 }
 
-.card span {
-  margin-bottom: 16px;
-}
+.card a {
+  margin-top: 16px;
+} 
 
 @media screen and (min-width: 842px) {
   .card {

@@ -22,7 +22,7 @@ export async function POST(req: Request, res: Response) {
 
   // // On vérifie que la session est valide
   const sessionError = verifySession(session, {
-    userId: response.data.userId,
+    userId: response.data.userId as string,
   });
   if (sessionError) {
     console.log(sessionError);

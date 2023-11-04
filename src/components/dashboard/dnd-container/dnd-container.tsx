@@ -10,7 +10,7 @@ type Props = {
   userId: string;
 };
 
-export const CollectibleContainer = ({ collectibles, userId }: Props) => {
+export const DndContainer = ({ collectibles, userId }: Props) => {
   const [items, setItems] = useState(collectibles);
 
   useEffect(() => {
@@ -47,8 +47,8 @@ export const CollectibleContainer = ({ collectibles, userId }: Props) => {
   };
 
   return (
-    <section>
+    <article>
       <SortableList items={items} onSortEnd={onSortEnd} />
-    </section>
+    </article>
   );
 };

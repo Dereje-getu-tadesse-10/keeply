@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth';
 import { prisma } from '$/lib/prisma';
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
-import { updateCollectionSchema } from '$/schemas/collectibles-schema';
+import { updateCollectibleSchema } from '$/schemas/collectibles-schema';
 import z from 'zod';
 
 const paramsUrl = z.object({
@@ -17,7 +17,7 @@ export async function DELETE(
   const session = await getServerSession(config);
   const body = await req.json();
   const collectibleParams = paramsUrl.safeParse(params);
-  const response = updateCollectionSchema.safeParse(body);
+  const response =  updateCollectibleSchema.safeParse(body);
 
   // Si le params n'est pas conforme au schéma, on renvoie une erreur
   if (!collectibleParams.success) {

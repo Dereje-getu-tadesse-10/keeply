@@ -18,14 +18,13 @@ const MODAL_KEY = 'create-collectible';
 export const CreateCollectible = ({ userId, collectionId }: { userId: string, collectionId: string }) => {
 
     const { modals, toggleModal } = useModalStore();
-
     const router = useRouter();
 
     const {
         handleSubmit,
         register,
         reset,
-        formState: { isSubmitting, isDirty, isValid },
+        formState: { isSubmitting, isDirty, isValid, errors },
     } = useForm<FormData>({
         resolver: zodResolver(createCollectiblesSchema),
     });
@@ -36,7 +35,8 @@ export const CreateCollectible = ({ userId, collectionId }: { userId: string, co
             userId: userId,
             collectionId: collectionId,
             dragPosition: 1,
-        }
+       }
+       console.log(datas);
         const response = await createCollectible(datas, userId);
         toast.success(response.message);
         router.refresh();
@@ -77,14 +77,11 @@ export const CreateCollectible = ({ userId, collectionId }: { userId: string, co
                             <option value='ACQUIRED'>Acquis</option>
                             <option value='PLANNED'>Manquant</option>
                         </Select>
-                        {isDirty && !isValid && (
-                            <Paragraph variant='p' isError>
-                                Veuillez remplir tous les champs
-                            </Paragraph>
-                        )}
+                    
                         <Button
                             type='submit'
-                            disabled={!isDirty || !isValid || isSubmitting} >
+                            disabled={!isDirty || !isValid || isSubmitting} 
+                            >
                             Créer l&apos;objet
                         </Button>
                     </form>

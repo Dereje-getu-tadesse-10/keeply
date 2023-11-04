@@ -89,7 +89,6 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
             <Button
               type='submit'
               disabled={isSubmitting || !isValid}
-              aria-aria-disabled={isSubmitting || !isValid}
             >
               {isSubmitting ? 'En cours...' : 'Créer'}
             </Button>

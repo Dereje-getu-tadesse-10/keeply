@@ -7,7 +7,7 @@ export const EmptyCollections = () => {
     return (
         <div className='no-collection'>
             <Heading as='h3' variant='h3'>
-                Mince ! On dirait bien que vous n'avez pas encore de collection.
+                Mince ! On dirait bien que vous n&apos;avez pas encore de collection.
             </Heading>
             <Button
                 size={'medium'}

@@ -4,12 +4,12 @@ import { prisma } from '$/lib/prisma';
 
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
-import { collectionsSchema } from '$/schemas/collections-schema';
+import {  collectionSchema} from '$/schemas/collections-schema';
 
 export async function POST(req: Request, res: Response) {
   const session = await getServerSession(config);
   const body = await req.json();
-  const response = collectionsSchema.safeParse(body);
+  const response = collectionSchema.safeParse(body);
 
   // Si le body n'est pas conforme au schéma, on renvoie une erreur
   if (!response.success) {

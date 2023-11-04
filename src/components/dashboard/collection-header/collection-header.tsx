@@ -10,10 +10,10 @@ type Props = Collection & {
   };
 };
 
-export const CollectionCard = ({ collection }: { collection: Props }) => {
+export const CollectionHeader = ({ collection }: { collection: Props }) => {
   const { toggleModal } = useModalStore();
   return (
-    <div>
+    <div  className={styles.card__container}>
       <Heading as='h1' variant='h1'>
         {collection.name}
       </Heading>
@@ -25,10 +25,10 @@ export const CollectionCard = ({ collection }: { collection: Props }) => {
         La collection est {collection.status ? 'publique' : 'privée'}
       </Paragraph>
       <div className={styles.btn_container}>
-        <Button size='small'
+        <Button size='small' intent={'secondary'}
           onClick={() => toggleModal('update-collection')}
         >Modifier la collection</Button>
-        <Button intent={'secondary'} size={'small'} onClick={() => toggleModal("create-collectible")}>
+        <Button intent={'primary'} size={'small'} onClick={() => toggleModal("create-collectible")}>
           Ajouter un objet
         </Button>
       </div>
