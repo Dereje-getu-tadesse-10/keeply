@@ -13,8 +13,8 @@ import { updateCollectiblePut, getCollectible } from '$/lib/fetchs';
 import { useCollectibleId } from '$/stores/useCollectibleId';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query'
-import {Loading} from '$/components/ui';
 import { CollectibleCard } from '$/components/dashboard';
+import { UpdateCollectibleSkeleton } from '$/components/loadings';
 type FormData = z.infer<typeof updateCollectibleSchema>;
 
 const MODAL_KEY = 'update-collectible';
@@ -99,7 +99,7 @@ export const UpdateCollectible = ({ userId, collectionId }: { userId: string, co
                     size='medium'
                 >
                     {isLoading ? (<>
-                        <Loading number={7} />
+                        <UpdateCollectibleSkeleton />
                     </>) : (
                         <>
                         <CollectibleCard collectible={data.data} authenticated onDelete={handleDelete} />
