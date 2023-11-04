@@ -9,7 +9,7 @@ import { toast } from 'react-hot-toast';
 import { Select } from '$/components/ui/select/select';
 import { useModalStore } from '$/stores/useModalStore';
 import { updateCollectibleSchema } from '$/schemas/collectibles-schema';
-import { updateCollectiblePut, getCollectible } from '$/lib/fetchs';
+import { updateCollectiblePut, getCollectible, deleteColletible } from '$/lib/fetchs';
 import { useCollectibleId } from '$/stores/useCollectibleId';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query'
@@ -62,17 +62,7 @@ export const UpdateCollectible = ({ userId, collectionId }: { userId: string, co
     };
 
     const handleDelete = async () => {
-        const response = await fetch(`/api/collectibles/${collectibleId}/delete`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                userId,
-                collectionId: collectionId as string,
-            }),
-        })
-        const data = await response.json();
+        const  data = await  deleteColletible(collectibleId as string, userId);
         toast.success(data.message);
         router.refresh();
         toggleModal(MODAL_KEY);

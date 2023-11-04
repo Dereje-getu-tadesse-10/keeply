@@ -115,6 +115,19 @@ const getCollectible = async (collectibleId: string | null, userId: string) => {
   return await response.json();
 };
 
+const deleteColletible = async (collectibleId: string, userId: string) => {
+  const resposne = await fetch(`/api/collectibles/${collectibleId}/delete`, {
+    method: 'DELETE',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        userId,
+    }), 
+  });
+  return await resposne.json();
+}
+
 // Export
 export {
   updateCollection,
@@ -124,4 +137,5 @@ export {
   createCollectible,
   updateCollectiblePut,
   getCollectible,
+  deleteColletible
 };
