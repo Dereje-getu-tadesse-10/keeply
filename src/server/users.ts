@@ -16,8 +16,8 @@ const getUserAndCollections = async (currentUser: string) => {
         },
       },
       collections: {
-        where:{
-          status: "PUBLIC"
+        where: {
+          status: 'PUBLIC',
         },
         select: {
           status: true,
@@ -47,7 +47,7 @@ const getUser = async (currentUser: string) => {
     where: {
       id: currentUser,
     },
-    select:{
+    select: {
       id: true,
       username: true,
       description: true,
@@ -58,8 +58,8 @@ const getUser = async (currentUser: string) => {
           id: true,
           name: true,
         },
-      }
-    }
+      },
+    },
   });
 };
 

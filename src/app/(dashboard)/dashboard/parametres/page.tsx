@@ -11,8 +11,7 @@ const SettingsPage = async () => {
 
   if (!userInfos) {
     return <div>loading...</div>;
-  } 
-
+  }
 
   return (
     <main>

@@ -13,44 +13,40 @@ const Page = async ({ params }: { params: { username: string } }) => {
   if (!userProfil) notFound();
   console.log(userProfil);
   return (
-    <main
-    className={styles.main}
-      style={{
-      }}
-    >
+    <main className={styles.main} style={{}}>
       <section className={styles.section}>
         <div>
           <div
             style={{
-              height: "120px",
-              width: "120px",
-              borderRadius: "50%",
+              height: '120px',
+              width: '120px',
+              borderRadius: '50%',
               backgroundImage: `${userProfil.backgroundColor?.colorCode}`,
             }}
           ></div>
           <div>
-            <Heading as="h2" variant='h2'>
+            <Heading as='h2' variant='h2'>
               {userProfil.name}
             </Heading>
             <Paragraph variant='hightlight'>{userProfil.description}</Paragraph>
+          </div>
         </div>
-      </div>
-      <div className={styles.collections}>
-        <Heading as="h1" variant='h1'>
-          Collections
-        </Heading>
-        <div className={styles.collections__grid}>
-          {userProfil.collections.map((collection) => (
-            <Card>
-            <CollectionCard
-              key={collection.id}
-              authenticated={false}
-              collection={collection}
-              />
-            </Card>
-          ))}
+        <div className={styles.collections}>
+          <Heading as='h1' variant='h1'>
+            Collections
+          </Heading>
+          <div className={styles.collections__grid}>
+            {userProfil.collections.map((collection) => (
+              <Card>
+                <CollectionCard
+                  key={collection.id}
+                  authenticated={false}
+                  collection={collection}
+                />
+              </Card>
+            ))}
+          </div>
         </div>
-      </div>
       </section>
     </main>
   );

@@ -27,8 +27,12 @@ type Props = {
 };
 
 export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
-  const [chooseBackground, setChooseBackground] = useState(userInfos?.backgroundColor?.id || '');
-  const [selectedBackground, setSelectedBackground] = useState(userInfos?.backgroundColor?.id || '');
+  const [chooseBackground, setChooseBackground] = useState(
+    userInfos?.backgroundColor?.id || ''
+  );
+  const [selectedBackground, setSelectedBackground] = useState(
+    userInfos?.backgroundColor?.id || ''
+  );
 
   const {
     handleSubmit,
@@ -42,7 +46,7 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
     defaultValues: {
       username: userInfos.username === null ? '' : userInfos.username,
       description:
-      userInfos.description === '' ? '' : (userInfos.description as string),
+        userInfos.description === '' ? '' : (userInfos.description as string),
       backgroundColor: userInfos.backgroundColor?.id || '',
       name: userInfos.name === null ? '' : userInfos.name,
     },
@@ -71,7 +75,7 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
     if (chooseBackground) {
       setValue('backgroundColor', chooseBackground, { shouldDirty: true });
     }
-  }, [chooseBackground, setValue])
+  }, [chooseBackground, setValue]);
 
   const onSubmit = (data: FormValue) => {
     const datas = {
@@ -117,7 +121,7 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Input
-            label="Votre identifiant"
+            label='Votre identifiant'
             placeholder='mon-super-pseudo'
             id='username'
             {...register('username')}
@@ -126,7 +130,7 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
         </div>
         <div>
           <Input
-            label="Votre prénom"
+            label='Votre prénom'
             placeholder='Votre prénom'
             id='name'
             {...register('name')}
@@ -142,26 +146,26 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
         <Paragraph>Choissisez une couleur de fond</Paragraph>
         <div className={styles.backgrounds_container}>
           {backgroundColors.map((color) => (
-            <div 
-            key={color.id}      
-            onClick={() => {
-              setChooseBackground(color.id);
-              setSelectedBackground(color.id);
-            }}
-            >
             <div
-              style={{
-                backgroundImage: color.colorCode,
-                border: selectedBackground === color.id ? '2px solid #000' : `2px solid #fff`,
-                height:" 50px",
-                width:" 70px",
-                borderRadius: "8px",
-            
+              key={color.id}
+              onClick={() => {
+                setChooseBackground(color.id);
+                setSelectedBackground(color.id);
               }}
             >
-            </div>
-            <Paragraph variant='hightlight'>{color.name}</Paragraph>
-
+              <div
+                style={{
+                  backgroundImage: color.colorCode,
+                  border:
+                    selectedBackground === color.id
+                      ? '2px solid #000'
+                      : `2px solid #fff`,
+                  height: ' 50px',
+                  width: ' 70px',
+                  borderRadius: '8px',
+                }}
+              ></div>
+              <Paragraph variant='hightlight'>{color.name}</Paragraph>
             </div>
           ))}
         </div>

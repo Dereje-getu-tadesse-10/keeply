@@ -27,24 +27,26 @@ export const CollectionCard = ({
         {collection.name}
       </Heading>
       <Paragraph variant='hightlight'>{collection.description}</Paragraph>
-    
-      {authenticated ? (
-          <>
-            <Paragraph>
-        {collection.created_at
-          ? `Créée le ${dayjs(collection.created_at).format('DD/MM/YYYY')}`
-          : ''}
-      </Paragraph>
-           <Paragraph>
-        {collection.updated_at
-          ? `Modifiée le ${dayjs(collection.updated_at).format('DD/MM/YYYY')}`
-          : ''}
-      </Paragraph>
-      <Badge>{collection.status === "PUBLIC" ? "Publique" : "Privée"}</Badge>
-      
-          </>
 
-      ):null}
+      {authenticated ? (
+        <>
+          <Paragraph>
+            {collection.created_at
+              ? `Créée le ${dayjs(collection.created_at).format('DD/MM/YYYY')}`
+              : ''}
+          </Paragraph>
+          <Paragraph>
+            {collection.updated_at
+              ? `Modifiée le ${dayjs(collection.updated_at).format(
+                  'DD/MM/YYYY'
+                )}`
+              : ''}
+          </Paragraph>
+          <Badge>
+            {collection.status === 'PUBLIC' ? 'Publique' : 'Privée'}
+          </Badge>
+        </>
+      ) : null}
       {authenticated ? (
         <>
           <Button onClick={onDelete} intent={'danger'} size={'small'}>
