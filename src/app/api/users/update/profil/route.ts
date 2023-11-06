@@ -28,7 +28,7 @@ export async function PUT(req: Request, res: Response) {
   }
 
   // On récupère les données de la collection
-  const { username, userId, description, currentUsername } = response.data;
+  const { username, userId, description, currentUsername, backgroundColor } = response.data;
 
   // check if the current username is the same as the new one and if it the same update the description
 
@@ -39,6 +39,7 @@ export async function PUT(req: Request, res: Response) {
       },
       data: {
         description,
+        backgroundColorId: backgroundColor,
       },
     });
     return NextResponse.json(
@@ -68,6 +69,7 @@ export async function PUT(req: Request, res: Response) {
     data: {
       username,
       description,
+      backgroundColorId: backgroundColor,
     },
   });
 

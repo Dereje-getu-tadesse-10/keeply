@@ -1,6 +1,6 @@
 'use client';
 import styles from './update-user.module.css';
-import { Button, Heading, Input, Paragraph, TextArea } from '$/components/ui';
+import { Button, Input, Paragraph, TextArea } from '$/components/ui';
 import { useQuery } from '@tanstack/react-query';
 import { checkUsername, updateProfil } from '$/lib/fetchs';
 import { upddateUsernameSchema } from '$/schemas/users-schema';
@@ -10,7 +10,8 @@ import z from 'zod';
 import { useDebounce } from 'use-debounce';
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-
+import { BackgroundColors } from '@prisma/client';
+import { useEffect, useState } from 'react';
 type FormValue = z.infer<typeof upddateUsernameSchema>;
 
 type Props = {
@@ -19,25 +20,33 @@ type Props = {
     description: string | null;
     username: string | null;
     id: string;
+    backgroundColor: BackgroundColors | null;
   };
+  backgroundColors: BackgroundColors[];
 };
 
-export const UpdateUser = ({ userId, userInfos }: Props) => {
+export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
+  const [chooseBackground, setChooseBackground] = useState('');
+  const [selectedBackground, setSelectedBackground] = useState(userInfos?.backgroundColor?.id || '');
+
   const {
     handleSubmit,
     watch,
     register,
     formState: { isSubmitting, isDirty, isValid, errors },
+    setValue,
+    getValues,
   } = useForm<FormValue>({
     resolver: zodResolver(upddateUsernameSchema),
     defaultValues: {
       username: userInfos.username === null ? '' : userInfos.username,
       description:
-        userInfos.description === '' ? '' : (userInfos.description as string),
+      userInfos.description === '' ? '' : (userInfos.description as string),
     },
   });
 
   const [username] = useDebounce(watch('username'), 1000);
+
   const { data, isLoading } = useQuery({
     queryKey: ['check-username', username],
     queryFn: () =>
@@ -55,14 +64,23 @@ export const UpdateUser = ({ userId, userInfos }: Props) => {
     },
   });
 
+  useEffect(() => {
+    if (chooseBackground) {
+      setValue('backgroundColor', chooseBackground, { shouldDirty: true });
+    }
+  }, [chooseBackground, setValue])
+
   const onSubmit = (data: FormValue) => {
     const datas = {
       ...data,
       userId: userId,
       currentUsername: userInfos.username === null ? '' : userInfos.username,
+      backgroundColor: chooseBackground,
     };
     mutate(datas);
   };
+
+
 
   return (
     <section className={styles.form__container}>
@@ -84,6 +102,15 @@ export const UpdateUser = ({ userId, userInfos }: Props) => {
             Vous pouvez modifier votre bio à tout moment.
           </Paragraph>
         </div>
+        <div>
+          <Paragraph>Background Image</Paragraph>
+          <Paragraph variant='p'>
+            Choissez une image de fond pour votre ppage de profil.
+          </Paragraph>
+          <Paragraph variant='p'>
+            Vous pouvez modifier votre image de fond à tout moment.
+          </Paragraph>
+        </div>
       </div>
 
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -103,6 +130,32 @@ export const UpdateUser = ({ userId, userInfos }: Props) => {
           rows={5}
           {...register('description')}
         />
+        <Paragraph>Choissisez une couleur de fond</Paragraph>
+        <div className={styles.backgrounds_container}>
+          {backgroundColors.map((color) => (
+            <div 
+            key={color.id}      
+            onClick={() => {
+              setChooseBackground(color.id);
+              setSelectedBackground(color.id);
+            }}
+            >
+            <div
+              style={{
+                backgroundImage: color.colorCode,
+                border: selectedBackground === color.id ? '2px solid #000' : `2px solid #fff`,
+                height:" 50px",
+                width:" 70px",
+                borderRadius: "8px",
+            
+              }}
+            >
+            </div>
+            <Paragraph variant='hightlight'>{color.name}</Paragraph>
+
+            </div>
+          ))}
+        </div>
         <Button
           type='submit'
           size={'medium'}

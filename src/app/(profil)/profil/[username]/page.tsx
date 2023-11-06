@@ -10,13 +10,14 @@ const Page = async ({ params }: { params: { username: string } }) => {
   if (!userProfil) notFound();
 
   console.log(userProfil);
-  return <main className='profil'
-    style={{
-      backgroundImage: `${userProfil.backgroundColor?.colorCode}`
-    }}
-  >
-    
-  </main>;
+  return (
+    <main
+      className='profil'
+      style={{
+        backgroundImage: `${userProfil.backgroundColor?.colorCode}`,
+      }}
+    ></main>
+  );
 };
 
 export default Page;

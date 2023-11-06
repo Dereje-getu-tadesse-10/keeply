@@ -17,6 +17,7 @@ const usernameSchema = z
       }),
     description: z.string().max(500, 'La description est trop longue'),
     currentUsername: z.string(),
+    backgroundColor: z.any(),
   })
   .partial();
 

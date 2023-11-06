@@ -7,10 +7,10 @@ const getUserAndCollections = async (currentUser: string) => {
     },
     select: {
       id: true,
-      backgroundColor:{
-        select:{
+      backgroundColor: {
+        select: {
           colorCode: true,
-        }
+        },
       },
       collections: {
         select: {
@@ -38,12 +38,14 @@ const getUser = async (currentUser: string) => {
     where: {
       id: currentUser,
     },
-    select: {
-      id: true,
-      username: true,
-      description: true,
+    include: {
+      backgroundColor: true,
     },
   });
 };
 
-export { getUserAndCollections, getUser };
+const getBackgroundColor = async () => {
+  return await prisma.backgroundColors.findMany();
+};
+
+export { getUserAndCollections, getUser, getBackgroundColor };

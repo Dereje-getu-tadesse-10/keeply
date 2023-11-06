@@ -153,7 +153,7 @@ const checkUsername = async (
   username: string | null,
   currentUsername: string | null
 ) => {
-  if (username === currentUsername) return;
+  if (username === currentUsername) return { username: username };
   const response = await fetch(`/api/users/check-username`, {
     method: 'POST',
     headers: {
