@@ -58,7 +58,7 @@ model User {
   accounts          Account[]
   sessions          Session[]
   collections       Collection[]
-  backgroundColorId String?           @unique
+ backgroundColorId String?           
   backgroundColor   BackgroundColors? @relation(fields: [backgroundColorId], references: [id])
 }
 
@@ -86,7 +86,7 @@ model BackgroundColors {
   id        String @id @default(cuid())
   name      String
   colorCode String
-  user      User?  @relation
+  users     User[]
 }
 
 model Collectible {

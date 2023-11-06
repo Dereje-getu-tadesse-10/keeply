@@ -13,13 +13,11 @@ const SettingsPage = async () => {
     return <div>loading...</div>;
   } 
 
-  console.log(userInfos);
 
   return (
     <main>
       <Heading>Paramètres</Heading>
       <Paragraph>Mettez à jour vos informations personnelles.</Paragraph>
-
       <UpdateUser
         userId={user?.user.id}
         userInfos={userInfos}

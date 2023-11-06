@@ -72,7 +72,7 @@ EMAIL_FROM=
 - [x] Modal de création d'un collectible
 - [x] Modal de modification d'un collectible
 - [ ] Page profil utilisateur public
-- [ ] Page paramètres utilisateur
+- [x] Page paramètres utilisateur
 - [ ] Page mentions légales
 - [ ] Page politique de confidentialité
 

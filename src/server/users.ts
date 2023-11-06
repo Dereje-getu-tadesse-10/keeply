@@ -7,16 +7,25 @@ const getUserAndCollections = async (currentUser: string) => {
     },
     select: {
       id: true,
+      username: true,
+      name: true,
+      description: true,
       backgroundColor: {
         select: {
           colorCode: true,
         },
       },
       collections: {
+        where:{
+          status: "PUBLIC"
+        },
         select: {
+          status: true,
           id: true,
           name: true,
           description: true,
+          created_at: true,
+          updated_at: true,
           items: {
             select: {
               id: true,
@@ -38,9 +47,19 @@ const getUser = async (currentUser: string) => {
     where: {
       id: currentUser,
     },
-    include: {
-      backgroundColor: true,
-    },
+    select:{
+      id: true,
+      username: true,
+      description: true,
+      name: true,
+      backgroundColor: {
+        select: {
+          colorCode: true,
+          id: true,
+          name: true,
+        },
+      }
+    }
   });
 };
 

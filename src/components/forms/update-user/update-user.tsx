@@ -21,12 +21,13 @@ type Props = {
     username: string | null;
     id: string;
     backgroundColor: BackgroundColors | null;
+    name: string | null;
   };
   backgroundColors: BackgroundColors[];
 };
 
 export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
-  const [chooseBackground, setChooseBackground] = useState('');
+  const [chooseBackground, setChooseBackground] = useState(userInfos?.backgroundColor?.id || '');
   const [selectedBackground, setSelectedBackground] = useState(userInfos?.backgroundColor?.id || '');
 
   const {
@@ -42,6 +43,8 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
       username: userInfos.username === null ? '' : userInfos.username,
       description:
       userInfos.description === '' ? '' : (userInfos.description as string),
+      backgroundColor: userInfos.backgroundColor?.id || '',
+      name: userInfos.name === null ? '' : userInfos.name,
     },
   });
 
@@ -80,8 +83,6 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
     mutate(datas);
   };
 
-
-
   return (
     <section className={styles.form__container}>
       <div className={styles.form_description}>
@@ -116,12 +117,20 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Input
-            label="Nom d'utilisateur"
+            label="Votre identifiant"
             placeholder='mon-super-pseudo'
             id='username'
             {...register('username')}
           />
           {isLoading ? null : <Paragraph>{data?.data?.message}</Paragraph>}
+        </div>
+        <div>
+          <Input
+            label="Votre prénom"
+            placeholder='Votre prénom'
+            id='name'
+            {...register('name')}
+          />
         </div>
         <TextArea
           label='Bio'
