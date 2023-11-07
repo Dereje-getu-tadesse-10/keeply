@@ -20,7 +20,7 @@ export const CollectionCard = ({
   authenticated = false,
   onDelete,
 }: Props) => {
-  console.log(collection);
+
   return (
     <div className={styles.collection_card}>
       <Heading as={'h3'} variant='h3'>

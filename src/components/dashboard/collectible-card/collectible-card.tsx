@@ -9,7 +9,7 @@ export const CollectibleCard = ({
 }: {
   collectible: any;
   authenticated: boolean;
-  onDelete: () => void;
+  onDelete?: () => void;
 }) => (
   <div className={styles.collectible}>
     <Heading as='h2' variant='h3'>

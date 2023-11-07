@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import styles from './modal.module.css';
 import { useModalStore } from '$/stores/useModalStore';
 import { X } from 'lucide-react';
@@ -19,6 +19,25 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
   const { toggleModal } = useModalStore();
   const sizeStyle = props.size === 'medium' ? styles.medium : styles.large;
+
+  const escFunction = useCallback(
+    (event:KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        toggleModal(modalId);
+      }
+    },
+    [toggleModal, modalId]
+  );
+  
+
+  useEffect(() => {
+    window.addEventListener('keydown', escFunction);
+
+    return () => {
+      window.removeEventListener('keydown', escFunction);
+    };
+  }, [escFunction]); 
+
   return (
     <div className={`${styles.modal__container}`}>
       <div className={`${styles.modal} ${sizeStyle}`} {...props}>

@@ -1,19 +1,19 @@
 import { Card, Paragraph } from '$/components/ui';
 import { getUserAndCollections } from '$/server/users';
-import { Button } from '@jsx-email/all';
 import { notFound } from 'next/navigation';
 import styles from './page.module.css';
 import { Heading } from '$/components/ui';
-import { CollectibleCard, CollectionCard } from '$/components/dashboard';
+import { UserCollection } from '$/components/dashboard/user-page-collection/user-page-collection';
 
 const Page = async ({ params }: { params: { username: string } }) => {
   const currentUser = params.username;
 
   const userProfil = await getUserAndCollections(currentUser);
   if (!userProfil) notFound();
-  console.log(userProfil);
+  console.log(userProfil.collections.length);
+
   return (
-    <main className={styles.main} style={{}}>
+    <main className={styles.main}>
       <section className={styles.section}>
         <div>
           <div
@@ -32,19 +32,17 @@ const Page = async ({ params }: { params: { username: string } }) => {
           </div>
         </div>
         <div className={styles.collections}>
-          <Heading as='h1' variant='h1'>
+           {userProfil.collections.length > 0 ? (
+            <Heading as='h1' variant='h1'>
             Collections
           </Heading>
+           ):(<>
+            <Heading as='h3' variant='h3'>
+            Ouups ! Cette personne n'a pas encore de collection
+            </Heading>
+           </>)}
           <div className={styles.collections__grid}>
-            {userProfil.collections.map((collection) => (
-              <Card>
-                <CollectionCard
-                  key={collection.id}
-                  authenticated={false}
-                  collection={collection}
-                />
-              </Card>
-            ))}
+            <UserCollection userProfil={userProfil} />
           </div>
         </div>
       </section>

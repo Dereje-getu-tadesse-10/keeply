@@ -110,7 +110,7 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
         <div>
           <Paragraph>Background Image</Paragraph>
           <Paragraph variant='p'>
-            Choissez une image de fond pour votre ppage de profil.
+            Choissez une image de fond pour votre page de profil.
           </Paragraph>
           <Paragraph variant='p'>
             Vous pouvez modifier votre image de fond à tout moment.

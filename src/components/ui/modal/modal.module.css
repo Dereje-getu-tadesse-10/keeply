@@ -4,7 +4,7 @@
   left: 0;
   z-index: 0;
   width: 100%;
-  height: 100%;
+  height: 100svh;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   display: flex;
@@ -14,11 +14,13 @@
 
 .modal {
   position: relative;
+  max-height: 90vh;
   width: 100%;
   margin: 10px;
   padding: var(--padding-md, 10px);
   background-color: #ffffff;
   border-radius: 4px;
+  overflow-y: auto;
 }
 
 .modal__header {
