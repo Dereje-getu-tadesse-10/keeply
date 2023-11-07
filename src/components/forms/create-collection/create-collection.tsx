@@ -26,7 +26,7 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
     handleSubmit,
     register,
     reset,
-    formState: { isSubmitting, isDirty, isValid, errors },
+    formState: { isSubmitting, isDirty, isValid },
   } = useForm<FormData>({
     resolver: zodResolver(collectionWithoutUserIdSchema),
   });
@@ -84,7 +84,10 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
               text='En fonction du statut, votre collection sera visible par tout le
             monde ou seulement par vous sur votre profil.'
             />
-            <Button type='submit' disabled={isSubmitting || !isValid || isDirty}>
+            <Button type='submit' 
+            disabled={isSubmitting || !isValid || isDirty || isPending}
+            aria-disabled={isSubmitting || !isValid || isDirty || isPending}
+            >
               {isSubmitting ? 'En cours...' : 'Créer'}
             </Button>
           </form>
