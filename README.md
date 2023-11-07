@@ -73,7 +73,7 @@ EMAIL_FROM=
 - [x] Modal de modification d'un collectible
 - [x] Page profil utilisateur public
 - [x] Page paramètres utilisateur
-- [ ] Page mentions légales
+- [x] Page mentions légales
 - [ ] Page politique de confidentialité
 
 ### Stack
