@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Card, Modal, Paragraph, Separator } from '$/components/ui';
 import { Collectible, Collection } from '@prisma/client';
-import { CollectibleCard, CollectionCard } from '..';
+import { CollectibleCard, CollectionCard } from '../../dashboard';
 import { useModalStore } from '$/stores/useModalStore';
 import styles from './user-page-collection.module.css';
 

@@ -3,7 +3,7 @@ import { getUserAndCollections } from '$/server/users';
 import { notFound } from 'next/navigation';
 import styles from './page.module.css';
 import { Heading } from '$/components/ui';
-import { UserCollection } from '$/components/dashboard/user-page-collection/user-page-collection';
+import { UserCollection } from '$/components/users/user-page-collection/user-page-collection';
 
 const Page = async ({ params }: { params: { username: string } }) => {
   const currentUser = params.username;
