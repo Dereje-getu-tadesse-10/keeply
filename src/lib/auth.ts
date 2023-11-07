@@ -66,7 +66,7 @@ export const config = {
     signIn: '/login',
     error: '/login',
     signOut: '/',
-    verifyRequest: '/verify-request/',
+    verifyRequest: '/magic-link-sent',
   },
 } satisfies NextAuthOptions;
 
