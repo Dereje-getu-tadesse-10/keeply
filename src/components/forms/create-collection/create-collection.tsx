@@ -11,6 +11,7 @@ import { useModalStore } from '$/stores/useModalStore';
 import { collectionWithoutUserIdSchema } from '$/schemas/collections-schema';
 import { createCollection } from '$/lib/fetchs';
 import { Warning } from '$/components/commons';
+import { useMutation } from '@tanstack/react-query';
 
 type FormData = z.infer<typeof collectionWithoutUserIdSchema>;
 
@@ -30,17 +31,22 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
     resolver: zodResolver(collectionWithoutUserIdSchema),
   });
 
+  const { mutate, isPending } = useMutation({
+    mutationFn: (data: FormData) => createCollection(data, userId),
+    onSuccess: (data) => {
+      toast.success(data.message);
+      router.refresh();
+      toggleModal(MODAL_KEY);
+      reset();
+    }
+  });
+
   const onSubmit = async (data: FormData) => {
     const datas = {
       ...data,
       userId: userId,
     };
-
-    const response = await createCollection(datas, userId);
-    toast.success(response.message);
-    router.refresh();
-    toggleModal(MODAL_KEY);
-    reset();
+    mutate(datas);
   };
 
   return (
@@ -59,33 +65,21 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
                 placeholder='Vinyles de taylor swift'
                 {...register('name')}
               />
-              {errors.name && (
-                <Paragraph variant='p' isError>
-                  {errors.name.message}
-                </Paragraph>
-              )}
+          
               <Input
                 label='Description'
                 id='description'
                 placeholder='Une collection de vinyles de taylor swift'
                 {...register('description')}
               />
-              {errors.description && (
-                <Paragraph variant='p' isError>
-                  {errors.description.message}
-                </Paragraph>
-              )}
+             
               <Select id='status' {...register('status')}>
                 <option value='PUBLIC'>Publique</option>
                 <option value='PRIVATE'>
                   Privée (visible uniquement par vous)
                 </option>
               </Select>
-              {errors.status && (
-                <Paragraph variant='p' isError>
-                  {errors.status.message}
-                </Paragraph>
-              )}
+              
             <Warning
               text='En fonction du statut, votre collection sera visible par tout le
             monde ou seulement par vous sur votre profil.'
