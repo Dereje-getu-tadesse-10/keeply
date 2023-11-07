@@ -17,7 +17,7 @@ export const CollectibleCard = ({
     </Heading>
     <Paragraph variant='p'>{collectible.description}</Paragraph>
     <Paragraph variant='p'>
-      <b>{collectible.name}</b> est{' '}
+      <strong>{collectible.name}</strong> est{' '}
       {collectible.status === 'PLANNED' ? 'manquant' : 'acquéri'} dans votre
       collection.
     </Paragraph>

@@ -4,14 +4,14 @@ import { Card, Modal } from '$/components/ui';
 import { Collectible, Collection } from '@prisma/client';
 import { CollectionCard } from '$/components/collections/collection-card/collection-card';
 import { useModalStore } from '$/stores/useModalStore';
-import styles from './user-page-collection.module.css';
+import styles from './user-collections.module.css';
 
 const MODAL_KEY = 'view-collection';
 
 export const UserCollections = ({ userProfil }: any) => {
   const { modals, toggleModal } = useModalStore();
   const [selectedCollection, setSelectedCollection] = useState<any>(null);
-  console.log(selectedCollection);
+
   return (
     <>
       {userProfil.collections.map((collection: Collection) => (
@@ -37,9 +37,9 @@ export const UserCollections = ({ userProfil }: any) => {
                 <p>{collectible.name}</p>
                 <p>{collectible.description}</p>
                 <p>
-                  <b>
+                  <strong>
                     {collectible.status === 'ACQUIRED' ? 'Acquéri' : 'Manquant'}{' '}
-                  </b>
+                  </strong>
                   dans la collection.
                 </p>
                 {collectible.id !==

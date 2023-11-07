@@ -19,7 +19,7 @@ export const CollectionHeader = ({ collection }: { collection: Props }) => {
       </Heading>
       <Paragraph variant='hightlight'>{collection.description}</Paragraph>
       <Paragraph variant='hightlight'>
-        <b>{collection._count?.items}</b> objets dans cette collection
+        <strong>{collection._count?.items}</strong> objets dans cette collection
       </Paragraph>
       <Paragraph variant='hightlight'>
         La collection est {collection.status ? 'publique' : 'privée'}

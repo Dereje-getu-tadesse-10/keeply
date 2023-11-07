@@ -14,7 +14,7 @@ export const DashboardHeader = ({ lenght }: { lenght: number }) => {
         collectionner.
       </Paragraph>
       <Paragraph variant='hightlight'>
-        <b>{lenght}</b> collections créées
+        <strong>{lenght}</strong> collections créées
       </Paragraph>
       <Button
         size={'small'}

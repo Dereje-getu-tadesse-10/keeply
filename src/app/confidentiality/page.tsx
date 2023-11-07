@@ -10,7 +10,7 @@ const ConfidentialityPage = () => (
         </Heading>
         <Paragraph>
           La présente politique de confidentialité décrit les pratiques de
-          Kepply en matière de collecte, d'utilisation, de conservation et de
+          Kepply en matière de collecte, d&apos;utilisation, de conservation et de
           protection des informations personnelles des utilisateurs de notre
           application web.
         </Paragraph>
@@ -20,15 +20,15 @@ const ConfidentialityPage = () => (
           Collecte des Informations
         </Heading>
         <Paragraph>
-          Kepply recueille les types d'informations suivants :
+          Kepply recueille les types d&apos;informations suivants :
         </Paragraph>
         <Paragraph>
-          Données d'inscription fournies par les utilisateurs, telles que le nom
-          et l'adresse e-mail, pour créer un compte Kepply.
+          Données d&apos;inscription fournies par les utilisateurs, telles que le nom
+          et l&apos;adresse e-mail, pour créer un compte Kepply.
         </Paragraph>
         <Paragraph>
-          Informations techniques relatives à l'utilisation de l'application, y
-          compris l'adresse IP et les données de navigation.
+          Informations techniques relatives à l&apos;utilisation de l&apos;application, y
+          compris l&apos;adresse IP et les données de navigation.
         </Paragraph>
       </div>
       <div>
@@ -38,14 +38,14 @@ const ConfidentialityPage = () => (
         <Paragraph>Les informations recueillies servent à :</Paragraph>
         <Paragraph>Gérer les comptes des utilisateurs.</Paragraph>
         <Paragraph>
-          Améliorer l'expérience utilisateur sur l'application.
+          Améliorer l&apos;expérience utilisateur sur l&apos;application.
         </Paragraph>
         <Paragraph>
           Communiquer avec les utilisateurs via e-mail pour des notifications ou
           des newsletters.
         </Paragraph>
         <Paragraph>
-          Optimiser et évaluer l'efficacité de l'application web.
+          Optimiser et évaluer l&apos;efficacité de l&apos;application web.
         </Paragraph>
       </div>
       <div>
@@ -69,7 +69,7 @@ const ConfidentialityPage = () => (
           Consentement
         </Heading>
         <Paragraph>
-          L'utilisation de l'application Kepply signifie que l'utilisateur
+          L&apos;utilisation de l&apos;application Kepply signifie que l&apos;utilisateur
           accepte les termes de cette politique de confidentialité.
         </Paragraph>
       </div>

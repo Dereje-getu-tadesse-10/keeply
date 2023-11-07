@@ -12,12 +12,12 @@ const Cookies = () => (
         <Paragraph>
           Nous utilisons des cookies pour améliorer votre expérience sur notre
           application web Kepply. En naviguant sur Kepply, vous acceptez
-          l'utilisation de cookies conformément à cette politique.
+          l&apos;utilisation de cookies conformément à cette politique.
         </Paragraph>
       </div>
       <div>
         <Heading as='h2' variant='h2'>
-          Qu'est-ce qu'un cookie ?
+          Qu&apos;est-ce qu&apos;un cookie ?
         </Heading>
         <Paragraph>
           Un cookie est un petit fichier texte envoyé à votre navigateur par les
@@ -31,7 +31,7 @@ const Cookies = () => (
           Utilisation des Cookies
         </Heading>
         <Paragraph>
-          Kepply n'utilise pas de cookies pour suivre les informations
+          Kepply n&apos;utilise pas de cookies pour suivre les informations
           personnelles ou le comportement des utilisateurs sur notre application
           web.
         </Paragraph>
@@ -41,22 +41,22 @@ const Cookies = () => (
           Analyse de l'Application
         </Heading>
         <Paragraph>
-          Nous utilisons Umami Analytics, un outil d'analyse conforme au RGPD,
-          qui ne collecte aucune information personnelle, n'utilise pas de
+          Nous utilisons Umami Analytics, un outil d&apos;analyse conforme au RGPD,
+          qui ne collecte aucune information personnelle, n&apos;utilise pas de
           cookies et ne suit pas les utilisateurs à travers les sites web. Umami
-          nous aide à comprendre l'utilisation globale de l'application pour
-          améliorer l'expérience utilisateur sans compromettre votre vie privée.
+          nous aide à comprendre l&apos;utilisation globale de l&apos;application pour
+          améliorer l&apos;expérience utilisateur sans compromettre votre vie privée.
         </Paragraph>
       </div>
       <div>
         <Heading as='h2' variant='h2'>
-          Services d'Authentification
+          Services d&apos;Authentification
         </Heading>
         <Paragraph>
           Pour les fonctionnalités de connexion à Kepply via Google OAuth,
           GitHub OAuth et la connexion par email, des cookies techniques sont
           nécessaires pour authentifier les utilisaires et maintenir une session
-          sécurisée. Ces cookies sont essentiels et ne servent qu'à la
+          sécurisée. Ces cookies sont essentiels et ne servent qu&apos;à la
           fonctionnalité de connexion.
         </Paragraph>
       </div>
@@ -65,10 +65,10 @@ const Cookies = () => (
           Votre Choix et Vos Droits
         </Heading>
         <Paragraph>
-          Vous avez le droit de contrôler l'utilisation des cookies techniques
+          Vous avez le droit de contrôler l&apos;utilisation des cookies techniques
           par le biais des paramètres de votre navigateur, mais refuser ces
-          cookies peut empêcher l'utilisation des services de connexion et
-          d'authentification de Kepply.
+          cookies peut empêcher l&apos;utilisation des services de connexion et
+          d&apos;authentification de Kepply.
         </Paragraph>
       </div>
       <div>
@@ -76,7 +76,7 @@ const Cookies = () => (
           Confidentialité et partage des données
         </Heading>
         <Paragraph>
-          Nous nous engageons à ne pas partager d'informations personnelles avec
+          Nous nous engageons à ne pas partager d&apos;informations personnelles avec
           des tiers et à respecter la confidentialité de nos utilisateurs
           conformément aux lois sur la protection des données.
         </Paragraph>
@@ -97,7 +97,7 @@ const Cookies = () => (
         </Heading>
         <Paragraph>
           Nous révisons notre politique de cookies périodiquement pour nous
-          assurer qu'elle reste à jour avec les meilleures pratiques et la
+          assurer qu&apos;elle reste à jour avec les meilleures pratiques et la
           réglementation. Toute mise à jour sera communiquée de manière
           appropriée.
         </Paragraph>
