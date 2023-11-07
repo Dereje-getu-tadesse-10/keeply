@@ -3,7 +3,7 @@ import { getUserAndCollections } from '$/server/users';
 import { notFound } from 'next/navigation';
 import styles from './page.module.css';
 import { Heading } from '$/components/ui';
-import { UserCollection } from '$/components/users/user-page-collection/user-page-collection';
+import { UserCollections } from '$/components/users/user-collections';
 
 const Page = async ({ params }: { params: { username: string } }) => {
   const currentUser = params.username;
@@ -44,7 +44,7 @@ const Page = async ({ params }: { params: { username: string } }) => {
             </>
           )}
           <div className={styles.collections__grid}>
-            <UserCollection userProfil={userProfil} />
+            <UserCollections userProfil={userProfil} />
           </div>
         </div>
       </section>

@@ -143,10 +143,8 @@ export const UpdateCollectible = ({
                 <Button
                   size={'small'}
                   type='submit'
-                  disabled={!isDirty || !isValid || isSubmitting || isPending}
-                  aria-disabled={
-                    !isDirty || !isValid || isSubmitting || isPending
-                  }
+                  disabled={!isValid || isSubmitting || isPending}
+                  aria-disabled={!isValid || isSubmitting || isPending}
                 >
                   Modifer l&apos;objet collectionné
                 </Button>

@@ -85,8 +85,8 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
             monde ou seulement par vous sur votre profil.'
             />
             <Button type='submit' 
-            disabled={isSubmitting || !isValid || isDirty || isPending}
-            aria-disabled={isSubmitting || !isValid || isDirty || isPending}
+              disabled={!isValid || isSubmitting || isPending}
+              aria-disabled={!isValid || isSubmitting || isPending}
             >
               {isSubmitting ? 'En cours...' : 'Créer'}
             </Button>

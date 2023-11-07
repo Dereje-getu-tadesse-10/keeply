@@ -172,7 +172,8 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
         <Button
           type='submit'
           size={'medium'}
-          disabled={isSubmitting || !isDirty || !isValid || isPending}
+          disabled={!isValid || isSubmitting || isPending}
+          aria-disabled={!isValid || isSubmitting || isPending}
         >
           {isPending ? 'Mise à jour du profil...' : 'Mettre à jour mon profil'}
         </Button>

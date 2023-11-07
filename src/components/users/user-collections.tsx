@@ -1,14 +1,14 @@
 'use client';
 import { useState } from 'react';
-import { Card, Modal, Paragraph, Separator } from '$/components/ui';
+import { Card, Modal } from '$/components/ui';
 import { Collectible, Collection } from '@prisma/client';
-import { CollectibleCard, CollectionCard } from '../../dashboard';
+import { CollectionCard } from '$/components/collections/collection-card/collection-card';
 import { useModalStore } from '$/stores/useModalStore';
 import styles from './user-page-collection.module.css';
 
 const MODAL_KEY = 'view-collection';
 
-export const UserCollection = ({ userProfil }: any) => {
+export const UserCollections = ({ userProfil }: any) => {
   const { modals, toggleModal } = useModalStore();
   const [selectedCollection, setSelectedCollection] = useState<any>(null);
   console.log(selectedCollection);

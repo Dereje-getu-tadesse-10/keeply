@@ -84,8 +84,8 @@ export const CreateCollectible = ({
 
             <Button
               type='submit'
-              disabled={!isDirty || !isValid || isSubmitting || isPending}
-              aria-disabled={!isDirty || !isValid || isSubmitting || isPending}
+              disabled={!isValid || isSubmitting || isPending}
+              aria-disabled={!isValid || isSubmitting || isPending}
             >
               Créer l&apos;objet
             </Button>

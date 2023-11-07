@@ -21,7 +21,7 @@ import { updateCollection, deleteCollection } from '$/lib/fetchs';
 import { useModalStore } from '$/stores/useModalStore';
 import { Warning } from '$/components/commons';
 import { CollectionCard } from '$/components/dashboard';
-
+import { useMutation } from '@tanstack/react-query';
 type Props = {
   userId: string;
   id: string;
@@ -52,23 +52,34 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
     },
   });
 
+  const { mutate, isPending } = useMutation({
+    mutationFn: (data: FormData) => updateCollection(data, collection.id),
+    onSuccess: (data) => {
+      toast.success(data.message);
+      router.refresh();
+      toggleModal(MODAL_ID);
+    },
+  });
+
+  const { mutate: mutateDelete, isPending: isPendingDelete } = useMutation({
+    mutationFn: () => deleteCollection(collection.id, collection.userId),
+    onSuccess: (data) => {
+      toast.success(data.message);
+      router.push(`/dashboard`);
+      router.refresh();
+      toggleModal(MODAL_ID);
+    },
+  });
+
   const onSubmit = async (data: FormData) => {
     const datas: FormData = {
       userId: collection.userId,
       ...data,
     };
-    const res = await updateCollection(datas, collection.id);
-    toast.success(res.message);
-    router.refresh();
+    mutate(datas);
   };
 
-  const handleDelete = async () => {
-    const response = await deleteCollection(collection.id, collection.userId);
-    toast.success(response.message);
-    router.push(`/dashboard`);
-    router.refresh();
-    toggleModal(MODAL_ID);
-  };
+  const handleDelete = async () => mutateDelete();
 
   return (
     <>
@@ -109,7 +120,10 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
                 )}
               </div>
 
-              <Button type='submit'>
+              <Button type='submit'
+       disabled={!isValid || isSubmitting || isPending}
+       aria-disabled={!isValid || isSubmitting || isPending}
+              >
                 {isSubmitting ? 'En cours...' : 'Modifier la collection'}
               </Button>
             </form>
