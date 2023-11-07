@@ -25,7 +25,7 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
     handleSubmit,
     register,
     reset,
-    formState: { isSubmitting, isDirty, isValid },
+    formState: { isSubmitting, isDirty, isValid, errors },
   } = useForm<FormData>({
     resolver: zodResolver(collectionWithoutUserIdSchema),
   });
@@ -60,6 +60,11 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
                 placeholder='Vinyles de taylor swift'
                 {...register('name')}
               />
+              {errors.name && (
+                <Paragraph variant='p' isError>
+                  {errors.name.message}
+                </Paragraph>
+              )}
             </div>
             <div className={styles.form__control}>
               <Input
@@ -68,6 +73,11 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
                 placeholder='Une collection de vinyles de taylor swift'
                 {...register('description')}
               />
+               {errors.description && (
+                <Paragraph variant='p' isError>
+                  {errors.description.message}
+                </Paragraph>
+              )}
             </div>
             <div className={styles.form__control}>
               <Select id='status' {...register('status')}>
@@ -76,22 +86,23 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
                   Privée (visible uniquement par vous)
                 </option>
               </Select>
+              {errors.status && (
+                <Paragraph variant='p' isError>
+                  {errors.status.message}
+                </Paragraph>
+              )}
             </div>
             <Warning
               text='En fonction du statut, votre collection sera visible par tout le
             monde ou seulement par vous sur votre profil.'
             />
-            {isDirty && !isValid && (
-              <Paragraph variant='p' isError>
-                Veuillez remplir tous les champs
-              </Paragraph>
-            )}
             <Button type='submit' disabled={isSubmitting || !isValid}>
               {isSubmitting ? 'En cours...' : 'Créer'}
             </Button>
           </form>
         </Modal>
       ) : null}
+     
     </>
   );
 };
