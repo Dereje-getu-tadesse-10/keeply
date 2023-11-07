@@ -19,6 +19,8 @@ import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { CollectibleCard } from '$/components/dashboard';
 import { UpdateCollectibleSkeleton } from '$/components/loadings';
+import { useMutation } from '@tanstack/react-query';
+
 type FormData = z.infer<typeof updateCollectibleSchema>;
 
 const MODAL_KEY = 'update-collectible';
@@ -49,6 +51,17 @@ export const UpdateCollectible = ({
     resolver: zodResolver(updateCollectibleSchema),
   });
 
+  const { mutate, isPending } = useMutation({
+    mutationFn: (data: FormData) =>
+      updateCollectiblePut(data, collectibleId as string),
+    onSuccess: (data) => {
+      toast.success(data.message);
+      router.refresh();
+      toggleModal(MODAL_KEY);
+      reset();
+    },
+  });
+
   const onSubmit = async (data: FormData) => {
     const datas = {
       ...data,
@@ -56,16 +69,7 @@ export const UpdateCollectible = ({
       collectionId: collectionId as string,
       dragPosition: 1,
     };
-
-    const response = await updateCollectiblePut(datas, collectibleId as string);
-    toast.success(response.message);
-    router.refresh();
-    toggleModal(MODAL_KEY);
-    reset({
-      name: data.name,
-      description: data.description,
-      status: data.status,
-    });
+    mutate(datas);
   };
 
   const handleDelete = async () => {
@@ -139,7 +143,10 @@ export const UpdateCollectible = ({
                 <Button
                   size={'small'}
                   type='submit'
-                  disabled={!isDirty || !isValid || isSubmitting}
+                  disabled={!isDirty || !isValid || isSubmitting || isPending}
+                  aria-disabled={
+                    !isDirty || !isValid || isSubmitting || isPending
+                  }
                 >
                   Modifer l&apos;objet collectionné
                 </Button>

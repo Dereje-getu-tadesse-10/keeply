@@ -12,6 +12,7 @@ import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { BackgroundColors } from '@prisma/client';
 import { useEffect, useState } from 'react';
+
 type FormValue = z.infer<typeof upddateUsernameSchema>;
 
 type Props = {
