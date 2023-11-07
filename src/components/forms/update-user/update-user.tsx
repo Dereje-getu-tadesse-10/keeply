@@ -38,9 +38,8 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
     handleSubmit,
     watch,
     register,
-    formState: { isSubmitting, isDirty, isValid, errors },
+    formState: { isSubmitting, isDirty, isValid },
     setValue,
-    getValues,
   } = useForm<FormValue>({
     resolver: zodResolver(upddateUsernameSchema),
     defaultValues: {

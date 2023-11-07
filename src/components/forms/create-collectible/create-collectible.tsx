@@ -10,7 +10,7 @@ import { Select } from '$/components/ui/select/select';
 import { useModalStore } from '$/stores/useModalStore';
 import { createCollectiblesSchema } from '$/schemas/collectibles-schema';
 import { createCollectible } from '$/lib/fetchs';
-import { Warning } from '$/components/commons';
+import { useMutation } from '@tanstack/react-query';
 
 type FormData = z.infer<typeof createCollectiblesSchema>;
 const MODAL_KEY = 'create-collectible';
@@ -29,9 +29,20 @@ export const CreateCollectible = ({
     handleSubmit,
     register,
     reset,
-    formState: { isSubmitting, isDirty, isValid, errors },
+    formState: { isSubmitting, isDirty, isValid },
   } = useForm<FormData>({
     resolver: zodResolver(createCollectiblesSchema),
+  });
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: (data: FormData) => createCollectible(data, userId),
+    onSuccess: (data) => {
+      console.log(data)
+      toast.success(data.message);
+      router.refresh();
+      toggleModal(MODAL_KEY);
+      reset();
+    }
   });
 
   const onSubmit = async (data: FormData) => {
@@ -41,12 +52,7 @@ export const CreateCollectible = ({
       collectionId: collectionId,
       dragPosition: 1,
     };
-    console.log(datas);
-    const response = await createCollectible(datas, userId);
-    toast.success(response.message);
-    router.refresh();
-    toggleModal(MODAL_KEY);
-    reset();
+    mutate(datas);
   };
 
   return (
@@ -78,7 +84,8 @@ export const CreateCollectible = ({
 
             <Button
               type='submit'
-              disabled={!isDirty || !isValid || isSubmitting}
+              disabled={!isDirty || !isValid || isSubmitting || isPending}
+              aria-disabled={!isDirty || !isValid || isSubmitting || isPending}
             >
               Créer l&apos;objet
             </Button>

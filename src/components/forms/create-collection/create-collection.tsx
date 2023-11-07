@@ -53,7 +53,6 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
           size='medium'
         >
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-            <div className={styles.form__control}>
               <Input
                 label='Nom de la collection'
                 id='name'
@@ -65,8 +64,6 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
                   {errors.name.message}
                 </Paragraph>
               )}
-            </div>
-            <div className={styles.form__control}>
               <Input
                 label='Description'
                 id='description'
@@ -78,8 +75,6 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
                   {errors.description.message}
                 </Paragraph>
               )}
-            </div>
-            <div className={styles.form__control}>
               <Select id='status' {...register('status')}>
                 <option value='PUBLIC'>Publique</option>
                 <option value='PRIVATE'>
@@ -91,12 +86,11 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
                   {errors.status.message}
                 </Paragraph>
               )}
-            </div>
             <Warning
               text='En fonction du statut, votre collection sera visible par tout le
             monde ou seulement par vous sur votre profil.'
             />
-            <Button type='submit' disabled={isSubmitting || !isValid}>
+            <Button type='submit' disabled={isSubmitting || !isValid || isDirty}>
               {isSubmitting ? 'En cours...' : 'Créer'}
             </Button>
           </form>
