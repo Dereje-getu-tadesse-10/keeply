@@ -75,7 +75,7 @@ EMAIL_FROM=
 - [x] Page paramètres utilisateur
 - [x] Page mentions légales
 - [x] Page politique de confidentialité
-- [ ] Page de politique de confidentialité 
+- [x] Page de politique de confidentialité
 
 ### Stack
 

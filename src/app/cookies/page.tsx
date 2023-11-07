@@ -1,5 +1,6 @@
 import { Heading, Paragraph } from '$/components/ui';
 import styles from '../mentions/page.module.css';
+
 const Cookies = () => (
   <main className={styles.main}>
     <section>
@@ -7,7 +8,7 @@ const Cookies = () => (
         <Heading as='h1' variant='h2'>
           Politique de Cookies de Kepply
         </Heading>
-    
+
         <Paragraph>
           Nous utilisons des cookies pour améliorer votre expérience sur notre
           application web Kepply. En naviguant sur Kepply, vous acceptez
