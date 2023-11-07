@@ -1,46 +1,51 @@
 import { Heading, Paragraph } from '$/components/ui';
 import Link from 'next/link';
-import styles from "./page.module.css";
+import styles from './page.module.css';
 const MentionsPage = () => (
   <main className={styles.main}>
     <section>
-        <div>
-      <Heading as='h1' variant='h2'>
-        PRESENTATION DU SITE
-      </Heading>
-      <Paragraph>
-        En vertu de l&apos;article 6 de la loi n° 2004-575 du 21 juin 2004 pour
-        la confiance dans l&apos;économie numérique, les différents intervenants
-        du site dans le cadre de sa réalisation et de son suivi :
-      </Paragraph>
-      <ul>
-        <li>
-          <strong>Propriétaire :</strong>{' '}
-          <Paragraph>
-            Keeply. Le propriétaire du site
-            internet est joignable à cette adresse :{' '}
-            <a href='mail:to:hello@dereje.fr'>hello@dereje.fr</a>
-          </Paragraph>
-        </li>
-        <li>
-          <strong>Créateur du site :</strong>
-          <Paragraph>Dereje Getu Tadesse</Paragraph>
-        </li>
-        <li>
-          <strong>Responsable publication :</strong>
-          <Paragraph>Dereje Getu Tadesse - <a href='mail:to:hello@dereje.fr'>hello@dereje.fr</a></Paragraph>
-        </li>
-        <li>
-          <strong>Webmaster :</strong>
-          <Paragraph>Getu Tadesse - <a href='mail:to:hello@dereje.fr'>hello@dereje.fr</a></Paragraph>
-        </li>
-        <li>
-          <strong>Hébergeur :</strong>
-          <Paragraph>
-            Cloudflare 101 Townsend St., San Francisco, California 94107
-          </Paragraph>
-        </li>
-      </ul>
+      <div>
+        <Heading as='h1' variant='h2'>
+          PRESENTATION DU SITE
+        </Heading>
+        <Paragraph>
+          En vertu de l&apos;article 6 de la loi n° 2004-575 du 21 juin 2004
+          pour la confiance dans l&apos;économie numérique, les différents
+          intervenants du site dans le cadre de sa réalisation et de son suivi :
+        </Paragraph>
+        <ul>
+          <li>
+            <strong>Propriétaire :</strong>{' '}
+            <Paragraph>
+              Keeply. Le propriétaire du site internet est joignable à cette
+              adresse : <a href='mail:to:hello@dereje.fr'>hello@dereje.fr</a>
+            </Paragraph>
+          </li>
+          <li>
+            <strong>Créateur du site :</strong>
+            <Paragraph>Dereje Getu Tadesse</Paragraph>
+          </li>
+          <li>
+            <strong>Responsable publication :</strong>
+            <Paragraph>
+              Dereje Getu Tadesse -{' '}
+              <a href='mail:to:hello@dereje.fr'>hello@dereje.fr</a>
+            </Paragraph>
+          </li>
+          <li>
+            <strong>Webmaster :</strong>
+            <Paragraph>
+              Getu Tadesse -{' '}
+              <a href='mail:to:hello@dereje.fr'>hello@dereje.fr</a>
+            </Paragraph>
+          </li>
+          <li>
+            <strong>Hébergeur :</strong>
+            <Paragraph>
+              Cloudflare 101 Townsend St., San Francisco, California 94107
+            </Paragraph>
+          </li>
+        </ul>
       </div>
       <div>
         <Heading as='h2' variant='h2'>
@@ -52,10 +57,13 @@ const MentionsPage = () => (
           Ces conditions d&apos;utilisation sont susceptibles d&apos;être
           modifiées ou complétées à tout moment, les utilisateurs du site sont
           donc invités à les consulter de manière régulière. Le site est mis à
-          jour régulièrement par <strong>Dereje Getu Tadesse</strong>. De la même façon,{' '}
-          <strong>les mentions légales peuvent être modifiées à tout moment</strong> :
-          elles s&apos;imposent néanmoins à l&apos;utilisateur qui est invité à
-          s&apos;y référer le plus souvent possible afin d&apos;en prendre
+          jour régulièrement par <strong>Dereje Getu Tadesse</strong>. De la
+          même façon,{' '}
+          <strong>
+            les mentions légales peuvent être modifiées à tout moment
+          </strong>{' '}
+          : elles s&apos;imposent néanmoins à l&apos;utilisateur qui est invité
+          à s&apos;y référer le plus souvent possible afin d&apos;en prendre
           connaissance.
         </Paragraph>
       </div>
@@ -378,7 +386,7 @@ const MentionsPage = () => (
           </li>
         </ul>
       </div>
-      </section>
+    </section>
   </main>
 );
 
