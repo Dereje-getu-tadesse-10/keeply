@@ -21,14 +21,13 @@ export const Modal: React.FC<ModalProps> = ({
   const sizeStyle = props.size === 'medium' ? styles.medium : styles.large;
 
   const escFunction = useCallback(
-    (event:KeyboardEvent) => {
+    (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         toggleModal(modalId);
       }
     },
     [toggleModal, modalId]
   );
-  
 
   useEffect(() => {
     window.addEventListener('keydown', escFunction);
@@ -36,7 +35,7 @@ export const Modal: React.FC<ModalProps> = ({
     return () => {
       window.removeEventListener('keydown', escFunction);
     };
-  }, [escFunction]); 
+  }, [escFunction]);
 
   return (
     <div className={`${styles.modal__container}`}>

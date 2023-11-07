@@ -1,12 +1,12 @@
-"use client"
-import { Button, Heading, Paragraph } from "$/components/ui"
-import {useModalStore} from "$/stores/useModalStore"
+'use client';
+import { Button, Heading, Paragraph } from '$/components/ui';
+import { useModalStore } from '$/stores/useModalStore';
 
-export const DashboardHeader = ({lenght}:{lenght:number}) => {
-    const {toggleModal} = useModalStore()
-    return (
-        <>
-        <Heading as='h1' variant='h1'>
+export const DashboardHeader = ({ lenght }: { lenght: number }) => {
+  const { toggleModal } = useModalStore();
+  return (
+    <>
+      <Heading as='h1' variant='h1'>
         Mes collections
       </Heading>
       <Paragraph variant='hightlight'>
@@ -16,12 +16,13 @@ export const DashboardHeader = ({lenght}:{lenght:number}) => {
       <Paragraph variant='hightlight'>
         <b>{lenght}</b> collections créées
       </Paragraph>
-      <Button size={'small'} 
+      <Button
+        size={'small'}
         intent={'primary'}
         onClick={() => toggleModal('create-collection')}
       >
         Créer une collection
       </Button>
-      </>
-    )
-}
+    </>
+  );
+};

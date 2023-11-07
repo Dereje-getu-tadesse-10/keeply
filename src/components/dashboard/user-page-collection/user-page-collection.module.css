@@ -1,27 +1,26 @@
 .collectible > li > p:first-child {
-    margin-bottom: 5px;
-    font-size: 1rem;
-    font-weight: 580;
-    color: var(--color-text-primary)
+  margin-bottom: 5px;
+  font-size: 1rem;
+  font-weight: 580;
+  color: var(--color-text-primary);
 }
 
 .collectible > li > p {
-    font-size: 13px;
-    margin: 8px 0;
-    color: var(--color-text-secondary)
+  font-size: 13px;
+  margin: 8px 0;
+  color: var(--color-text-secondary);
 }
 
 .collectible > li > p > b {
-    font-weight: 600;
-    color: var(--color-text-primary)
+  font-weight: 600;
+  color: var(--color-text-primary);
 }
 
 .collectible > li > hr {
-    margin: 15px 0;
-    border: 0;
-    width: 100%;
-    height: 1px;
-    visibility: visible;
-    border-bottom: 1px solid rgba(55, 53, 47, 0.16);
+  margin: 15px 0;
+  border: 0;
+  width: 100%;
+  height: 1px;
+  visibility: visible;
+  border-bottom: 1px solid rgba(55, 53, 47, 0.16);
 }
-

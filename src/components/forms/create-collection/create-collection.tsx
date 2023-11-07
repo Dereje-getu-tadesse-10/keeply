@@ -73,7 +73,7 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
                 placeholder='Une collection de vinyles de taylor swift'
                 {...register('description')}
               />
-               {errors.description && (
+              {errors.description && (
                 <Paragraph variant='p' isError>
                   {errors.description.message}
                 </Paragraph>
@@ -102,7 +102,6 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
           </form>
         </Modal>
       ) : null}
-     
     </>
   );
 };

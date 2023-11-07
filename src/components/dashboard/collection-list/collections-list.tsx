@@ -14,7 +14,7 @@ export const CollectionsList = ({
         </Heading>
         <Paragraph variant='hightlight'>{collection.description}</Paragraph>
         <Badge intent={collection.status ? 'primary' : 'secondary'}>
-          {collection.status === "PUBLIC" ? 'Publique' : 'Privée'}
+          {collection.status === 'PUBLIC' ? 'Publique' : 'Privée'}
         </Badge>
         <ButtonLink
           href={`/dashboard/collection/${collection.id}`}

@@ -1,5 +1,7 @@
 .main {
   height: 100svh;
+  max-width: 1120px;
+  margin: auto;
 }
 
 .section {
@@ -38,7 +40,7 @@
 
 @media screen and (min-width: 768px) {
   .section {
-    padding: 3rem;
+    /* padding: 3rem; */
   }
   .collections {
     margin-top: 0px;

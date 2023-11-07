@@ -14,7 +14,7 @@ const Page = async () => {
 
   return (
     <>
-      <DashboardHeader lenght={collections.length}/>
+      <DashboardHeader lenght={collections.length} />
       <Separator />
       {collections.length > 0 ? (
         <CollectionsList collections={collections} />

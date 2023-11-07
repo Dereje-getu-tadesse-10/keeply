@@ -31,7 +31,7 @@ const getUserAndCollections = async (currentUser: string) => {
               id: true,
               name: true,
               description: true,
-              status: true
+              status: true,
             },
             orderBy: {
               id: 'asc',

@@ -32,15 +32,17 @@ const Page = async ({ params }: { params: { username: string } }) => {
           </div>
         </div>
         <div className={styles.collections}>
-           {userProfil.collections.length > 0 ? (
-            <Heading as='h1' variant='h1'>
-            Collections
-          </Heading>
-           ):(<>
-            <Heading as='h3' variant='h3'>
-            Ouups ! Cette personne n'a pas encore de collection
+          {userProfil.collections.length > 0 ? (
+            <Heading as='h2' variant='h2'>
+              Collections
             </Heading>
-           </>)}
+          ) : (
+            <>
+              <Heading as='h3' variant='h3'>
+                Ouups ! Cette personne n'a pas encore de collection
+              </Heading>
+            </>
+          )}
           <div className={styles.collections__grid}>
             <UserCollection userProfil={userProfil} />
           </div>
