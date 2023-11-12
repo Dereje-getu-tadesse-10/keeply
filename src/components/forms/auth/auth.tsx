@@ -60,7 +60,7 @@ export const Auth = () => {
           </Button>
         ) : (
           <Button type='submit' intent={'primary'} disabled={isSubmitting}>
-            <Sparkles size={'20'} /> Recevoir le lien magic
+            <Sparkles size={'20'} /> Recevoir le lien magique
           </Button>
         )}
       </form>
