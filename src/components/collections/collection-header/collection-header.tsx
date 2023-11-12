@@ -19,10 +19,11 @@ export const CollectionHeader = ({ collection }: { collection: Props }) => {
       </Heading>
       <Paragraph variant='hightlight'>{collection.description}</Paragraph>
       <Paragraph variant='hightlight'>
-        <strong>{collection._count?.items}</strong> objets dans cette collection
+        La collection contient <strong>{collection._count?.items}</strong>{' '}
+        objet(s)
       </Paragraph>
       <Paragraph variant='hightlight'>
-        La collection est {collection.status ? 'publique' : 'privée'}
+        votre collection est {collection.status ? 'publique' : 'privée'}
       </Paragraph>
       <div className={styles.btn_container}>
         <Button

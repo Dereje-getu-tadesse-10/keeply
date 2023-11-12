@@ -39,7 +39,7 @@ const Page = async ({ params }: { params: { username: string } }) => {
           ) : (
             <>
               <Heading as='h3' variant='h3'>
-                Ouups ! Cette personne n'a pas encore de collection
+                Ouups ! Cette personne n&apos;a pas encore de collection
               </Heading>
             </>
           )}

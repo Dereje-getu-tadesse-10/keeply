@@ -305,15 +305,15 @@ const MentionsPage = () => (
         </ul>
         <Paragraph>
           Les liens hypertextes mis en place dans le cadre du présent site
-          internet en direction d'autres ressources présentes sur le réseau
+          internet en direction d&apos;autres ressources présentes sur le réseau
           Internet ne sauraient engager la responsabilité de Dereje Getu
           Tadesse.
         </Paragraph>
         <Paragraph>
-          Tout contenu téléchargé se fait aux risques et périls de l'utilisateur
+          Tout contenu téléchargé se fait aux risques et périls de l&apos;utilisateur
           et sous sa seule responsabilité. En conséquence, Dereje Getu Tadesse
-          ne saurait être tenu responsable d'un quelconque dommage subi par
-          l'ordinateur de l'utilisateur ou d'une quelconque perte de données
+          ne saurait être tenu responsable d&apos;un quelconque dommage subi par
+          l&apos;ordinateur de l&apos;utilisateur ou d&apos;une quelconque perte de données
           consécutives au téléchargement.
         </Paragraph>
       </div>
@@ -324,7 +324,7 @@ const MentionsPage = () => (
         <Paragraph>
           Les présentes conditions du site https://keeply.dereje.fr sont régies
           par les lois françaises et toute contestation ou litiges qui
-          pourraient naître de l'interprétation ou de l'exécution de celles-ci
+          pourraient naître de l&apos;interprétation ou de l&apos;exécution de celles-ci
           seront de la compétence exclusive des tribunaux dont dépend le siège
           social de la société Dereje Getu Tadesse. La langue de référence, pour
           le règlement de contentieux éventuels, est le français.

@@ -6,3 +6,7 @@
   width: 100%;
   margin-top: 30px;
 }
+
+.form > div {
+  margin-bottom: 14px;
+}

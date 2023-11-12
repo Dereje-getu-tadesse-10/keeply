@@ -7,6 +7,7 @@ import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
 import { updateCollectionSchema } from '$/schemas/collections-schema';
 
+
 const paramsUrl = z.object({
   collectionId: z.string(),
 });

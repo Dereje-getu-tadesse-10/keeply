@@ -5,7 +5,7 @@ import { auth } from '$/lib/auth';
 import { redirect } from 'next/navigation';
 import { Heading, Separator } from '$/components/ui';
 import { Paragraph } from '$/components/ui/paragraph/paragraph';
-import { Navbar } from '$/components/commons';
+
 
 const Login = async () => {
   const session = await auth();
@@ -29,8 +29,9 @@ const Login = async () => {
       <Separator />
       <Paragraph variant='p'>
         En vous connectant, vous acceptez nos{' '}
-        <Link href='/terms'>Conditions d&apos;utilisation</Link> et notre{' '}
-        <Link href='/privacy'>Politique de confidentialité</Link>.
+        <Link href='/cookies'>Politique de cookie</Link> et notre{' '}
+        <Link href='/privacy'>Politique de confidentialité</Link> ainsi que nos{' '}
+        <Link href='/mentions'>Mentions légales</Link>.
       </Paragraph>
     </main>
   );

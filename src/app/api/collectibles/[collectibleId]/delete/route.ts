@@ -6,6 +6,7 @@ import { verifySession } from '$/lib/verify-session';
 import { updateCollectibleSchema } from '$/schemas/collectibles-schema';
 import z from 'zod';
 
+
 const paramsUrl = z.object({
   collectibleId: z.string(),
 });
@@ -21,7 +22,6 @@ export async function DELETE(
 
   // Si le params n'est pas conforme au schéma, on renvoie une erreur
   if (!collectibleParams.success) {
-    console.log(collectibleParams.error, 'lsfdsd');
     return NextResponse.json(
       { message: "Oups, une erreur s'est produite héhé" },
       { status: 400 }
@@ -30,7 +30,6 @@ export async function DELETE(
 
   // Si le body n'est pas conforme au schéma, on renvoie une erreur
   if (!response.success) {
-    console.log(response.error, 'lsfdsd');
     return NextResponse.json(
       { message: "Oups, une erreur s'est produite" },
       { status: 400 }
@@ -41,8 +40,8 @@ export async function DELETE(
   const sessionError = verifySession(session, {
     userId: response.data.userId as string,
   });
+
   if (sessionError) {
-    console.log(sessionError);
     return NextResponse.json(sessionError, { status: sessionError.status });
   }
 
@@ -56,7 +55,6 @@ export async function DELETE(
 
   // // Si le collectible n'existe pas, on renvoie une erreur
   if (!collectible) {
-    console.log('Collectible non trouvé');
     return NextResponse.json(
       { message: 'Collectible non trouvé' },
       { status: 404 }

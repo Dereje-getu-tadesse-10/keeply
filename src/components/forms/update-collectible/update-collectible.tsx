@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { Button, Heading, Input, Modal, Paragraph } from '$/components/ui';
+import { Button, Input, Modal, Paragraph, TextArea } from '$/components/ui';
 import { toast } from 'react-hot-toast';
 import { Select } from '$/components/ui/select/select';
 import { useModalStore } from '$/stores/useModalStore';
@@ -18,8 +18,8 @@ import { useCollectibleId } from '$/stores/useCollectibleId';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { CollectibleCard } from '$/components/dashboard';
-import { UpdateCollectibleSkeleton } from '$/components/loadings';
 import { useMutation } from '@tanstack/react-query';
+import { LoadingCollectible } from '$/components/collectibles/loading/loading';
 
 type FormData = z.infer<typeof updateCollectibleSchema>;
 
@@ -46,7 +46,7 @@ export const UpdateCollectible = ({
     handleSubmit,
     register,
     reset,
-    formState: { isSubmitting, isDirty, isValid, errors },
+    formState: { isSubmitting, isValid, errors },
   } = useForm<FormData>({
     resolver: zodResolver(updateCollectibleSchema),
   });
@@ -99,9 +99,7 @@ export const UpdateCollectible = ({
           size='medium'
         >
           {isLoading ? (
-            <>
-              <UpdateCollectibleSkeleton />
-            </>
+            <LoadingCollectible />
           ) : (
             <>
               <CollectibleCard
@@ -116,18 +114,16 @@ export const UpdateCollectible = ({
                   placeholder='Red Taylor’s Version'
                   {...register('name')}
                   defaultValue={data?.data?.name}
+                  error={errors && errors.name?.message}
                 />
-                <Paragraph isError>{errors && errors.name?.message} </Paragraph>
-                <Input
+                <TextArea
                   label='Description'
                   id='description'
                   placeholder='Red Taylor’s Version est le quatrième album studio de la chanteuse américaine Taylor Swift, sorti le 9 novembre 2012 sur le label Big Machine Records. Il s’agit d’une réédition de son album Red, sorti en 2012, contenant 30 titres, dont 6 inédits.'
                   {...register('description')}
                   defaultValue={data?.data?.description}
+                  error={errors && errors.description?.message}
                 />
-                <Paragraph isError>
-                  {errors && errors.description?.message}{' '}
-                </Paragraph>
                 <Select
                   label='Status'
                   id='status'

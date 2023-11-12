@@ -6,6 +6,7 @@ import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
 import { collectionSchema } from '$/schemas/collections-schema';
 
+
 export async function POST(req: Request, res: Response) {
   const session = await getServerSession(config);
   const body = await req.json();

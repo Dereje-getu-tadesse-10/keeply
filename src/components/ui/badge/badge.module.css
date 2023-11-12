@@ -8,6 +8,9 @@
   vertical-align: baseline;
   border-radius: 0.25rem;
   border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .primary {

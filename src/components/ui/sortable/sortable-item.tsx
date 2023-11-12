@@ -3,9 +3,10 @@ import styles from './sortable.module.css';
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import { Collectible } from '@prisma/client';
 import { Badge, Card, Heading, Paragraph } from '..';
-import { Grip } from 'lucide-react';
+import { CheckCheck, Grip, X } from 'lucide-react';
 import { useModalStore } from '$/stores/useModalStore';
 import { useCollectibleId } from '$/stores/useCollectibleId';
+
 type Props = Collectible;
 
 const DragHandle = SortableHandle(() => (
@@ -34,7 +35,11 @@ export const SortableItem = SortableElement(
             {name}
           </Heading>
           <Badge intent={rest.status === 'ACQUIRED' ? 'primary' : 'secondary'}>
-            {rest.status === 'ACQUIRED' ? 'Acquéri' : 'Manquant'}
+            {rest.status === 'ACQUIRED' ? (
+              <CheckCheck size='14px' />
+            ) : (
+              <X size='14px' />
+            )}
           </Badge>
         </Card>
       </li>

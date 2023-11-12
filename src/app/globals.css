@@ -33,6 +33,7 @@ body {
 }
 
 .collections {
+  padding-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 25px;
@@ -42,5 +43,29 @@ body {
 @media screen and (min-width: 842px) {
   .collections {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

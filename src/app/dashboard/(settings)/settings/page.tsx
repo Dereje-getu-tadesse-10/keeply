@@ -3,6 +3,7 @@ import { Heading, Paragraph } from '$/components/ui';
 import { auth } from '$/lib/auth';
 import { getUser, getBackgroundColor } from '$/server/users';
 
+
 const SettingsPage = async () => {
   const user = await auth();
 

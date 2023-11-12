@@ -1,5 +1,5 @@
 const Loading = () => {
-  return <>Loading...</>;
+  return <div className='spinner'></div>;
 };
 
 export default Loading;

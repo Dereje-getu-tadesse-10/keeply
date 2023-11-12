@@ -22,7 +22,7 @@ export const Auth = () => {
   const {
     handleSubmit,
     register,
-    formState: { isSubmitting, isDirty, isValid },
+    formState: { isSubmitting, isDirty, isValid, errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -52,12 +52,8 @@ export const Auth = () => {
           id='email'
           defaultValue={sessionStorage.getItem('emailForSignIn') || ''}
           {...register('email')}
+          error={errors.email?.message}
         />
-        {isDirty && !isValid && (
-          <Paragraph variant='p' isError>
-            L&apos;email est invalide
-          </Paragraph>
-        )}
         {isSubmitting ? (
           <Button type='submit' intent={'primary'} disabled={isSubmitting}>
             Chargement ....

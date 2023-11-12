@@ -1,17 +1,17 @@
 import type { NextAuthOptions } from 'next-auth';
 import { getServerSession } from 'next-auth';
-import GithubProvider from 'next-auth/providers/github';
-import GoogleProvider from 'next-auth/providers/google';
+import GitHub from 'next-auth/providers/github';
+import Google from 'next-auth/providers/google';
 import EmailProvider from 'next-auth/providers/email';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { prisma } from '$/lib/prisma';
-
 import type {
   GetServerSidePropsContext,
   NextApiRequest,
   NextApiResponse,
 } from 'next';
 import { sendVerificationRequest } from './sendEmail';
+import NextAuth from 'next-auth/next';
 
 const {
   GITHUB_CLIENT_ID,
@@ -24,11 +24,11 @@ const {
 export const config = {
   adapter: PrismaAdapter(prisma),
   providers: [
-    GithubProvider({
+    GitHub({
       clientId: GITHUB_CLIENT_ID,
       clientSecret: GITHUB_CLIENT_SECRET,
     }),
-    GoogleProvider({
+    Google({
       clientId: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
     }),

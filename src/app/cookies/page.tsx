@@ -38,7 +38,7 @@ const Cookies = () => (
       </div>
       <div>
         <Heading as='h2' variant='h2'>
-          Analyse de l'Application
+          Analyse de l&apos;Application
         </Heading>
         <Paragraph>
           Nous utilisons Umami Analytics, un outil d&apos;analyse conforme au RGPD,

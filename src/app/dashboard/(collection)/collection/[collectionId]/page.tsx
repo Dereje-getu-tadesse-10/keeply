@@ -12,6 +12,7 @@ import {
 } from '$/components/forms';
 import { Heading } from '$/components/ui';
 
+
 type PageProps = {
   params: {
     collectionId: string;

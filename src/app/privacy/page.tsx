@@ -58,7 +58,7 @@ const ConfidentialityPage = () => (
         </Paragraph>
         <Paragraph>
           Répondre à des exigences de service spécifiques, avec le consentement
-          de l'utilisateurs
+          de l&apos;utilisateurs
         </Paragraph>
         <Paragraph>
           Se conformer aux exigences légales ou réglementaires.

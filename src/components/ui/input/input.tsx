@@ -5,6 +5,7 @@ import styles from './input.module.css';
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  error?: string;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -19,6 +20,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         ref={ref}
         {...props}
       />
+      {props.error && <p>{props.error}</p>}
     </div>
   )
 );

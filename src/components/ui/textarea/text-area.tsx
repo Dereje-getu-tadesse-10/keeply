@@ -5,6 +5,7 @@ import styles from './text-area.module.css';
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
+  error?: string;
 }
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -19,6 +20,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         ref={ref}
         {...props}
       />
+      {props.error && <p>{props.error}</p>}
     </div>
   )
 );

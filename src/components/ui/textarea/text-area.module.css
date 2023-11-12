@@ -33,3 +33,9 @@
   font-family: inherit;
   font-size: 14px;
 }
+
+.container > p {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}

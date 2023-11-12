@@ -10,6 +10,7 @@
   background-color: #fff;
   color: black;
   font-size: 14px;
+  z-index: 1;
 }
 
 .logo {
@@ -95,5 +96,6 @@
 
   .copyright {
     display: block;
+    text-align: center;
   }
 }

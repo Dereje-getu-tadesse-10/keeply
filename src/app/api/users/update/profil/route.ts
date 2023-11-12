@@ -6,6 +6,7 @@ import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
 import { createUserSchema } from '$/schemas/users-schema';
 
+
 export async function PUT(req: Request, res: Response) {
   const session = await getServerSession(config);
   const body = await req.json();
@@ -37,8 +38,7 @@ export async function PUT(req: Request, res: Response) {
     name,
   } = response.data;
 
-  // check if the current username is the same as the new one and if it the same update the description
-
+  // On vérifie si l'utilisateur utilise déjà ce nom d'utilisateur ou non si c'est le cas on met a jour le profil sans changer le nom d'utilisateur
   if (currentUsername === username) {
     await prisma.user.update({
       where: {
