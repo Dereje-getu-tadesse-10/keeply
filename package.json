@@ -33,7 +33,6 @@
     "zustand": "^4.4.6"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.7.3",
     "@types/node": "^20.9.0",
     "@types/nodemailer": "^6.4.14",
     "@types/react": "^18.2.37",
