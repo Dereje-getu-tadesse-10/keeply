@@ -17,6 +17,25 @@ Pour lancer le projet, il faut créer un fichier `.env` à la racine du projet e
 
 **La base de données (serverless) du projet est hébergée sur [CockroachCloud](https://www.cockroachlabs.com/).**
 
+Pour exécuter le projet localement, utilisez une base de données PostgreSQL locale. Vous pouvez utiliser Docker pour configurer une base de données locale :
+
+```yml
+services:
+  postgres:
+    image: postgres:16
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: keeply_dev
+      POSTGRES_HOST_AUTH_METHOD: trust
+```
+
+Lancez le container Docker avec :
+
+```bash
+docker-compose up
+```
+
 ```plaintext
 GITHUB_CLIENT_ID=
 GITHUB_CLIENT_SECRET=
@@ -80,9 +99,4 @@ EMAIL_FROM=
 ### Stack
 
 - [Next.js](https://nextjs.org/)
-- [Prisma](https://www.prisma.io/)
 - [CSS Modules](https://nextjs.org/docs/app/building-your-application/styling/css-modules)
-- [NextAuth.js](https://next-auth.js.org/)
-- [Node Mailer](https://nodemailer.com/about/)
-- [JSX Email](https://jsx.email/)
-# icemark
