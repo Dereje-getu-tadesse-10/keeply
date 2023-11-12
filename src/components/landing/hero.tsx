@@ -2,7 +2,6 @@ import { ButtonLink, Paragraph } from '../ui';
 import styles from './landing.module.css';
 import app from '../../../public/app.png';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export const Hero = () => (
   <div className={styles.hero__container}>
@@ -16,8 +15,5 @@ export const Hero = () => (
     </div>
     <ButtonLink href='/login'>Commencer maintenant</ButtonLink>
     <Image src={app} alt='collections' width={1000} height={1000} />
-    <Link href='/dereje'>
-      <Paragraph>Voir le profil</Paragraph>
-    </Link>
   </div>
 );

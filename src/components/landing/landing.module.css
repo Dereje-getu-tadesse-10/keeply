@@ -1,9 +1,11 @@
-.hero__container {
+.hero__container,
+.explain {
   padding: 8px;
   margin: 20px auto;
 }
 
-.hero__container > div {
+.hero__container > div,
+.start__now {
   max-width: 700px;
   margin: auto;
 }
@@ -40,4 +42,22 @@
 .hero__container > a:last-child {
   margin-top: 20px;
   text-align: center;
+}
+
+.explain {
+  max-width: 920px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.start__now {
+  margin: 50px auto;
+  text-align: center;
+}
+
+.start__now > a {
+  max-width: max-content;
+  margin: 30px auto;
 }

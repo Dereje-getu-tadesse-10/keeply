@@ -1,4 +1,4 @@
-import { ButtonLink } from '../ui';
+import { Heading, Paragraph } from '../ui';
 import styles from './landing.module.css';
 
 const data = [
@@ -16,4 +16,15 @@ const data = [
 
 // Keeply vous permet de gérer vos collections en toute simplicité. Ajoutez, modifiez et supprimez vos collections en quelques clics.
 
-export const Exemple = () => <div className={styles.exemple}></div>;
+export const Explain = () => (
+  <div className={styles.explain}>
+    <div>
+      <Heading>{data[0].title}</Heading>
+      <Paragraph>{data[0].description}</Paragraph>
+    </div>
+    <div>
+      <Heading>{data[1].title}</Heading>
+      <Paragraph>{data[1].description}</Paragraph>
+    </div>
+  </div>
+);
