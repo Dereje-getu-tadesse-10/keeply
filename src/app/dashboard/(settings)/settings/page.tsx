@@ -10,7 +10,7 @@ const SettingsPage = async () => {
   const backgroundColors = await getBackgroundColor();
 
   if (!userInfos) {
-    return <div>loading...</div>;
+    return <div className='spinner'></div>;
   }
 
   return (

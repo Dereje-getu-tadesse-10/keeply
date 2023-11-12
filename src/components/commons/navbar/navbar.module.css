@@ -6,7 +6,7 @@
   margin: 0 auto;
   height: 60px;
   width: 100%;
-  padding: 0.5rem 0rem;
+  padding: 0.5rem 1rem;
   background-color: #fff;
   color: black;
   font-size: 14px;
@@ -18,8 +18,7 @@
   color: black;
   font-weight: 570;
   font-size: 1.3rem;
-  /* margin-left: 1rem; */
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 
 .menu {
@@ -30,12 +29,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   padding: 0;
 }
 
 .menu li {
   list-style-type: none;
-  margin: 0 10px;
+  /* margin: 0 10px; */
+  gap: 10px;
 }
 
 .menu li a {
