@@ -82,7 +82,7 @@ EMAIL_FROM=
 
 ### Pages
 
-- [ ] Page d'accueil
+- [x] Page d'accueil
 - [x] Page de connexion / inscription
 - [x] Page tableau de bord
 - [x] Page verifications de l'email
