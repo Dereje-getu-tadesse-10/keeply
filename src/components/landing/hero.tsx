@@ -14,6 +14,6 @@ export const Hero = () => (
       </p>
     </div>
     <ButtonLink href='/login'>Commencer maintenant</ButtonLink>
-    <Image src={app} alt='collections' width={1000} height={1000} />
+    <Image priority src={app} alt='collections' width={1000} height={1000} />
   </div>
 );
