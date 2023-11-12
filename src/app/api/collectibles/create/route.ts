@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { prisma } from '$/lib/prisma';
 
-
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
 import { collectiblesSchema } from '$/schemas/collectibles-schema';

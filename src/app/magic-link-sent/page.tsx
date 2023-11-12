@@ -16,7 +16,8 @@ const Page = () => {
       <section className={styles.flexCenterColumn}>
         <Paragraph variant='hightlight'>
           Nous vous avons envoyé un lien magique pour vous connecter à votre
-          compte. Si vous ne le voyez pas, <strong>vérifiez votre dossier spam</strong>.
+          compte. Si vous ne le voyez pas,{' '}
+          <strong>vérifiez votre dossier spam</strong>.
         </Paragraph>
         <Paragraph variant='hightlight'>
           Si vous n&apos;avez pas reçu le lien, vous pouvez en demander un

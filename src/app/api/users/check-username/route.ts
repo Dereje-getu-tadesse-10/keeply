@@ -3,7 +3,6 @@ import { prisma } from '$/lib/prisma';
 
 import { usernameSchema } from '$/schemas/users-schema';
 
-
 export async function POST(req: Request, res: Response) {
   const body = await req.json();
   const response = usernameSchema.safeParse(body);

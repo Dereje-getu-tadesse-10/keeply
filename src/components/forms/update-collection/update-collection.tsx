@@ -120,9 +120,10 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
                 )}
               </div>
 
-              <Button type='submit'
-       disabled={!isValid || isSubmitting || isPending}
-       aria-disabled={!isValid || isSubmitting || isPending}
+              <Button
+                type='submit'
+                disabled={!isValid || isSubmitting || isPending}
+                aria-disabled={!isValid || isSubmitting || isPending}
               >
                 {isSubmitting ? 'En cours...' : 'Modifier la collection'}
               </Button>

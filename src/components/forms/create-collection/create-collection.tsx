@@ -38,7 +38,7 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
       router.refresh();
       toggleModal(MODAL_KEY);
       reset();
-    }
+    },
   });
 
   const onSubmit = async (data: FormData) => {
@@ -59,32 +59,33 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
           size='medium'
         >
           <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-              <Input
-                label='Nom de la collection'
-                id='name'
-                placeholder='Vinyles de taylor swift'
-                {...register('name')}
-              />
-          
-              <Input
-                label='Description'
-                id='description'
-                placeholder='Une collection de vinyles de taylor swift'
-                {...register('description')}
-              />
-             
-              <Select id='status' {...register('status')}>
-                <option value='PUBLIC'>Publique</option>
-                <option value='PRIVATE'>
-                  Privée (visible uniquement par vous)
-                </option>
-              </Select>
-              
+            <Input
+              label='Nom de la collection'
+              id='name'
+              placeholder='Vinyles de taylor swift'
+              {...register('name')}
+            />
+
+            <Input
+              label='Description'
+              id='description'
+              placeholder='Une collection de vinyles de taylor swift'
+              {...register('description')}
+            />
+
+            <Select id='status' {...register('status')}>
+              <option value='PUBLIC'>Publique</option>
+              <option value='PRIVATE'>
+                Privée (visible uniquement par vous)
+              </option>
+            </Select>
+
             <Warning
               text='En fonction du statut, votre collection sera visible par tout le
             monde ou seulement par vous sur votre profil.'
             />
-            <Button type='submit' 
+            <Button
+              type='submit'
               disabled={!isValid || isSubmitting || isPending}
               aria-disabled={!isValid || isSubmitting || isPending}
             >

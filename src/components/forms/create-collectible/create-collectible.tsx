@@ -37,12 +37,12 @@ export const CreateCollectible = ({
   const { mutate, isPending } = useMutation({
     mutationFn: (data: FormData) => createCollectible(data, userId),
     onSuccess: (data) => {
-      console.log(data)
+      console.log(data);
       toast.success(data.message);
       router.refresh();
       toggleModal(MODAL_KEY);
       reset();
-    }
+    },
   });
 
   const onSubmit = async (data: FormData) => {

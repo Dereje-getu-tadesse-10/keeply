@@ -6,7 +6,6 @@ import { verifySession } from '$/lib/verify-session';
 import { updateCollectibleSchema } from '$/schemas/collectibles-schema';
 import z from 'zod';
 
-
 const paramsUrl = z.object({
   collectibleId: z.string(),
 });

@@ -6,7 +6,6 @@ import { z } from 'zod';
 import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
 
-
 const paramsUrl = z.object({
   collectionId: z.string(),
 });

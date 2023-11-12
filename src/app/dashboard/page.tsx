@@ -7,7 +7,6 @@ import { CollectionsList } from '$/components/dashboard';
 import { EmptyCollections } from '$/components/dashboard';
 import { DashboardHeader } from '$/components/dashboard/dashboard-header/dashboard-header';
 
-
 const Page = async () => {
   const user: Session | null = await auth();
 

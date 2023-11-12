@@ -6,7 +6,6 @@ import { redirect } from 'next/navigation';
 import { Heading, Separator } from '$/components/ui';
 import { Paragraph } from '$/components/ui/paragraph/paragraph';
 
-
 const Login = async () => {
   const session = await auth();
 

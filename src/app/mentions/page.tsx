@@ -148,20 +148,20 @@ const MentionsPage = () => (
           <Link href='https://keeply.dereje.fr'>
             <strong>Keeply</strong>
           </Link>
-          , et résultant soit de l&apos;utilisation d&apos;un matériel ne répondant pas
-          aux spécifications indiquées ci-dessus, soit de l&apos;apparition d&apos;un bug
-          ou d&apos;une incompatibilité.
+          , et résultant soit de l&apos;utilisation d&apos;un matériel ne
+          répondant pas aux spécifications indiquées ci-dessus, soit de
+          l&apos;apparition d&apos;un bug ou d&apos;une incompatibilité.
         </Paragraph>
         <Paragraph>
           Dereje Getu Tadesse ne pourra également être tenue responsable des
-          dommages indirects (tels par exemple qu&apos;une perte de marché ou perte
-          d&apos;une chance) consécutifs à l&apos;utilisation du site{' '}
+          dommages indirects (tels par exemple qu&apos;une perte de marché ou
+          perte d&apos;une chance) consécutifs à l&apos;utilisation du site{' '}
           <Link href='https://keeply.dereje.fr'>
             <strong>Keeply</strong>
           </Link>
           . Des espaces interactifs (possibilité de poser des questions dans
-          l&apos;espace contact) sont à la disposition des utilisateurs. Dereje Getu
-          Tadesse se réserve le droit de supprimer, sans mise en demeure
+          l&apos;espace contact) sont à la disposition des utilisateurs. Dereje
+          Getu Tadesse se réserve le droit de supprimer, sans mise en demeure
           préalable, tout contenu déposé dans cet espace qui contreviendrait à
           la législation applicable en France, en particulier aux dispositions
           relatives à la protection des données.
@@ -181,45 +181,47 @@ const MentionsPage = () => (
         <Paragraph>
           En France, les données personnelles sont notamment protégées par la
           loi n° 78-87 du 6 janvier 1978, la loi n° 2004-801 du 6 août 2004,
-          l&apos;article L. 226-13 du Code pénal et la Directive Européenne du 24
-          octobre 1995. A l&apos;occasion de l&apos;utilisation du site{' '}
+          l&apos;article L. 226-13 du Code pénal et la Directive Européenne du
+          24 octobre 1995. A l&apos;occasion de l&apos;utilisation du site{' '}
           <Link href='https://keeply.dereje.fr'>
             <strong>Keeply</strong>
           </Link>
-          , peuvent être recueillies : l&apos;URL des liens par l&apos;intermédiaire
-          desquels l&apos;utilisateur a accédé à ce site, le fournisseur d&apos;accès de
-          l&apos;utilisateur, l&apos;adresse de protocole Internet (IP) de l&apos;utilisateur.
-          En tout état de cause Dereje Getu Tadesse ne collecte des informations
-          personnelles relatives à l&apos;utilisateur que pour le besoin de certains
-          services proposés par le site
+          , peuvent être recueillies : l&apos;URL des liens par
+          l&apos;intermédiaire desquels l&apos;utilisateur a accédé à ce site,
+          le fournisseur d&apos;accès de l&apos;utilisateur, l&apos;adresse de
+          protocole Internet (IP) de l&apos;utilisateur. En tout état de cause
+          Dereje Getu Tadesse ne collecte des informations personnelles
+          relatives à l&apos;utilisateur que pour le besoin de certains services
+          proposés par le site
           <Link href='https://keeply.dereje.fr'>
             <strong>Keeply</strong>
           </Link>
           . L&apos;utilisateur fournit ces informations en toute connaissance de
-          cause, notamment lorsqu&apos;il procède par lui-même à leur saisie. Il est
-          alors précisé à l&apos;utilisateur du site{' '}
+          cause, notamment lorsqu&apos;il procède par lui-même à leur saisie. Il
+          est alors précisé à l&apos;utilisateur du site{' '}
           <Link href='https://keeply.dereje.fr'>
             <strong>Keeply</strong>
           </Link>{' '}
           l&apos;obligation ou non de fournir ces informations. Conformément aux
           dispositions des articles 38 et suivants de la loi 78-17 du 6 janvier
-          1978 relative à l&apos;informatique, aux fichiers et aux libertés, tout
-          utilisateur dispose d&apos;un droit d&apos;accès, de rectification et
-          d&apos;opposition aux données personnelles le concernant, en effectuant sa
-          demande écrite et signée, accompagnée d&apos;une copie du titre d&apos;identité
-          avec signature du titulaire de la pièce, en précisant l&apos;adresse à
-          laquelle la réponse doit être envoyée. Aucune information personnelle
-          de l&apos;utilisateur du site{' '}
+          1978 relative à l&apos;informatique, aux fichiers et aux libertés,
+          tout utilisateur dispose d&apos;un droit d&apos;accès, de
+          rectification et d&apos;opposition aux données personnelles le
+          concernant, en effectuant sa demande écrite et signée, accompagnée
+          d&apos;une copie du titre d&apos;identité avec signature du titulaire
+          de la pièce, en précisant l&apos;adresse à laquelle la réponse doit
+          être envoyée. Aucune information personnelle de l&apos;utilisateur du
+          site{' '}
           <Link href='https://keeply.dereje.fr'>
             <strong>Keeply</strong>
           </Link>{' '}
-          n&pos;est publiée à l&pos;insu de l&pos;utilisateur, échangée, transférée, cédée
-          ou vendue sur un support quelconque à des tiers. Seule l&apos;hypothèse du
-          rachat de Dereje Getu Tadesse et/ou du site internet de ses droits
-          permettrait la transmission des dites informations à l&apos;éventuel
-          acquéreur qui serait à son tour tenu de la même obligation de
-          conservation et de modification des données vis à vis de l&apos;utilisateur
-          du site.
+          n&pos;est publiée à l&pos;insu de l&pos;utilisateur, échangée,
+          transférée, cédée ou vendue sur un support quelconque à des tiers.
+          Seule l&apos;hypothèse du rachat de Dereje Getu Tadesse et/ou du site
+          internet de ses droits permettrait la transmission des dites
+          informations à l&apos;éventuel acquéreur qui serait à son tour tenu de
+          la même obligation de conservation et de modification des données vis
+          à vis de l&apos;utilisateur du site.
         </Paragraph>
         <Paragraph>
           Les bases de données sont protégées par les dispositions de la loi du
@@ -238,9 +240,9 @@ const MentionsPage = () => (
           </Link>{' '}
           peut contenir un certain nombre de liens hypertextes vers d&pos;autres
           sites, mis en place avec l&apos;autorisation de Dereje Getu Tadesse.
-          Cependant, Dereje Getu Tadesse n&apos;a pas la possibilité de vérifier le
-          contenu des sites ainsi visités, et n&apos;assumera en conséquence aucune
-          responsabilité de ce fait. La navigation sur le site{' '}
+          Cependant, Dereje Getu Tadesse n&apos;a pas la possibilité de vérifier
+          le contenu des sites ainsi visités, et n&apos;assumera en conséquence
+          aucune responsabilité de ce fait. La navigation sur le site{' '}
           <Link href='https://keeply.dereje.fr'>
             <strong>Keeply</strong>
           </Link>{' '}
@@ -250,13 +252,13 @@ const MentionsPage = () => (
         <Paragraph>
           Un cookie est un fichier de petite taille, qui ne permet pas
           l&pos;identification de l&pos;utilisateur, mais qui enregistre des
-          informations relatives à la navigation d&apos;un ordinateur sur un site.
-          Les données ainsi obtenues visent à faciliter la navigation ultérieure
-          sur le site, et ont également vocation à permettre diverses mesures de
-          fréquentation. Le refus d&apos;installation d&apos;un cookie peut entraîner
-          l&apos;impossibilité d&apos;accéder à certains services. L&apos;utilisateur peut
-          toutefois configurer son ordinateur de la manière suivante, pour
-          refuser l&apos;installation des cookies :
+          informations relatives à la navigation d&apos;un ordinateur sur un
+          site. Les données ainsi obtenues visent à faciliter la navigation
+          ultérieure sur le site, et ont également vocation à permettre diverses
+          mesures de fréquentation. Le refus d&apos;installation d&apos;un
+          cookie peut entraîner l&apos;impossibilité d&apos;accéder à certains
+          services. L&apos;utilisateur peut toutefois configurer son ordinateur
+          de la manière suivante, pour refuser l&apos;installation des cookies :
         </Paragraph>
         <ul>
           <li>
@@ -271,15 +273,15 @@ const MentionsPage = () => (
             <strong>Sous Firefox :</strong>
             <Paragraph>
               en haut de la fenêtre du navigateur, cliquez sur le bouton
-              Firefox, puis aller dans l&apos;onglet Options. Cliquer sur l&apos;onglet
-              Vie privée.
+              Firefox, puis aller dans l&apos;onglet Options. Cliquer sur
+              l&apos;onglet Vie privée.
             </Paragraph>
           </li>
           <li>
             <strong>Paramétrez les Règles de conservation sur :</strong>
             <Paragraph>
-              utiliser les paramètres personnalisés pour l&apos;historique. Enfin
-              décochez-la pour désactiver les cookies.
+              utiliser les paramètres personnalisés pour l&apos;historique.
+              Enfin décochez-la pour désactiver les cookies.
             </Paragraph>
           </li>
           <li>
@@ -298,8 +300,8 @@ const MentionsPage = () => (
               Cliquez en haut à droite du navigateur sur le pictogramme de menu
               (symbolisé par trois lignes horizontales). Sélectionnez
               Paramètres. Cliquez sur Afficher les paramètres avancés. Dans la
-              section “Confidentialité”, cliquez sur préférences. Dans l&apos;onglet
-              “Confidentialité”, vous pouvez bloquer les cookies.
+              section “Confidentialité”, cliquez sur préférences. Dans
+              l&apos;onglet “Confidentialité”, vous pouvez bloquer les cookies.
             </Paragraph>
           </li>
         </ul>
@@ -310,11 +312,11 @@ const MentionsPage = () => (
           Tadesse.
         </Paragraph>
         <Paragraph>
-          Tout contenu téléchargé se fait aux risques et périls de l&apos;utilisateur
-          et sous sa seule responsabilité. En conséquence, Dereje Getu Tadesse
-          ne saurait être tenu responsable d&apos;un quelconque dommage subi par
-          l&apos;ordinateur de l&apos;utilisateur ou d&apos;une quelconque perte de données
-          consécutives au téléchargement.
+          Tout contenu téléchargé se fait aux risques et périls de
+          l&apos;utilisateur et sous sa seule responsabilité. En conséquence,
+          Dereje Getu Tadesse ne saurait être tenu responsable d&apos;un
+          quelconque dommage subi par l&apos;ordinateur de l&apos;utilisateur ou
+          d&apos;une quelconque perte de données consécutives au téléchargement.
         </Paragraph>
       </div>
       <div>
@@ -324,10 +326,11 @@ const MentionsPage = () => (
         <Paragraph>
           Les présentes conditions du site https://keeply.dereje.fr sont régies
           par les lois françaises et toute contestation ou litiges qui
-          pourraient naître de l&apos;interprétation ou de l&apos;exécution de celles-ci
-          seront de la compétence exclusive des tribunaux dont dépend le siège
-          social de la société Dereje Getu Tadesse. La langue de référence, pour
-          le règlement de contentieux éventuels, est le français.
+          pourraient naître de l&apos;interprétation ou de l&apos;exécution de
+          celles-ci seront de la compétence exclusive des tribunaux dont dépend
+          le siège social de la société Dereje Getu Tadesse. La langue de
+          référence, pour le règlement de contentieux éventuels, est le
+          français.
         </Paragraph>
       </div>
       <div>
@@ -336,9 +339,9 @@ const MentionsPage = () => (
         </Heading>
         <Paragraph>
           Loi n° 78-17 du 6 janvier 1978, notamment modifiée par la loi n°
-          2004-801 du 6 août 2004 relative à l&apos;informatique, aux fichiers et aux
-          libertés. Loi n° 2004-575 du 21 juin 2004 pour la confiance dans
-          l&apos;économie numérique.
+          2004-801 du 6 août 2004 relative à l&apos;informatique, aux fichiers
+          et aux libertés. Loi n° 2004-575 du 21 juin 2004 pour la confiance
+          dans l&apos;économie numérique.
         </Paragraph>
       </div>
       <div>
@@ -381,7 +384,8 @@ const MentionsPage = () => (
               Informations personnelles : « les informations qui permettent,
               sous quelque forme que ce soit, directement ou non,
               l&apos;identification des personnes physiques auxquelles elles
-              s&apos;appliquent » (article 4 de la loi n° 78-17 du 6 janvier 1978).
+              s&apos;appliquent » (article 4 de la loi n° 78-17 du 6 janvier
+              1978).
             </strong>
           </li>
         </ul>

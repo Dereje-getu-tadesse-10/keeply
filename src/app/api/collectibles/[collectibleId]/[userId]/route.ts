@@ -5,7 +5,6 @@ import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
 import z from 'zod';
 import { updateCollectionSchema } from '$/schemas/collections-schema';
- 
 
 const paramsUrl = z.object({
   collectibleId: z.string().min(1, 'Le collectibleId doit être renseigné'),
@@ -31,7 +30,7 @@ export async function GET(
   const sessionError = verifySession(session, {
     userId: collectibleParams.data.userId as string,
   });
-  
+
   if (sessionError) {
     console.log(sessionError);
     return NextResponse.json(sessionError, { status: sessionError.status });

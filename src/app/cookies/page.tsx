@@ -41,11 +41,12 @@ const Cookies = () => (
           Analyse de l&apos;Application
         </Heading>
         <Paragraph>
-          Nous utilisons Umami Analytics, un outil d&apos;analyse conforme au RGPD,
-          qui ne collecte aucune information personnelle, n&apos;utilise pas de
-          cookies et ne suit pas les utilisateurs à travers les sites web. Umami
-          nous aide à comprendre l&apos;utilisation globale de l&apos;application pour
-          améliorer l&apos;expérience utilisateur sans compromettre votre vie privée.
+          Nous utilisons Umami Analytics, un outil d&apos;analyse conforme au
+          RGPD, qui ne collecte aucune information personnelle, n&apos;utilise
+          pas de cookies et ne suit pas les utilisateurs à travers les sites
+          web. Umami nous aide à comprendre l&apos;utilisation globale de
+          l&apos;application pour améliorer l&apos;expérience utilisateur sans
+          compromettre votre vie privée.
         </Paragraph>
       </div>
       <div>
@@ -65,10 +66,10 @@ const Cookies = () => (
           Votre Choix et Vos Droits
         </Heading>
         <Paragraph>
-          Vous avez le droit de contrôler l&apos;utilisation des cookies techniques
-          par le biais des paramètres de votre navigateur, mais refuser ces
-          cookies peut empêcher l&apos;utilisation des services de connexion et
-          d&apos;authentification de Kepply.
+          Vous avez le droit de contrôler l&apos;utilisation des cookies
+          techniques par le biais des paramètres de votre navigateur, mais
+          refuser ces cookies peut empêcher l&apos;utilisation des services de
+          connexion et d&apos;authentification de Kepply.
         </Paragraph>
       </div>
       <div>
@@ -76,8 +77,8 @@ const Cookies = () => (
           Confidentialité et partage des données
         </Heading>
         <Paragraph>
-          Nous nous engageons à ne pas partager d&apos;informations personnelles avec
-          des tiers et à respecter la confidentialité de nos utilisateurs
+          Nous nous engageons à ne pas partager d&apos;informations personnelles
+          avec des tiers et à respecter la confidentialité de nos utilisateurs
           conformément aux lois sur la protection des données.
         </Paragraph>
       </div>

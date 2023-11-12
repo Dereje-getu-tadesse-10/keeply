@@ -10,8 +10,8 @@ const ConfidentialityPage = () => (
         </Heading>
         <Paragraph>
           La présente politique de confidentialité décrit les pratiques de
-          Kepply en matière de collecte, d&apos;utilisation, de conservation et de
-          protection des informations personnelles des utilisateurs de notre
+          Kepply en matière de collecte, d&apos;utilisation, de conservation et
+          de protection des informations personnelles des utilisateurs de notre
           application web.
         </Paragraph>
       </div>
@@ -23,12 +23,13 @@ const ConfidentialityPage = () => (
           Kepply recueille les types d&apos;informations suivants :
         </Paragraph>
         <Paragraph>
-          Données d&apos;inscription fournies par les utilisateurs, telles que le nom
-          et l&apos;adresse e-mail, pour créer un compte Kepply.
+          Données d&apos;inscription fournies par les utilisateurs, telles que
+          le nom et l&apos;adresse e-mail, pour créer un compte Kepply.
         </Paragraph>
         <Paragraph>
-          Informations techniques relatives à l&apos;utilisation de l&apos;application, y
-          compris l&apos;adresse IP et les données de navigation.
+          Informations techniques relatives à l&apos;utilisation de
+          l&apos;application, y compris l&apos;adresse IP et les données de
+          navigation.
         </Paragraph>
       </div>
       <div>
@@ -69,8 +70,9 @@ const ConfidentialityPage = () => (
           Consentement
         </Heading>
         <Paragraph>
-          L&apos;utilisation de l&apos;application Kepply signifie que l&apos;utilisateur
-          accepte les termes de cette politique de confidentialité.
+          L&apos;utilisation de l&apos;application Kepply signifie que
+          l&apos;utilisateur accepte les termes de cette politique de
+          confidentialité.
         </Paragraph>
       </div>
       <div>

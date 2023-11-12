@@ -5,7 +5,6 @@ import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
 import z from 'zod';
 
-
 const bodySchema = z.object({
   userId: z.string(),
   updates: z.array(
