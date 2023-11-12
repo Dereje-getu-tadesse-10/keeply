@@ -3,10 +3,13 @@ import { useState } from 'react';
 import styles from './navbar.module.css';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import { ButtonLink, Paragraph } from '$/components/ui';
+import Image from 'next/image';
+import { ButtonLink, Heading, Paragraph } from '$/components/ui';
 import { Button } from '$/components/ui';
 import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
+import logo from '../../../../public/icon.svg';
+import { Logo } from '../logo/logo';
 
 export const Navbar = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -21,7 +24,7 @@ export const Navbar = () => {
         className={styles.logo}
         onClick={() => setIsNavExpanded(false)}
       >
-        Keeply
+        <Logo />
       </Link>
       <button
         className={styles['menu-toggle']}

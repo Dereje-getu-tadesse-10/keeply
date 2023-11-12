@@ -5,12 +5,13 @@
   text-align: center;
 }
 
-.footer > h3 {
-  text-align: center;
+.footer > div > a:first-child {
+  display: flex;
+  justify-content: center;
   margin-top: 50px;
 }
 
-.footer > div > ul {
+.footer > ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,4 +19,11 @@
   margin: 30px auto;
   padding: 0;
   gap: 8px;
+}
+
+.footer p {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 40px auto;
 }
