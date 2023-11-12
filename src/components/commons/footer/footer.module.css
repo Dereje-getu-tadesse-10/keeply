@@ -1,0 +1,21 @@
+.footer {
+  max-width: 1120px;
+  margin: 100px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer > h3 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.footer > div > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 30px auto;
+  padding: 0;
+  gap: 8px;
+}

@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { NextAuthProvider } from './provider';
 import { Toaster } from 'react-hot-toast';
 import { Navbar } from '$/components/commons';
+import { Footer } from '$/components/commons/footer/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,6 +21,7 @@ export const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <Navbar />
           {children}
           <Toaster />
+          <Footer />
         </NextAuthProvider>
       </body>
     </html>
