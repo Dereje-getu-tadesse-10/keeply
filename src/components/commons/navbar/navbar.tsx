@@ -77,9 +77,6 @@ export const Navbar = () => {
               </ButtonLink>
             )}
           </li>
-          <div className={styles.copyright}>
-            <Paragraph>© {currentYear} Keeply.</Paragraph>
-          </div>
         </ul>
       </div>
     </nav>
