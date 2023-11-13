@@ -67,7 +67,12 @@ export const Navbar = () => {
                 Déconnexion
               </Button>
             ) : (
-              <ButtonLink href='/login' intent='primary' size={'small'}>
+              <ButtonLink
+                href='/login'
+                intent='primary'
+                size={'small'}
+                onClick={() => setIsNavExpanded(false)}
+              >
                 Connexion
               </ButtonLink>
             )}
