@@ -85,7 +85,7 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
   };
 
   return (
-    <section className={styles.form__container}>
+    <section>
       <div className={styles.form_description}>
         <div>
           <Paragraph>Nom d&apos;utilisateur</Paragraph>
@@ -123,7 +123,6 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
               <div
                 key={color.id}
                 onClick={() => {
-                  // setChooseBackground(color.id); background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
                   setSelectedBackground(color.id);
                 }}
               >
