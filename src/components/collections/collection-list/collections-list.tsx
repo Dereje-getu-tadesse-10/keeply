@@ -19,6 +19,7 @@ export const CollectionsList = ({
         <ButtonLink
           href={`/dashboard/collection/${collection.id}`}
           size={'small'}
+          intent={'secondary'}
         >
           Voir la collection
         </ButtonLink>
