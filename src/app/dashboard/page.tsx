@@ -3,8 +3,6 @@ import { getCollections } from '$/server/collections';
 import { Session } from 'next-auth';
 import { Separator } from '$/components/ui';
 import { CreateCollection } from '$/components/forms';
-import { CollectionsList } from '$/components/dashboard';
-import { EmptyCollections } from '$/components/dashboard';
 import { DashboardHeader } from '$/components/dashboard/dashboard-header/dashboard-header';
 import { Collections } from '$/components/dashboard/collections/collections';
 
