@@ -1,16 +1,31 @@
-import { Card, Paragraph } from '$/components/ui';
+import { Paragraph } from '$/components/ui';
 import { getUserAndCollections } from '$/server/users';
 import { notFound } from 'next/navigation';
-import styles from './page.module.css';
 import { Heading } from '$/components/ui';
 import { UserCollections } from '$/components/users/user-collections';
+import { ResolvingMetadata } from 'next';
+import styles from './page.module.css';
+
+export async function generateMetadata(
+  { params }: { params: { username: string } },
+  parent: ResolvingMetadata
+) {
+  const currentUser = params.username;
+
+  const userProfil = await getUserAndCollections(currentUser);
+  if (!userProfil) notFound();
+
+  return {
+    ...parent,
+    title: userProfil.name,
+  };
+}
 
 const Page = async ({ params }: { params: { username: string } }) => {
   const currentUser = params.username;
 
   const userProfil = await getUserAndCollections(currentUser);
   if (!userProfil) notFound();
-  console.log(userProfil.collections.length);
 
   return (
     <main className={styles.main}>

@@ -5,6 +5,43 @@ import { auth } from '$/lib/auth';
 import { redirect } from 'next/navigation';
 import { Heading, Separator } from '$/components/ui';
 import { Paragraph } from '$/components/ui/paragraph/paragraph';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Connexion - Keeply',
+  description: `Page de connexion de Keeply`,
+  openGraph: {
+    type: 'website',
+    countryName: 'FR',
+    title: 'Page de connexion - Keeply',
+    images: [
+      {
+        url: '/app.png',
+        width: 1000,
+        height: 1000,
+        alt: 'Keeply',
+      },
+    ],
+    url: 'https://keeply-neon.vercel.app/login',
+    description: `Page de connexion de Keeply`,
+    siteName: 'Keeply',
+    locale: 'fr_FR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Page de connexion - Keeply',
+    images: [
+      {
+        url: '/app.png',
+        width: 1000,
+        height: 1000,
+        alt: 'Keeply',
+      },
+    ],
+    description: `Page de connexion de Keeply`,
+  },
+  robots: 'follow, index',
+};
 
 const Login = async () => {
   const session = await auth();

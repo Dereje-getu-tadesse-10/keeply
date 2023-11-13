@@ -1,6 +1,44 @@
 import { Heading, Paragraph } from '$/components/ui';
 import Link from 'next/link';
 import styles from './page.module.css';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Mentions légales - Keeply',
+  description: `Menstions légales de Keeply`,
+  openGraph: {
+    type: 'website',
+    countryName: 'FR',
+    title: 'Menstions légales - Keeply',
+    images: [
+      {
+        url: '/app.png',
+        width: 1000,
+        height: 1000,
+        alt: 'Keeply',
+      },
+    ],
+    url: 'https://keeply-neon.vercel.app/mentions',
+    description: `Menstions légales de Keeply`,
+    siteName: 'Keeply',
+    locale: 'fr_FR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mentions légales - Keeply',
+    images: [
+      {
+        url: '/app.png',
+        width: 1000,
+        height: 1000,
+        alt: 'Keeply',
+      },
+    ],
+    description: `Menstions légales de Keeply`,
+  },
+  robots: 'follow, index',
+};
+
 const MentionsPage = () => (
   <main className={styles.main}>
     <section>

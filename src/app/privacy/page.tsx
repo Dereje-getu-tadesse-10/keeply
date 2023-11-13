@@ -1,5 +1,42 @@
 import { Heading, Paragraph } from '$/components/ui';
+import { Metadata } from 'next';
 import styles from '../mentions/page.module.css';
+
+export const metadata: Metadata = {
+  title: 'Politique de confidentialité - Keeply',
+  description: `Notre politique de confidentialité décrit les pratiques de Kepply en matière de collecte, d'utilisation, de conservation et de protection des informations personnelles des utilisateurs de notre application web.`,
+  openGraph: {
+    type: 'website',
+    countryName: 'FR',
+    title: 'Politique de confidentialité - Keeply',
+    images: [
+      {
+        url: '/app.png',
+        width: 1000,
+        height: 1000,
+        alt: 'Keeply',
+      },
+    ],
+    url: 'https://keeply-neon.vercel.app/privacy',
+    description: `Notre politique de confidentialité décrit les pratiques de Kepply en matière de collecte, d'utilisation, de conservation et de protection des informations personnelles des utilisateurs de notre application web.`,
+    siteName: 'Keeply',
+    locale: 'fr_FR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Politique de confidentialité - Keeply',
+    images: [
+      {
+        url: '/app.png',
+        width: 1000,
+        height: 1000,
+        alt: 'Keeply',
+      },
+    ],
+    description: `Notre politique de confidentialité décrit les pratiques de Kepply en matière de collecte, d'utilisation, de conservation et de protection des informations personnelles des utilisateurs de notre application web.`,
+  },
+  robots: 'follow, index',
+};
 
 const ConfidentialityPage = () => (
   <main className={styles.main}>

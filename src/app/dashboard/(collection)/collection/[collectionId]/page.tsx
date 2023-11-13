@@ -5,6 +5,8 @@ import { auth } from '$/lib/auth';
 import { getCollection } from '$/server/collections';
 import { getCollectibles } from '$/server/collectibles';
 import { CollectionHeader, DndContainer } from '$/components/dashboard';
+import type { Metadata, ResolvingMetadata } from 'next';
+
 import {
   CreateCollectible,
   UpdateCollection,
@@ -16,6 +18,21 @@ type PageProps = {
     collectionId: string;
   };
 };
+
+export async function generateMetadata(
+  { params: { collectionId } }: PageProps,
+  parent: ResolvingMetadata
+) {
+  const user: Session | null = await auth();
+  const collection = await getCollection(collectionId, user?.user.id);
+
+  if (!collection) notFound();
+
+  return {
+    ...parent,
+    title: `${collection.name}`,
+  };
+}
 
 const Page = async ({ params: { collectionId } }: PageProps) => {
   const user: Session | null = await auth();

@@ -6,6 +6,12 @@ import { CreateCollection } from '$/components/forms';
 import { DashboardHeader } from '$/components/dashboard/dashboard-header/dashboard-header';
 import { Collections } from '$/components/dashboard/collections/collections';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Tableau de bord - Keeply',
+};
+
 const Page = async () => {
   const user: Session | null = await auth();
 

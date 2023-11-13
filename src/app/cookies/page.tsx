@@ -1,6 +1,44 @@
 import { Heading, Paragraph } from '$/components/ui';
 import styles from '../mentions/page.module.css';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Politique de Cookies - Keeply',
+  description: `Notre politique de cookies explique comment nous utilisons les cookies et comment vous pouvez les contrôler. Veuillez lire cette politique pour comprendre quel type de cookies nous utilisons, les informations que nous collectons à l'aide des cookies et comment ces informations sont utilisées.`,
+  openGraph: {
+    type: 'website',
+    countryName: 'FR',
+    title: 'Politique de Cookies - Keeply',
+    images: [
+      {
+        url: '/app.png',
+        width: 1000,
+        height: 1000,
+        alt: 'Keeply',
+      },
+    ],
+    url: 'https://keeply-neon.vercel.app/cookies',
+    description: `Notre politique de cookies explique comment nous utilisons les cookies et comment vous pouvez les contrôler. Veuillez lire cette politique pour comprendre quel type de cookies nous utilisons, les informations que nous collectons à l'aide des cookies et comment ces informations sont utilisées.`,
+    siteName: 'Keeply',
+    locale: 'fr_FR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Politique de Cookies - Keeply',
+    images: [
+      {
+        url: '/app.png',
+        width: 1000,
+        height: 1000,
+        alt: 'Keeply',
+      },
+    ],
+    description: `Notre politique de cookies explique comment nous utilisons les cookies et comment vous pouvez les contrôler. Veuillez lire cette politique pour comprendre quel type de cookies nous utilisons, les informations que nous collectons à l'aide des cookies et comment ces informations sont utilisées.`,
+  },
+  robots: 'follow, index',
+};
+
 const Cookies = () => (
   <main className={styles.main}>
     <section>

@@ -1,6 +1,12 @@
 import styles from './page.module.css';
 import { Mail } from 'lucide-react';
 import { ButtonLink, Heading, Paragraph } from '$/components/ui';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Lien magique envoyé - Keeply',
+  description: `Page de vérification de l'envoi du lien magique de Keeply`,
+};
 
 const Page = () => {
   return (

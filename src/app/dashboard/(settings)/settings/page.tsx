@@ -3,6 +3,12 @@ import { Heading, Paragraph } from '$/components/ui';
 import { auth } from '$/lib/auth';
 import { getUser, getBackgroundColor } from '$/server/users';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Paramètres - Keeply',
+};
+
 const SettingsPage = async () => {
   const user = await auth();
 
