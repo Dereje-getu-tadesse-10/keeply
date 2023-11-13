@@ -12,6 +12,7 @@ import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { BackgroundColors } from '@prisma/client';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 type FormValue = z.infer<typeof upddateUsernameSchema>;
 
@@ -113,6 +114,19 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
             Vous pouvez modifier votre image de fond à tout moment.
           </Paragraph>
         </div>
+        {userInfos.username === null ? null : (
+          <div>
+            <Paragraph>URL de votre page de profil</Paragraph>
+            <Paragraph variant='p'>
+              Votre page de profil est accessible via l&apos;url suivante :
+            </Paragraph>
+            <Paragraph variant='p'>
+              <Link href={`/${userInfos.username}`}>
+                https://keeply-neon.vercel.app/{userInfos.username}
+              </Link>
+            </Paragraph>
+          </div>
+        )}
       </div>
       <Separator />
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
