@@ -1,5 +1,5 @@
 .main {
-  margin: 5rem auto;
+  margin: 12rem auto;
   padding: 0 1rem;
 }
 
@@ -12,7 +12,10 @@
 }
 
 .main__section {
-  margin: 4rem 0;
+  margin: 4em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
