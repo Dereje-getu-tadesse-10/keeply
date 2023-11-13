@@ -24,22 +24,28 @@ export const Footer = () => (
   <footer className={styles.footer}>
     <Separator />
     <div>
-      <Link href='/'>
-        <Logo />
-      </Link>
+      <div>
+        <Link href='/'>
+          <Logo />
+        </Link>
+      </div>
+      <div>
+        <ul>
+          {links.map(({ href, label }) => (
+            <li key={href}>
+              <Paragraph>
+                <Link href={href}>{label}</Link>
+              </Paragraph>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
-    <ul>
-      {links.map(({ href, label }) => (
-        <li key={href}>
-          <Paragraph>
-            <Link href={href}>{label}</Link>
-          </Paragraph>
-        </li>
-      ))}
-    </ul>
-    <Paragraph variant='hightlight'>
-      &copy; {currentYear} Built with 🎶 by{' '}
-      <Link href={'https://dereje.fr'}>Dereje</Link>
-    </Paragraph>
+    <div>
+      <Paragraph>
+        &copy; {currentYear} Built with 🎶 by{' '}
+        <Link href={'https://dereje.fr'}>Dereje</Link>
+      </Paragraph>
+    </div>
   </footer>
 );

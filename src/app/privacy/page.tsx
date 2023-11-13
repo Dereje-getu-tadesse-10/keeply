@@ -5,7 +5,7 @@ const ConfidentialityPage = () => (
   <main className={styles.main}>
     <section>
       <div>
-        <Heading as='h1' variant='h1'>
+        <Heading as='h2' variant='h2'>
           Politique de Confidentialité de Kepply
         </Heading>
         <Paragraph>
