@@ -1,4 +1,5 @@
-import { CollectionPageSkeleton } from '$/components/loadings';
+import { LoadingUI } from '$/components/loading/loading';
+
 export default function Loading() {
-  return <div className='spinner'></div>;
+  return <LoadingUI />;
 }

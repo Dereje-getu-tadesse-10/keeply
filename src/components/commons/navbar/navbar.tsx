@@ -15,7 +15,7 @@ export const Navbar = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const currentYear = new Date().getFullYear();
 
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
     <nav className={styles.navigation}>
@@ -41,18 +41,29 @@ export const Navbar = () => {
       >
         <ul>
           <li>
-            <Link href='/'>Accueil</Link>
+            <Link href='/' onClick={() => setIsNavExpanded(false)}>
+              Accueil
+            </Link>
           </li>
           <li>
-            <Link href='/a-propos'>À propos</Link>
+            <Link href='/a-propos' onClick={() => setIsNavExpanded(false)}>
+              À propos
+            </Link>
           </li>
           {session && (
             <>
               <li>
-                <Link href='/dashboard'>Tableau de bord</Link>
+                <Link href='/dashboard' onClick={() => setIsNavExpanded(false)}>
+                  Tableau de bord
+                </Link>
               </li>
               <li>
-                <Link href='/dashboard/settings'>Paramètres</Link>
+                <Link
+                  href='/dashboard/settings'
+                  onClick={() => setIsNavExpanded(false)}
+                >
+                  Paramètres
+                </Link>
               </li>
             </>
           )}

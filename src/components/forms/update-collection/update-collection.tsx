@@ -4,24 +4,16 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import {
-  Badge,
-  Button,
-  Heading,
-  Input,
-  Modal,
-  Paragraph,
-} from '$/components/ui';
+import { Button, Input, Modal, Paragraph, TextArea } from '$/components/ui';
 import { toast } from 'react-hot-toast';
 import { Select } from '$/components/ui/select/select';
 import { CollectionStatus } from '@prisma/client';
 import { updateCollectionSchema } from '$/schemas/collections-schema';
-import dayjs from 'dayjs';
 import { updateCollection, deleteCollection } from '$/lib/fetchs';
 import { useModalStore } from '$/stores/useModalStore';
-import { Warning } from '$/components/commons';
 import { CollectionCard } from '$/components/dashboard';
 import { useMutation } from '@tanstack/react-query';
+
 type Props = {
   userId: string;
   id: string;
@@ -42,7 +34,7 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
   const {
     handleSubmit,
     register,
-    formState: { isSubmitting, isDirty, isValid, errors },
+    formState: { isSubmitting, isValid },
   } = useForm<FormData>({
     resolver: zodResolver(updateCollectionSchema),
     defaultValues: {
@@ -61,16 +53,6 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
     },
   });
 
-  const { mutate: mutateDelete, isPending: isPendingDelete } = useMutation({
-    mutationFn: () => deleteCollection(collection.id, collection.userId),
-    onSuccess: (data) => {
-      toast.success(data.message);
-      router.push(`/dashboard`);
-      router.refresh();
-      toggleModal(MODAL_ID);
-    },
-  });
-
   const onSubmit = async (data: FormData) => {
     const datas: FormData = {
       userId: collection.userId,
@@ -79,18 +61,12 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
     mutate(datas);
   };
 
-  const handleDelete = async () => mutateDelete();
-
   return (
     <>
       {modals[MODAL_ID] && (
         <Modal modalId={MODAL_ID} title='Modifier la collection'>
           <div className={styles.form__container}>
-            <CollectionCard
-              collection={collection}
-              authenticated
-              onDelete={handleDelete}
-            />
+            <CollectionCard collection={collection} authenticated />
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
               <div>
                 <Input
@@ -98,26 +74,17 @@ export const UpdateCollection = ({ collection }: { collection: Props }) => {
                   id='name'
                   {...register('name')}
                 />
-                {errors.name && (
-                  <Paragraph isError>{errors.name.message}</Paragraph>
-                )}
-                <Input
+                <TextArea
                   label='Description'
                   id='description'
                   {...register('description')}
                 />
-                {errors.description && (
-                  <Paragraph isError>{errors.description.message}</Paragraph>
-                )}
                 <Select id='status' label='Status' {...register('status')}>
                   <option value='PUBLIC'>Publique</option>
                   <option value='PRIVATE'>
                     Privée (visible uniquement par vous)
                   </option>
                 </Select>
-                {errors.status && (
-                  <Paragraph isError>{errors.status.message}</Paragraph>
-                )}
               </div>
 
               <Button

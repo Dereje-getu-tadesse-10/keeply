@@ -1,5 +1,7 @@
+import { LoadingUI } from '$/components/loading/loading';
+
 const Loading = () => {
-  return <div className='spinner'></div>;
+  return <LoadingUI />;
 };
 
 export default Loading;

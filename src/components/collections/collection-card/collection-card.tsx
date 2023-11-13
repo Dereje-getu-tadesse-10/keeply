@@ -12,13 +12,11 @@ type Props = {
     updated_at: Date | null;
   };
   authenticated?: boolean;
-  onDelete?: () => void;
 };
 
 export const CollectionCard = ({
   collection,
   authenticated = false,
-  onDelete,
 }: Props) => {
   return (
     <div className={styles.collection_card}>
@@ -31,26 +29,21 @@ export const CollectionCard = ({
         <>
           <Paragraph>
             {collection.created_at
-              ? `Créée le ${dayjs(collection.created_at).format('DD/MM/YYYY')}`
+              ? `
+              Collection créée le :
+              ${dayjs(collection.created_at).format('DD/MM/YYYY')}`
               : ''}
           </Paragraph>
           <Paragraph>
             {collection.updated_at
-              ? `Modifiée le ${dayjs(collection.updated_at).format(
-                  'DD/MM/YYYY'
-                )}`
+              ? `
+                Collection modifiée le :
+              ${dayjs(collection.updated_at).format('DD/MM/YYYY')}`
               : ''}
           </Paragraph>
           <Badge>
             {collection.status === 'PUBLIC' ? 'Publique' : 'Privée'}
           </Badge>
-        </>
-      ) : null}
-      {authenticated ? (
-        <>
-          <Button onClick={onDelete} intent={'danger'} size={'small'}>
-            Supprimer la collection
-          </Button>
         </>
       ) : null}
     </div>

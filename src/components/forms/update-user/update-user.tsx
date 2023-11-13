@@ -28,13 +28,11 @@ type Props = {
 };
 
 export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
-  const [chooseBackground, setChooseBackground] = useState(
-    userInfos?.backgroundColor?.id || ''
-  );
   const [selectedBackground, setSelectedBackground] = useState(
     userInfos?.backgroundColor?.id || ''
   );
 
+  console.log('selectedBackground', backgroundColors);
   const {
     handleSubmit,
     watch,
@@ -72,17 +70,17 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
   });
 
   useEffect(() => {
-    if (chooseBackground) {
-      setValue('backgroundColor', chooseBackground, { shouldDirty: true });
+    if (selectedBackground) {
+      setValue('backgroundColor', selectedBackground, { shouldDirty: true });
     }
-  }, [chooseBackground, setValue]);
+  }, [selectedBackground, setValue]);
 
   const onSubmit = (data: FormValue) => {
     const datas = {
       ...data,
       userId: userId,
       currentUsername: userInfos.username === null ? '' : userInfos.username,
-      backgroundColor: chooseBackground,
+      backgroundColor: selectedBackground,
     };
     mutate(datas);
   };
@@ -149,13 +147,13 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
             <div
               key={color.id}
               onClick={() => {
-                setChooseBackground(color.id);
+                // setChooseBackground(color.id); background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
                 setSelectedBackground(color.id);
               }}
             >
               <div
                 style={{
-                  backgroundImage: color.colorCode,
+                  backgroundImage: `${color.colorCode}`,
                   border:
                     selectedBackground === color.id
                       ? '2px solid #000'

@@ -10,7 +10,6 @@ import {
   UpdateCollection,
   UpdateCollectible,
 } from '$/components/forms';
-import { Heading } from '$/components/ui';
 
 type PageProps = {
   params: {
