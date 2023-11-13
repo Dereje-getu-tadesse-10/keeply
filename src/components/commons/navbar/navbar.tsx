@@ -44,11 +44,6 @@ export const Navbar = () => {
               Accueil
             </Link>
           </li>
-          <li>
-            <Link href='/a-propos' onClick={() => setIsNavExpanded(false)}>
-              À propos
-            </Link>
-          </li>
           {session && (
             <>
               <li>
