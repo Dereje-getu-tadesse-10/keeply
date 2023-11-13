@@ -19,6 +19,9 @@
   line-height: 26px;
   resize: none;
   font-family: 'Inter', sans-serif;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .input:active,

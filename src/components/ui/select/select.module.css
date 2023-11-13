@@ -10,9 +10,9 @@
 }
 
 .select {
-  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
