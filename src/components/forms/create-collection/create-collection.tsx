@@ -4,14 +4,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { Button, Input, Modal, Paragraph } from '../../ui';
+import { Button, Card, Input, Modal, Paragraph, TextArea } from '../../ui';
 import { toast } from 'react-hot-toast';
 import { Select } from '$/components/ui/select/select';
 import { useModalStore } from '$/stores/useModalStore';
 import { collectionWithoutUserIdSchema } from '$/schemas/collections-schema';
 import { createCollection } from '$/lib/fetchs';
-import { Warning } from '$/components/commons';
 import { useMutation } from '@tanstack/react-query';
+import { ShieldAlert, Text } from 'lucide-react';
 
 type FormData = z.infer<typeof collectionWithoutUserIdSchema>;
 
@@ -26,7 +26,7 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
     handleSubmit,
     register,
     reset,
-    formState: { isSubmitting, isDirty, isValid },
+    formState: { isSubmitting, isValid },
   } = useForm<FormData>({
     resolver: zodResolver(collectionWithoutUserIdSchema),
   });
@@ -62,28 +62,31 @@ export const CreateCollection = ({ userId }: { userId: string }) => {
             <Input
               label='Nom de la collection'
               id='name'
-              placeholder='Vinyles de taylor swift'
+              placeholder='ex: Ma collection de vinyles'
               {...register('name')}
             />
 
-            <Input
+            <TextArea
               label='Description'
               id='description'
-              placeholder='Une collection de vinyles de taylor swift'
+              placeholder='ex: Ma collection de vinyles de pop'
               {...register('description')}
             />
 
-            <Select id='status' {...register('status')}>
+            <Select label='Statut' id='status' {...register('status')}>
               <option value='PUBLIC'>Publique</option>
               <option value='PRIVATE'>
                 Privée (visible uniquement par vous)
               </option>
             </Select>
 
-            <Warning
-              text='En fonction du statut, votre collection sera visible par tout le
-            monde ou seulement par vous sur votre profil.'
-            />
+            <div className={styles.warning}>
+              <div>
+                <ShieldAlert />
+              </div>
+              En fonction du statut, votre collection sera visible par tout le
+              monde ou seulement par vous sur votre profil.
+            </div>
             <Button
               type='submit'
               disabled={!isValid || isSubmitting || isPending}

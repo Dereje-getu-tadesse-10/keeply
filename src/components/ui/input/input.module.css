@@ -22,6 +22,10 @@
   appearance: none;
 }
 
+.input::placeholder {
+  font-size: 14px;
+}
+
 .input:active,
 .input:focus {
   outline: none;

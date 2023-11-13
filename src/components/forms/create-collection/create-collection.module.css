@@ -24,6 +24,8 @@
   border-radius: 2px;
 }
 
-.warning_status {
-  color: white;
+.warning {
+  display: flex;
+  gap: 8px;
+  margin: 17px auto;
 }

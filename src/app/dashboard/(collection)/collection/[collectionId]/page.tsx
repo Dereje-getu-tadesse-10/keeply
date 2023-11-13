@@ -30,8 +30,8 @@ const Page = async ({ params: { collectionId } }: PageProps) => {
   return (
     <section className={styles.collections}>
       <CollectionHeader collection={collection} />
-      <DndContainer collectibles={collectibles} userId={userId} />
       <UpdateCollection collection={collection} />
+      <DndContainer collectibles={collectibles} userId={userId} />
       <CreateCollectible userId={userId} collectionId={collectionId} />
       <UpdateCollectible userId={userId} collectionId={collectionId} />
     </section>
