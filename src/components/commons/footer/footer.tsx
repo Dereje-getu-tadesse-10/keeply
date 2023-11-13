@@ -25,7 +25,15 @@ export const Footer = () => (
     <Link href='/'>
       <Logo />
     </Link>
-
+    <div>
+      <ul>
+        {links.map(({ href, label }) => (
+          <li key={`${href}${label}`}>
+            <Link href={href}>{label}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
     <div>
       <Paragraph>
         &copy; {currentYear} Built with 🎶 by{' '}
