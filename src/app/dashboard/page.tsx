@@ -6,6 +6,7 @@ import { CreateCollection } from '$/components/forms';
 import { CollectionsList } from '$/components/dashboard';
 import { EmptyCollections } from '$/components/dashboard';
 import { DashboardHeader } from '$/components/dashboard/dashboard-header/dashboard-header';
+import { Collections } from '$/components/dashboard/collections/collections';
 
 const Page = async () => {
   const user: Session | null = await auth();
@@ -16,11 +17,7 @@ const Page = async () => {
     <>
       <DashboardHeader lenght={collections.length} />
       <Separator />
-      {collections.length > 0 ? (
-        <CollectionsList collections={collections} />
-      ) : (
-        <EmptyCollections />
-      )}
+      <Collections collections={collections} />
       <CreateCollection userId={user?.user.id} />
     </>
   );

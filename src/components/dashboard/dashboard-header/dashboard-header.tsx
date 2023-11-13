@@ -10,18 +10,18 @@ export const DashboardHeader = ({ lenght }: { lenght: number }) => {
         Mes collections
       </Heading>
       <Paragraph variant='hightlight'>
-        Créez vos collections et ajoutez les objets que vous souhaitez
-        collectionner.
+        Commencez à créer vos collections et ajoutez-y les objets que vous aimez
+        collectionner !
       </Paragraph>
       <Paragraph variant='hightlight'>
-        <strong>{lenght}</strong> collections créées
+        <strong>{lenght}</strong> ollections créées.
       </Paragraph>
       <Button
         size={'small'}
         intent={'primary'}
         onClick={() => toggleModal('create-collection')}
       >
-        Créer une collection
+        Créez une collection
       </Button>
     </>
   );
