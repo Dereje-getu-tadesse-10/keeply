@@ -20,6 +20,7 @@ import { useQuery } from '@tanstack/react-query';
 import { CollectibleCard } from '$/components/dashboard';
 import { useMutation } from '@tanstack/react-query';
 import { LoadingCollectible } from '$/components/collectibles/loading/loading';
+import { LoadingUI } from '$/components/loading/loading';
 
 type FormData = z.infer<typeof updateCollectibleSchema>;
 
@@ -36,7 +37,9 @@ export const UpdateCollectible = ({
   const { collectibleId } = useCollectibleId();
   const router = useRouter();
 
-  const { data, isLoading } = useQuery({
+  let isLoading = true;
+
+  const { data } = useQuery({
     queryKey: ['collectible', collectibleId],
     queryFn: () => getCollectible(collectibleId, userId),
     enabled: !!collectibleId,
@@ -99,7 +102,9 @@ export const UpdateCollectible = ({
           size='medium'
         >
           {isLoading ? (
-            <LoadingCollectible />
+            <div className={styles.loading__container}>
+              <LoadingUI />
+            </div>
           ) : (
             <>
               <CollectibleCard

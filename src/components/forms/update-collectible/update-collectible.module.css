@@ -10,3 +10,8 @@
 .form > div {
   margin-bottom: 14px;
 }
+
+.loading__container {
+  position: relative;
+  height: 100px;
+}
