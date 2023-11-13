@@ -1,6 +1,6 @@
 'use client';
 import styles from './update-user.module.css';
-import { Button, Input, Paragraph, TextArea } from '$/components/ui';
+import { Button, Input, Paragraph, Separator, TextArea } from '$/components/ui';
 import { useQuery } from '@tanstack/react-query';
 import { checkUsername, updateProfil } from '$/lib/fetchs';
 import { upddateUsernameSchema } from '$/schemas/users-schema';
@@ -32,12 +32,11 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
     userInfos?.backgroundColor?.id || ''
   );
 
-  console.log('selectedBackground', backgroundColors);
   const {
     handleSubmit,
     watch,
     register,
-    formState: { isSubmitting, isDirty, isValid },
+    formState: { isSubmitting, isValid },
     setValue,
   } = useForm<FormValue>({
     resolver: zodResolver(upddateUsernameSchema),
@@ -106,7 +105,7 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
           </Paragraph>
         </div>
         <div>
-          <Paragraph>Background Image</Paragraph>
+          <Paragraph>couleur de fond</Paragraph>
           <Paragraph variant='p'>
             Choissez une image de fond pour votre page de profil.
           </Paragraph>
@@ -115,66 +114,69 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
           </Paragraph>
         </div>
       </div>
-
+      <Separator />
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
+          <Paragraph>Choissisez une couleur de fond</Paragraph>
+          <div className={styles.backgrounds_container}>
+            {backgroundColors.map((color) => (
+              <div
+                key={color.id}
+                onClick={() => {
+                  // setChooseBackground(color.id); background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+                  setSelectedBackground(color.id);
+                }}
+              >
+                <div
+                  style={{
+                    backgroundImage: `${color.colorCode}`,
+                    border:
+                      selectedBackground === color.id
+                        ? '2px solid #000'
+                        : `2px solid #fff`,
+                    height: ' 50px',
+                    width: ' 70px',
+                    borderRadius: '8px',
+                  }}
+                ></div>
+                <Paragraph variant='hightlight'>{color.name}</Paragraph>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          {isLoading ? null : <Paragraph>{data?.data?.message}</Paragraph>}
           <Input
             label='Votre identifiant'
             placeholder='mon-super-pseudo'
             id='username'
             {...register('username')}
           />
-          {isLoading ? null : <Paragraph>{data?.data?.message}</Paragraph>}
-        </div>
-        <div>
           <Input
             label='Votre prénom'
             placeholder='Votre prénom'
             id='name'
             {...register('name')}
           />
+
+          <TextArea
+            label='Bio'
+            placeholder='Décrivez-vous en quelques mots...'
+            id='bio'
+            rows={5}
+            {...register('description')}
+          />
+          <Button
+            type='submit'
+            size={'medium'}
+            disabled={!isValid || isSubmitting || isPending}
+            aria-disabled={!isValid || isSubmitting || isPending}
+          >
+            {isPending
+              ? 'Mise à jour du profil...'
+              : 'Mettre à jour mon profil'}
+          </Button>
         </div>
-        <TextArea
-          label='Bio'
-          placeholder='Décrivez-vous en quelques mots...'
-          id='bio'
-          rows={5}
-          {...register('description')}
-        />
-        <Paragraph>Choissisez une couleur de fond</Paragraph>
-        <div className={styles.backgrounds_container}>
-          {backgroundColors.map((color) => (
-            <div
-              key={color.id}
-              onClick={() => {
-                // setChooseBackground(color.id); background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-                setSelectedBackground(color.id);
-              }}
-            >
-              <div
-                style={{
-                  backgroundImage: `${color.colorCode}`,
-                  border:
-                    selectedBackground === color.id
-                      ? '2px solid #000'
-                      : `2px solid #fff`,
-                  height: ' 50px',
-                  width: ' 70px',
-                  borderRadius: '8px',
-                }}
-              ></div>
-              <Paragraph variant='hightlight'>{color.name}</Paragraph>
-            </div>
-          ))}
-        </div>
-        <Button
-          type='submit'
-          size={'medium'}
-          disabled={!isValid || isSubmitting || isPending}
-          aria-disabled={!isValid || isSubmitting || isPending}
-        >
-          {isPending ? 'Mise à jour du profil...' : 'Mettre à jour mon profil'}
-        </Button>
       </form>
     </section>
   );
