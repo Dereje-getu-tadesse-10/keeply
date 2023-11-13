@@ -1,6 +1,6 @@
 import { Navbar } from '$/components/commons';
 
-export const GdprLayout = ({ children }: { children: React.ReactNode }) => {
+export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Navbar />
@@ -9,4 +9,4 @@ export const GdprLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default GdprLayout;
+export default Layout;

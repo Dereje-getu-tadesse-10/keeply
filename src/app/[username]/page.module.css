@@ -1,11 +1,11 @@
 .main {
   height: 100svh;
   max-width: 1120px;
-  margin: auto;
+  margin: 70px auto 0 auto;
 }
 
 .section {
-  padding: 1rem;
+  padding: 0 1.2rem;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);

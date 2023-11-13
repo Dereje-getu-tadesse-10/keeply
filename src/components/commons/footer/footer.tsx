@@ -22,25 +22,10 @@ const links = [
 
 export const Footer = () => (
   <footer className={styles.footer}>
-    <Separator />
-    <div>
-      <div>
-        <Link href='/'>
-          <Logo />
-        </Link>
-      </div>
-      <div>
-        <ul>
-          {links.map(({ href, label }) => (
-            <li key={href}>
-              <Paragraph>
-                <Link href={href}>{label}</Link>
-              </Paragraph>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <Link href='/'>
+      <Logo />
+    </Link>
+
     <div>
       <Paragraph>
         &copy; {currentYear} Built with 🎶 by{' '}
