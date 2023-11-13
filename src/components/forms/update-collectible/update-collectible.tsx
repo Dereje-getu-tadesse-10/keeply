@@ -37,9 +37,7 @@ export const UpdateCollectible = ({
   const { collectibleId } = useCollectibleId();
   const router = useRouter();
 
-  let isLoading = true;
-
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['collectible', collectibleId],
     queryFn: () => getCollectible(collectibleId, userId),
     enabled: !!collectibleId,
