@@ -34,7 +34,7 @@ const getUserAndCollections = async (currentUser: string) => {
               status: true,
             },
             orderBy: {
-              id: 'asc',
+              dragPosition: 'asc',
             },
           },
         },

@@ -53,7 +53,7 @@ const ConfidentialityPage = () => (
         </Paragraph>
       </div>
       <div>
-        <Heading as='h2' variant='h3'>
+        <Heading as='h2' variant='h2'>
           Collecte des Informations
         </Heading>
         <Paragraph>
@@ -70,7 +70,7 @@ const ConfidentialityPage = () => (
         </Paragraph>
       </div>
       <div>
-        <Heading as='h2' variant='h3'>
+        <Heading as='h2' variant='h2'>
           Utilisation des Informations
         </Heading>
         <Paragraph>Les informations recueillies servent à :</Paragraph>
@@ -87,7 +87,7 @@ const ConfidentialityPage = () => (
         </Paragraph>
       </div>
       <div>
-        <Heading as='h2' variant='h3'>
+        <Heading as='h2' variant='h2'>
           Partage des Informations
         </Heading>
         <Paragraph>
@@ -103,7 +103,7 @@ const ConfidentialityPage = () => (
         </Paragraph>
       </div>
       <div>
-        <Heading as='h2' variant='h3'>
+        <Heading as='h2' variant='h2'>
           Consentement
         </Heading>
         <Paragraph>
@@ -113,7 +113,7 @@ const ConfidentialityPage = () => (
         </Paragraph>
       </div>
       <div>
-        <Heading as='h2' variant='h3'>
+        <Heading as='h2' variant='h2'>
           Sécurité des Données
         </Heading>
         <Paragraph>
@@ -123,7 +123,7 @@ const ConfidentialityPage = () => (
         </Paragraph>
       </div>
       <div>
-        <Heading as='h2' variant='h3'>
+        <Heading as='h2' variant='h2'>
           Droits des Utilisateurs
         </Heading>
         <Paragraph>
