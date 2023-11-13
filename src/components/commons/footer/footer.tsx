@@ -7,15 +7,15 @@ const currentYear = new Date().getFullYear();
 
 const links = [
   {
-    href: '/mentions',
+    href: '/gdpr/mentions',
     label: 'Mentions légales',
   },
   {
-    href: '/cookies',
+    href: '/gdpr/cookies',
     label: 'Politique de cookies',
   },
   {
-    href: '/privacy',
+    href: '/gdpr/privacy',
     label: 'Politique de confidentialité',
   },
 ];

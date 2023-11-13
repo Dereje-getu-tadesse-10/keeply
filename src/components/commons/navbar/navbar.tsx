@@ -8,7 +8,6 @@ import { ButtonLink, Heading, Paragraph } from '$/components/ui';
 import { Button } from '$/components/ui';
 import { signOut } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
-import logo from '../../../../public/icon.svg';
 import { Logo } from '../logo/logo';
 
 export const Navbar = () => {
