@@ -1,0 +1,11 @@
+.empty__collection {
+  margin: 50px auto;
+}
+
+.empty__collection h3 {
+  text-align: center !important;
+}
+.empty__collection p {
+  text-align: center !important;
+  margin-top: 20px;
+}
