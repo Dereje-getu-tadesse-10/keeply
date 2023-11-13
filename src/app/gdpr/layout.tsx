@@ -1,6 +1,6 @@
 import { Navbar } from '$/components/commons';
 
-export const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Navbar />
