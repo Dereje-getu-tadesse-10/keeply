@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Card, Modal } from '$/components/ui';
+import { Card, Modal, Paragraph } from '$/components/ui';
 import { Collectible, Collection } from '@prisma/client';
 import { CollectionCard } from '$/components/collections/collection-card/collection-card';
 import { useModalStore } from '$/stores/use-odalStore';
@@ -31,23 +31,32 @@ export const UserCollections = ({ userProfil }: any) => {
           title={selectedCollection.name}
           subtitle={selectedCollection.description}
         >
-          {selectedCollection.items.map((collectible: Collectible) => (
-            <ul className={styles.collectible} key={collectible.id}>
-              <li>
-                <p>{collectible.name}</p>
-                <p>{collectible.description}</p>
-                <p>
-                  <strong>
-                    {collectible.status === 'ACQUIRED' ? 'Acquéri' : 'Manquant'}{' '}
-                  </strong>
-                  dans la collection.
-                </p>
-                {collectible.id !==
-                  selectedCollection.items[selectedCollection.items.length - 1]
-                    .id && <hr />}
-              </li>
-            </ul>
-          ))}
+          {selectedCollection.length > 0 ? (
+            selectedCollection.items.maps((collectible: Collectible) => (
+              <ul className={styles.collectible} key={collectible.id}>
+                <li>
+                  <p>{collectible.name}</p>
+                  <p>{collectible.description}</p>
+                  <p>
+                    <strong>
+                      {collectible.status === 'ACQUIRED'
+                        ? 'Acquéri'
+                        : 'Manquant'}{' '}
+                    </strong>
+                    dans la collection.
+                  </p>
+                  {collectible.id !==
+                    selectedCollection.items[
+                      selectedCollection.items.length - 1
+                    ].id && <hr />}
+                </li>
+              </ul>
+            ))
+          ) : (
+            <Paragraph>
+              Ouups ! cette collection est vide pour le moment.
+            </Paragraph>
+          )}
         </Modal>
       )}
     </>
