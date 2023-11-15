@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { Button, Input, Modal, Paragraph, TextArea } from '$/components/ui';
+import { Button, Input, Modal, TextArea } from '$/components/ui';
 import { toast } from 'react-hot-toast';
 import { Select } from '$/components/ui/select/select';
 import { CollectionStatus } from '@prisma/client';

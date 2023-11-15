@@ -1,5 +1,4 @@
 'use client';
-// import { Collection } from '@prisma/client';
 import { Button, Heading, Modal, Paragraph } from '$/components/ui';
 import { useModalStore } from '$/stores/use-odalStore';
 import { useMutation } from '@tanstack/react-query';
@@ -9,11 +8,6 @@ import toast from 'react-hot-toast';
 import styles from './collection-card.module.css';
 import { Collection } from '$/server/collections-manager';
 
-// type Props = Collection & {
-//   _count: {
-//     items: number;
-//   };
-// };
 
 type Props = Collection;
 

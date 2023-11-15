@@ -13,16 +13,13 @@ export const Description = ({
 }: {
   userInfos: { username: string | null };
   userId: string;
-  }) => {
-  
+}) => {
   const { mutate, isPending } = useMutation({
-    mutationFn: () => deleteUser(userId),
+    mutationFn: (userId: string) => deleteUser(userId),
     onSuccess: (data) => {
       signOut();
     },
   });
-
-  
 
   return (
     <div>
@@ -72,8 +69,10 @@ export const Description = ({
         <Paragraph variant='p'>
           Si vous supprimer votre compte, vous perdrez toutes vos données.
         </Paragraph>
-        <Button intent='danger' size={'small'}
-          onClick={() => mutate()}
+        <Button
+          intent='danger'
+          size={'small'}
+          onClick={() => mutate(userId)}
           disabled={isPending}
           aria-disabled={isPending}
         >
