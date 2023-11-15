@@ -58,7 +58,7 @@ model User {
   accounts          Account[]
   sessions          Session[]
   collections       Collection[]
-  backgroundColorId String?                
+  backgroundColorId String?           @default("clowtzl2x0001nojusnvn1ofj")      
   backgroundColor   BackgroundColors? @relation(fields: [backgroundColorId], references: [id])
 }
 
