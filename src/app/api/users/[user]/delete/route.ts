@@ -5,10 +5,10 @@ const deleteUserSchema = z.object({
   user: z.string(),
 });
 
-export const DELETE = async (
+export async function DELETE(
   request: Request,
   { params }: { params: { user: string } }
-) => {
+) {
   const userId = params.user;
 
   const parse = deleteUserSchema.safeParse({ user: userId });
@@ -27,4 +27,4 @@ export const DELETE = async (
   });
 
   return Response.json({ status: 'ok' });
-};
+}
