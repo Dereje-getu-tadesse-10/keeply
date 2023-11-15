@@ -11,7 +11,7 @@ import type {
   NextApiResponse,
 } from 'next';
 import { sendVerificationRequest } from './sendEmail';
-import NextAuth from 'next-auth/next';
+
 
 const {
   GITHUB_CLIENT_ID,

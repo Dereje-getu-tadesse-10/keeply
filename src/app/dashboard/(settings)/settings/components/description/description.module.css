@@ -1,0 +1,19 @@
+.description {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 25px;
+}
+
+@media only screen and (min-width: 768px) {
+  .description {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.delete {
+  margin-top: 25px;
+}
+
+.delete > button {
+  margin-top: 1rem;
+}

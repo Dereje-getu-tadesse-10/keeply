@@ -1,9 +1,9 @@
-import { UpdateUser } from '$/components/forms';
 import { Heading, Paragraph } from '$/components/ui';
 import { auth } from '$/lib/auth';
 import { getUser, getBackgroundColor } from '$/server/users';
-
 import { Metadata } from 'next';
+import { Form as UpdateUserForm } from './components/form/form';
+import { Description } from './components/description/description';
 
 export const metadata: Metadata = {
   title: 'Paramètres - Keeply',
@@ -20,15 +20,16 @@ const SettingsPage = async () => {
   }
 
   return (
-    <main>
+    <>
       <Heading>Paramètres</Heading>
       <Paragraph>Mettez à jour vos informations personnelles.</Paragraph>
-      <UpdateUser
+      <Description userInfos={userInfos} />
+      <UpdateUserForm
         userId={user?.user.id}
         userInfos={userInfos}
         backgroundColors={backgroundColors}
       />
-    </main>
+    </>
   );
 };
 

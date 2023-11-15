@@ -1,5 +1,4 @@
 'use client';
-import styles from './update-user.module.css';
 import { Button, Input, Paragraph, Separator, TextArea } from '$/components/ui';
 import { useQuery } from '@tanstack/react-query';
 import { checkUsername, updateProfil } from '$/lib/fetchs';
@@ -13,6 +12,8 @@ import toast from 'react-hot-toast';
 import { BackgroundColors } from '@prisma/client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import styles from './form.module.css';
 
 type FormValue = z.infer<typeof upddateUsernameSchema>;
 
@@ -28,7 +29,9 @@ type Props = {
   backgroundColors: BackgroundColors[];
 };
 
-export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
+export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
+  const router = useRouter();
+
   const [selectedBackground, setSelectedBackground] = useState(
     userInfos?.backgroundColor?.id || ''
   );
@@ -66,6 +69,7 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
     mutationFn: (data: FormValue) => updateProfil(data),
     onSuccess: (data) => {
       toast.success(data.message);
+      router.refresh();
     },
   });
 
@@ -87,47 +91,6 @@ export const UpdateUser = ({ userId, userInfos, backgroundColors }: Props) => {
 
   return (
     <section>
-      <div className={styles.form_description}>
-        <div>
-          <Paragraph>Nom d&apos;utilisateur</Paragraph>
-          <Paragraph variant='p'>
-            Le nom d&apos;utilisateur est unique et vous permet de vous
-            identifier sur votre page de profil.
-          </Paragraph>
-          <Paragraph variant='p'>
-            Vous pouvez le modifier à tout moment.
-          </Paragraph>
-        </div>
-        <div>
-          <Paragraph>Bio</Paragraph>
-          <Paragraph variant='p'>Décrivez-vous en quelques mots.</Paragraph>
-          <Paragraph variant='p'>
-            Vous pouvez modifier votre bio à tout moment.
-          </Paragraph>
-        </div>
-        <div>
-          <Paragraph>couleur de fond</Paragraph>
-          <Paragraph variant='p'>
-            Choissez une image de fond pour votre page de profil.
-          </Paragraph>
-          <Paragraph variant='p'>
-            Vous pouvez modifier votre image de fond à tout moment.
-          </Paragraph>
-        </div>
-        {userInfos.username === null ? null : (
-          <div>
-            <Paragraph>URL de votre page de profil</Paragraph>
-            <Paragraph variant='p'>
-              Votre page de profil est accessible via l&apos;url suivante :
-            </Paragraph>
-            <Paragraph variant='p'>
-              <Link href={`/${userInfos.username}`}>
-                https://keeply-neon.vercel.app/{userInfos.username}
-              </Link>
-            </Paragraph>
-          </div>
-        )}
-      </div>
       <Separator />
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>

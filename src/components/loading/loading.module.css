@@ -1,3 +1,7 @@
+.container {
+  height: 100vh;
+}
+
 .spinner {
   border: 5px solid #f3f3f3;
   border-top: 5px solid var(--primary);
