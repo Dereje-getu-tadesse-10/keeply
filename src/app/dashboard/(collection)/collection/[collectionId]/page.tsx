@@ -5,13 +5,11 @@ import { auth } from '$/lib/auth';
 import { getCollection } from '$/server/collections';
 import { getCollectibles } from '$/server/collectibles';
 import { CollectionHeader, DndContainer } from '$/components/dashboard';
-import type { Metadata, ResolvingMetadata } from 'next';
+import { UpdateCollection } from './components/update-collection/update-collection';
+import { CreateCollectible } from './components/create-collectible/create-collectible';
+import { UpdateCollectible } from './components/update-collectible/update-collectible';
 
-import {
-  CreateCollectible,
-  UpdateCollection,
-  UpdateCollectible,
-} from '$/components/forms';
+import type { Metadata, ResolvingMetadata } from 'next';
 
 type PageProps = {
   params: {

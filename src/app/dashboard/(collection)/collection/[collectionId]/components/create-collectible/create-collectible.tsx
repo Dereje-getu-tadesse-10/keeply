@@ -4,7 +4,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { Button, Input, Modal, Paragraph } from '../../ui';
+import {
+  Button,
+  Input,
+  Modal,
+  Paragraph,
+} from '../../../../../../../components/ui';
 import { toast } from 'react-hot-toast';
 import { Select } from '$/components/ui/select/select';
 import { useModalStore } from '$/stores/useModalStore';

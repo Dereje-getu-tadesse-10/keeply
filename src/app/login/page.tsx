@@ -1,6 +1,6 @@
 import styles from './page.module.css';
 import Link from 'next/link';
-import { Auth } from '$/components/forms/index';
+import { Auth } from './components/auth/auth';
 import { auth } from '$/lib/auth';
 import { redirect } from 'next/navigation';
 import { Heading, Separator } from '$/components/ui';
