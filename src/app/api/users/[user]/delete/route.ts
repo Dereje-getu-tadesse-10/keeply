@@ -1,4 +1,5 @@
 import { prisma } from '$/lib/prisma';
+import { NextResponse } from 'next/server';
 import z from 'zod';
 
 const deleteUserSchema = z.object({
@@ -10,21 +11,20 @@ export async function DELETE(
   { params }: { params: { user: string } }
 ) {
   const userId = params.user;
-
   const parse = deleteUserSchema.safeParse({ user: userId });
-
   if (!parse.success) {
     return {
       status: 400,
       body: parse.error,
     };
   }
-
   await prisma.user.delete({
     where: {
       id: userId,
     },
   });
-
-  return Response.json({ status: 'ok' });
+  return NextResponse.json(
+    { message: `Votre profil a bien été mis à jour` },
+    { status: 201 }
+  );
 }
