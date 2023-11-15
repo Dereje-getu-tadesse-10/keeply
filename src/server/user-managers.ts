@@ -26,11 +26,7 @@ type Item = {
   status: string;
 };
 
-type BackgroundColor = {
-  colorCode: string;
-  id?: string;
-  name?: string;
-};
+type BackgroundColor = BackgroundColors
 
 class UserManager {
   async getUserAndCollections(currentUser: string): Promise<User | null> {
