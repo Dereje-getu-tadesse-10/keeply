@@ -2,7 +2,7 @@ import { auth } from '$/lib/auth';
 import { getCollections } from '$/server/collections';
 import { Session } from 'next-auth';
 import { Separator } from '$/components/ui';
-import { CreateCollection } from '$/components/forms';
+import { CreateCollection } from './components/create-collection/create-collection';
 import { DashboardHeader } from './components/dashboard-header/dashboard-header';
 import { Collections } from './components/collections/collections';
 

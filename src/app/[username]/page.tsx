@@ -1,8 +1,7 @@
-import { Paragraph } from '$/components/ui';
+import { Paragraph, Heading } from '$/components/ui';
 import { getUserAndCollections } from '$/server/users';
 import { notFound } from 'next/navigation';
-import { Heading } from '$/components/ui';
-import { UserCollections } from './components/collections/user-collections';
+import { UserCollections } from './components/user-collections';
 import { ResolvingMetadata } from 'next';
 import styles from './page.module.css';
 

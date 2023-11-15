@@ -1,0 +1,31 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+
+  & > .form__control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    & > .form__label {
+      font-size: 14px;
+      color: #334155;
+    }
+  }
+}
+
+.form__error {
+  background-color: var(--error-color);
+  font-size: 14px;
+  color: white;
+  padding: 12px 8px;
+  border-radius: 2px;
+}
+
+.warning {
+  display: flex;
+  gap: 8px;
+  margin: 17px auto;
+}
