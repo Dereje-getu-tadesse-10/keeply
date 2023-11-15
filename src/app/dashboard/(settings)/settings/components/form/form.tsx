@@ -10,11 +10,9 @@ import { useDebounce } from 'use-debounce';
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import styles from './form.module.css';
 import { User } from '$/server/user-managers';
-import { BackgroundColors } from '@prisma/client';
 
 type FormValue = z.infer<typeof upddateUsernameSchema>;
 
@@ -35,7 +33,7 @@ export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
     handleSubmit,
     watch,
     register,
-    formState: { isSubmitting, isValid },
+    formState: { isSubmitting, isValid, isDirty },
     setValue,
   } = useForm<FormValue>({
     resolver: zodResolver(upddateUsernameSchema),
@@ -143,8 +141,8 @@ export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
           <Button
             type='submit'
             size={'medium'}
-            disabled={!isValid || isSubmitting || isPending}
-            aria-disabled={!isValid || isSubmitting || isPending}
+            disabled={!isValid || isSubmitting || isPending || !isDirty}
+            aria-disabled={!isValid || isSubmitting || isPending || !isDirty}
           >
             {isPending
               ? 'Mise à jour du profil...'
