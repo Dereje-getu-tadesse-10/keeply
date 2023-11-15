@@ -167,6 +167,15 @@ const checkUsername = async (
   return await response.json();
 };
 
+// Fontion d'appel pour supprimer un utilisateur
+
+const deleteUser = async (userId: string) => {
+  const response = await fetch(`/api/users/${userId}/delete`, {
+    method: 'DELETE',
+  });
+  return await response.json();
+};
+
 // Export
 export {
   updateCollection,
@@ -179,4 +188,5 @@ export {
   deleteColletible,
   updateProfil,
   checkUsername,
+  deleteUser,
 };

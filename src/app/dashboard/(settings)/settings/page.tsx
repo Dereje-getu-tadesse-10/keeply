@@ -23,7 +23,7 @@ const SettingsPage = async () => {
     <>
       <Heading>Paramètres</Heading>
       <Paragraph>Mettez à jour vos informations personnelles.</Paragraph>
-      <Description userInfos={userInfos} />
+      <Description userInfos={userInfos} userId={user?.user.id} />
       <UpdateUserForm
         userId={user?.user.id}
         userInfos={userInfos}

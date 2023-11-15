@@ -9,7 +9,7 @@ import {
   Input,
   Modal,
   Paragraph,
-} from '../../../../../../../components/ui';
+} from '$/components/ui';
 import { toast } from 'react-hot-toast';
 import { Select } from '$/components/ui/select/select';
 import { useModalStore } from '$/stores/useModalStore';
@@ -34,7 +34,7 @@ export const CreateCollectible = ({
     handleSubmit,
     register,
     reset,
-    formState: { isSubmitting, isDirty, isValid },
+    formState: { isSubmitting, isValid },
   } = useForm<FormData>({
     resolver: zodResolver(createCollectiblesSchema),
   });

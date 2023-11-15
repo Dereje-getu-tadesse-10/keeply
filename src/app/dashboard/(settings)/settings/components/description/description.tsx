@@ -1,12 +1,29 @@
+'use client';
 import { Button, Paragraph } from '$/components/ui';
 import Link from 'next/link';
 import styles from './description.module.css';
-
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useMutation } from '@tanstack/react-query';
+import { useForm } from 'react-hook-form';
+import { deleteUser } from '$/lib/fetchs';
+import { signOut } from 'next-auth/react';
 export const Description = ({
   userInfos,
+  userId,
 }: {
   userInfos: { username: string | null };
-}) => {
+  userId: string;
+  }) => {
+  
+  const { mutate, isPending } = useMutation({
+    mutationFn: () => deleteUser(userId),
+    onSuccess: (data) => {
+      signOut();
+    },
+  });
+
+  
+
   return (
     <div>
       <div className={styles.description}>
@@ -55,7 +72,11 @@ export const Description = ({
         <Paragraph variant='p'>
           Si vous supprimer votre compte, vous perdrez toutes vos données.
         </Paragraph>
-        <Button intent='danger' size={'small'}>
+        <Button intent='danger' size={'small'}
+          onClick={() => mutate()}
+          disabled={isPending}
+          aria-disabled={isPending}
+        >
           Supprimer mon compte
         </Button>
       </div>
