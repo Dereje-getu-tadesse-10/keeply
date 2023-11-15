@@ -1,6 +1,6 @@
-import { ButtonLink, Paragraph } from '../ui';
+import { ButtonLink, Paragraph } from '$/components/ui';
 import styles from './landing.module.css';
-import app from '../../../public/app.png';
+import app from '../../../../public/app.png';
 import Image from 'next/image';
 
 export const Hero = () => (

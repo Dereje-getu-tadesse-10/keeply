@@ -1,4 +1,4 @@
-import { Heading, Paragraph } from '../ui';
+import { Heading, Paragraph } from '$/components/ui';
 import styles from './landing.module.css';
 
 const data = [
@@ -13,8 +13,6 @@ const data = [
       'Partagez vos collections avec vos amis et votre famille. Faites découvrir vos collections à vos proches et à la communauté.',
   },
 ];
-
-// Keeply vous permet de gérer vos collections en toute simplicité. Ajoutez, modifiez et supprimez vos collections en quelques clics.
 
 export const Explain = () => (
   <div className={styles.explain}>

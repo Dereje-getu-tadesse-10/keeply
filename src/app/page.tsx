@@ -1,18 +1,16 @@
 import { Navbar } from '$/components/commons';
-import { Explain } from '$/components/landing/ explain';
-import { Hero } from '$/components/landing/hero';
-import { StratNow } from '$/components/landing/start-now';
+import { Explain } from '$/app/components/landing/explain';
+import { Hero } from '$/app/components/landing/hero';
+import { StratNow } from '$/app/components/landing/start-now';
 
 const Home = () => {
   return (
-    <>
+    <main>
       <Navbar />
-      <main>
-        <Hero />
-        <Explain />
-        <StratNow />
-      </main>
-    </>
+      <Hero />
+      <Explain />
+      <StratNow />
+    </main>
   );
 };
 
