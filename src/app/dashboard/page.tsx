@@ -1,5 +1,5 @@
 import { auth } from '$/lib/auth';
-import { getCollections } from '$/server/collections';
+import { CollectionsManager } from '$/server/collections-manager';
 import { Session } from 'next-auth';
 import { Separator } from '$/components/ui';
 import { CreateCollection } from './components/create-collection/create-collection';
@@ -15,7 +15,9 @@ export const metadata: Metadata = {
 const Page = async () => {
   const user: Session | null = await auth();
 
-  const collections = await getCollections(user?.user.id);
+  const collections = await new CollectionsManager().getCollections(
+    user?.user.id
+  );
 
   return (
     <>

@@ -2,7 +2,7 @@ import styles from './page.module.css';
 import { Session } from 'next-auth';
 import { notFound } from 'next/navigation';
 import { auth } from '$/lib/auth';
-import { getCollection } from '$/server/collections';
+import { CollectionsManager } from '$/server/collections-manager';
 import { getCollectibles } from '$/server/collectibles';
 import { CollectionHeader, DndContainer } from '$/components/dashboard';
 import { UpdateCollection } from './components/update-collection/update-collection';
@@ -22,7 +22,12 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ) {
   const user: Session | null = await auth();
-  const collection = await getCollection(collectionId, user?.user.id);
+  // const collection = await getCollection(collectionId, user?.user.id);
+
+  const collection = await new CollectionsManager().getCollection(
+    collectionId,
+    user?.user.id
+  );
 
   if (!collection) notFound();
 
@@ -36,7 +41,10 @@ const Page = async ({ params: { collectionId } }: PageProps) => {
   const user: Session | null = await auth();
 
   const userId = user?.user.id;
-  const collection = await getCollection(collectionId, userId);
+  const collection = await new CollectionsManager().getCollection(
+    collectionId,
+    userId
+  );
   const collectibles = await getCollectibles(collectionId);
 
   if (!collection) notFound();

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Card, Modal } from '$/components/ui';
 import { Collectible, Collection } from '@prisma/client';
 import { CollectionCard } from '$/components/collections/collection-card/collection-card';
-import { useModalStore } from '$/stores/useModalStore';
+import { useModalStore } from '$/stores/use-odalStore';
 import styles from './user-collections.module.css';
 
 const MODAL_KEY = 'view-collection';

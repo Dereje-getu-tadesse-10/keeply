@@ -1,7 +1,7 @@
 'use client';
 import React, { useCallback, useEffect } from 'react';
 import styles from './modal.module.css';
-import { useModalStore } from '$/stores/useModalStore';
+import { useModalStore } from '$/stores/use-odalStore';
 import { X } from 'lucide-react';
 import { Heading, Paragraph } from '..';
 

@@ -1,5 +1,5 @@
 import { Badge, ButtonLink, Card, Heading, Paragraph } from '$/components/ui';
-import { Collection } from '@prisma/client';
+import { Collection } from '$/server/collections-manager';
 
 export const CollectionsList = ({
   collections,

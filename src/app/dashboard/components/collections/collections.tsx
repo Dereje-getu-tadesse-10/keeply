@@ -1,15 +1,8 @@
 import { CollectionsList } from '$/components/collections/collection-list/collections-list';
 import { EmptyCollections } from '$/components/collections/empty-collection/empty-collections';
-import { Collectible, CollectionStatus } from '@prisma/client';
+import { Collection } from '$/server/collections-manager';
 
-type CollectionsProps = {
-  id: string;
-  name: string;
-  description: string;
-  status: CollectionStatus;
-  userId: string;
-  items: Collectible[];
-}[];
+type CollectionsProps = Collection[];
 
 export const Collections = ({
   collections,

@@ -4,8 +4,8 @@ import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import { Collectible } from '@prisma/client';
 import { Badge, Card, Heading, Paragraph } from '..';
 import { CheckCheck, Grip, X } from 'lucide-react';
-import { useModalStore } from '$/stores/useModalStore';
-import { useCollectibleId } from '$/stores/useCollectibleId';
+import { useModalStore } from '$/stores/use-odalStore';
+import { useCollectibleId } from '$/stores/use-collectibleId';
 
 type Props = Collectible;
 

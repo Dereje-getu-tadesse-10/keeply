@@ -1,16 +1,10 @@
-import { CollectionStatus } from '@prisma/client';
-import { Badge, Button, Heading, Paragraph } from '../../ui';
+import { Badge, Button, Heading, Paragraph } from '$/components/ui';
 import styles from './collection.module.css';
 import dayjs from 'dayjs';
+import { Collection } from '$/server/collections-manager';
 
 type Props = {
-  collection: {
-    name: string;
-    status: CollectionStatus;
-    description: string | null;
-    created_at: Date | null;
-    updated_at: Date | null;
-  };
+  collection: Collection;
   authenticated?: boolean;
 };
 

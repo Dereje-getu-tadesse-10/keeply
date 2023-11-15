@@ -1,6 +1,6 @@
 'use client';
 import { Button, Heading, Paragraph } from '$/components/ui';
-import { useModalStore } from '$/stores/useModalStore';
+import { useModalStore } from '$/stores/use-odalStore';
 
 export const DashboardHeader = ({ lenght }: { lenght: number }) => {
   const { toggleModal } = useModalStore();

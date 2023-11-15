@@ -1,6 +1,6 @@
 import { Heading, Paragraph } from '$/components/ui';
 import { auth } from '$/lib/auth';
-import { getUser, getBackgroundColor } from '$/server/users';
+import { UserManager } from '$/server/user-managers';
 import { Metadata } from 'next';
 import { Form as UpdateUserForm } from './components/form/form';
 import { Description } from './components/description/description';
@@ -12,8 +12,9 @@ export const metadata: Metadata = {
 const SettingsPage = async () => {
   const user = await auth();
 
-  const userInfos = await getUser(user?.user.id);
-  const backgroundColors = await getBackgroundColor();
+
+  const userInfos = await new UserManager().getUser(user?.user.id);
+  const backgroundColors = await new UserManager().getBackgroundColors();
 
   if (!userInfos) {
     return <div className='spinner'></div>;

@@ -10,18 +10,13 @@ import { Select } from '$/components/ui/select/select';
 import { CollectionStatus } from '@prisma/client';
 import { updateCollectionSchema } from '$/schemas/collections-schema';
 import { updateCollection, deleteCollection } from '$/lib/fetchs';
-import { useModalStore } from '$/stores/useModalStore';
+import { useModalStore } from '$/stores/use-odalStore';
 import { CollectionCard } from '$/components/dashboard';
 import { useMutation } from '@tanstack/react-query';
+import { Collection } from '$/server/collections-manager';
 
-type Props = {
+type Props = Collection & {
   userId: string;
-  id: string;
-  name: string;
-  status: CollectionStatus;
-  description: string | null;
-  created_at: Date | null;
-  updated_at: Date | null;
 };
 
 type FormData = z.infer<typeof updateCollectionSchema>;

@@ -1,5 +1,5 @@
 import { Paragraph, Heading } from '$/components/ui';
-import { getUserAndCollections } from '$/server/users';
+import { UserManager } from '$/server/user-managers';
 import { notFound } from 'next/navigation';
 import { UserCollections } from './components/user-collections';
 import { ResolvingMetadata } from 'next';
@@ -11,7 +11,9 @@ export async function generateMetadata(
 ) {
   const currentUser = params.username;
 
-  const userProfil = await getUserAndCollections(currentUser);
+  // const userProfil = await getUserAndCollections(currentUser);
+  const userProfil = await new UserManager().getUserAndCollections(currentUser);
+
   if (!userProfil) notFound();
 
   return {
@@ -23,7 +25,7 @@ export async function generateMetadata(
 const Page = async ({ params }: { params: { username: string } }) => {
   const currentUser = params.username;
 
-  const userProfil = await getUserAndCollections(currentUser);
+  const userProfil = await new UserManager().getUserAndCollections(currentUser);
   if (!userProfil) notFound();
 
   return (
@@ -46,16 +48,14 @@ const Page = async ({ params }: { params: { username: string } }) => {
           </div>
         </div>
         <div className={styles.collections}>
-          {userProfil.collections.length > 0 ? (
+          {userProfil?.collections?.length ? (
             <Heading as='h2' variant='h2'>
               Collections
             </Heading>
           ) : (
-            <>
-              <Heading as='h3' variant='h3'>
-                Ouups ! Cette personne n&apos;a pas encore de collection
-              </Heading>
-            </>
+            <Heading as='h3' variant='h3'>
+              Ouups ! Cette personne n&apos;a pas encore de collection
+            </Heading>
           )}
           <div className={styles.collections__grid}>
             <UserCollections userProfil={userProfil} />

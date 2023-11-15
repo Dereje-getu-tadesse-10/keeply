@@ -9,31 +9,26 @@ import z from 'zod';
 import { useDebounce } from 'use-debounce';
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-import { BackgroundColors } from '@prisma/client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import styles from './form.module.css';
+import { User } from '$/server/user-managers';
+import { BackgroundColors } from '@prisma/client';
 
 type FormValue = z.infer<typeof upddateUsernameSchema>;
 
 type Props = {
-  userId: string;
-  userInfos: {
-    description: string | null;
-    username: string | null;
-    id: string;
-    backgroundColor: BackgroundColors | null;
-    name: string | null;
-  };
-  backgroundColors: BackgroundColors[];
+  userId: User['id'];
+  userInfos: User;
+  backgroundColors: User['backgroundColor'][];
 };
 
 export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
   const router = useRouter();
 
   const [selectedBackground, setSelectedBackground] = useState(
-    userInfos?.backgroundColor?.id || ''
+    userInfos?.backgroundColor?.colorCode || ''
   );
 
   const {
@@ -48,7 +43,7 @@ export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
       username: userInfos.username === null ? '' : userInfos.username,
       description:
         userInfos.description === '' ? '' : (userInfos.description as string),
-      backgroundColor: userInfos.backgroundColor?.id || '',
+      backgroundColor: userInfos.backgroundColor?.colorCode || '',
       name: userInfos.name === null ? '' : userInfos.name,
     },
   });
@@ -96,18 +91,20 @@ export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
         <div>
           <Paragraph>Choissisez une couleur de fond</Paragraph>
           <div className={styles.backgrounds_container}>
-            {backgroundColors.map((color) => (
+            {backgroundColors.map((color: User['backgroundColor']) => (
               <div
-                key={color.id}
+                key={color?.colorCode}
                 onClick={() => {
-                  setSelectedBackground(color.id);
+                  if (color) {
+                    setSelectedBackground(color?.colorCode);
+                  }
                 }}
               >
                 <div
                   style={{
-                    backgroundImage: `${color.colorCode}`,
+                    backgroundImage: `${color?.colorCode}`,
                     border:
-                      selectedBackground === color.id
+                      selectedBackground === color?.colorCode
                         ? '2px solid #000'
                         : `2px solid #fff`,
                     height: ' 50px',
@@ -115,7 +112,7 @@ export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
                     borderRadius: '8px',
                   }}
                 ></div>
-                <Paragraph variant='hightlight'>{color.name}</Paragraph>
+                <Paragraph variant='hightlight'>{color?.name}</Paragraph>
               </div>
             ))}
           </div>

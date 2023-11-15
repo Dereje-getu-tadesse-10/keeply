@@ -10,7 +10,7 @@ import type {
   NextApiRequest,
   NextApiResponse,
 } from 'next';
-import { sendVerificationRequest } from './sendEmail';
+import { sendVerificationRequest } from './send-email';
 
 
 const {
