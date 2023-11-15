@@ -11,20 +11,16 @@ export async function DELETE(
   { params }: { params: { user: string } }
 ) {
   const userId = params.user;
-  const parse = deleteUserSchema.safeParse({ user: userId });
+  const parse = deleteUserSchema.safeParse(userId);
   if (!parse.success) {
-    return {
-      status: 400,
-      body: parse.error,
-    };
+    return NextResponse.json({
+      status: 401,
+    });
   }
   await prisma.user.delete({
     where: {
       id: userId,
     },
   });
-  return NextResponse.json(
-    { message: `Votre profil a bien été mis à jour` },
-    { status: 201 }
-  );
+  return NextResponse.json({ status: 201 });
 }
