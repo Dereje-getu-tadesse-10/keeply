@@ -1,13 +1,11 @@
 import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
+import { auth } from '$/lib/auth';
 import { prisma } from '$/lib/prisma';
-
-import { config } from '$/lib/auth';
 import { verifySession } from '$/lib/verify-session';
 import { createUserSchema } from '$/schemas/users-schema';
 
 export async function PUT(req: Request, res: Response) {
-  const session = await getServerSession(config);
+  const session = await auth();
   const body = await req.json();
   const response = createUserSchema.safeParse(body);
 
@@ -22,6 +20,7 @@ export async function PUT(req: Request, res: Response) {
   const sessionError = verifySession(session, {
     userId: response.data.userId,
   });
+
   if (sessionError) {
     console.log(sessionError);
     return NextResponse.json(sessionError, { status: sessionError.status });
@@ -68,7 +67,7 @@ export async function PUT(req: Request, res: Response) {
     );
   }
 
-  // On crée la collection
+  // On met à jour le profil
   await prisma.user.update({
     where: {
       id: userId,

@@ -1,14 +1,11 @@
 import { prisma } from '$/lib/prisma';
-
+import { BackgroundColors } from '@prisma/client';
 export type User = {
   id: string;
   username: string | null;
   name: string | null;
   description: string | null;
-  backgroundColor?: {
-    colorCode: string;
-    name?: string;
-  } | null;
+  backgroundColor?: BackgroundColors | null;
   collections?: Collection[];
 };
 
@@ -49,6 +46,8 @@ class UserManager {
         backgroundColor: {
           select: {
             colorCode: true,
+            id: true,
+            name: true,
           },
         },
         collections: {

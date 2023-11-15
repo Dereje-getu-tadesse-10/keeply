@@ -16,7 +16,7 @@ const usernameSchema = z
           "Le nom d'utilisateur ne doit contenir que des lettres, des chiffres, des tirets et des underscores",
       }),
     description: z.string().max(500, 'La description est trop longue'),
-    currentUsername: z.string(),
+    currentUsername: z.string().optional(),
     backgroundColor: z.string(),
     name: z.string(),
   })

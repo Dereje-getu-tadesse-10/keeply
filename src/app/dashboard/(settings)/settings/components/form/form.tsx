@@ -28,7 +28,7 @@ export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
   const router = useRouter();
 
   const [selectedBackground, setSelectedBackground] = useState(
-    userInfos?.backgroundColor?.colorCode || ''
+    userInfos?.backgroundColor?.id || ''
   );
 
   const {
@@ -43,7 +43,7 @@ export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
       username: userInfos.username === null ? '' : userInfos.username,
       description:
         userInfos.description === '' ? '' : (userInfos.description as string),
-      backgroundColor: userInfos.backgroundColor?.colorCode || '',
+      backgroundColor: userInfos.backgroundColor?.id,
       name: userInfos.name === null ? '' : userInfos.name,
     },
   });
@@ -78,7 +78,8 @@ export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
     const datas = {
       ...data,
       userId: userId,
-      currentUsername: userInfos.username === null ? '' : userInfos.username,
+      currentUsername:
+        userInfos.username === null ? 'dereke' : userInfos.username,
       backgroundColor: selectedBackground,
     };
     mutate(datas);
@@ -93,10 +94,10 @@ export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
           <div className={styles.backgrounds_container}>
             {backgroundColors.map((color: User['backgroundColor']) => (
               <div
-                key={color?.colorCode}
+                key={color?.id}
                 onClick={() => {
                   if (color) {
-                    setSelectedBackground(color?.colorCode);
+                    setSelectedBackground(color?.id);
                   }
                 }}
               >
@@ -104,7 +105,7 @@ export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
                   style={{
                     backgroundImage: `${color?.colorCode}`,
                     border:
-                      selectedBackground === color?.colorCode
+                      selectedBackground === color?.id
                         ? '2px solid #000'
                         : `2px solid #fff`,
                     height: ' 50px',

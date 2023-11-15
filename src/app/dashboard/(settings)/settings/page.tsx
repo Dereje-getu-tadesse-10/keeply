@@ -12,7 +12,6 @@ export const metadata: Metadata = {
 const SettingsPage = async () => {
   const user = await auth();
 
-
   const userInfos = await new UserManager().getUser(user?.user.id);
   const backgroundColors = await new UserManager().getBackgroundColors();
 
