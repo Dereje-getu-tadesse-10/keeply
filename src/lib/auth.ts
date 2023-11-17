@@ -12,7 +12,6 @@ import type {
 } from 'next';
 import { sendVerificationRequest } from './send-email';
 
-
 const {
   GITHUB_CLIENT_ID,
   GITHUB_CLIENT_SECRET,

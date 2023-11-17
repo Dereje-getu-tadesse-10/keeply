@@ -73,7 +73,6 @@ pnpm run dev
 
 Pour que l'authentification fonctionne, configurez au moins une méthode de connexion (Google, GitHub, email) en définissant les variables d'environnement correspondantes dans votre fichier `.env`.
 
-
 ### Stack
 
 - [Next.js](https://nextjs.org/)

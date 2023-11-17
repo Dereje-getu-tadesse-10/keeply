@@ -8,7 +8,6 @@ import toast from 'react-hot-toast';
 import styles from './collection-card.module.css';
 import { Collection } from '$/server/collections-manager';
 
-
 type Props = Collection;
 
 export const CollectionHeader = ({ collection }: { collection: Props }) => {
