@@ -27,8 +27,8 @@ export const Hero = () => (
         'https://res.cloudinary.com/decneq2aj/image/upload/f_auto,q_auto/xkinpbvlh7j1ydbzbeka'
       }
       alt='collections'
-      width={600}
-      height={600}
+      width={800}
+      height={800}
     />
   </div>
 );
