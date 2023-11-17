@@ -1,7 +1,8 @@
 # Keeply
 
-[Projet en live](https://keeply-neon.vercel.app/)
-[Page profil](https://keeply-neon.vercel.app/dereje)
+Projet en live [lien](https://keeply-neon.vercel.app/)
+
+Page profil [lien](https://keeply-neon.vercel.app/dereje)
 
 **Projet pour ma soutenance.**
 
