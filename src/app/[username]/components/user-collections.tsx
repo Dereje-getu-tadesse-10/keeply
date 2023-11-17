@@ -31,8 +31,35 @@ export const UserCollections = ({ userProfil }: any) => {
           title={selectedCollection.name}
           subtitle={selectedCollection.description}
         >
-          {selectedCollection.length > 0 ? (
+          {/* {selectedCollection.length > 0 ? (
             selectedCollection.items.maps((collectible: Collectible) => (
+              <ul className={styles.collectible} key={collectible.id}>
+                <li>
+                  <p>{collectible.name}</p>
+                  <p>{collectible.description}</p>
+                  <p>
+                    <strong>
+                      {collectible.status === 'ACQUIRED'
+                        ? 'Acquéri'
+                        : 'Manquant'}{' '}
+                    </strong>
+                    dans la collection.
+                  </p>
+                  {collectible.id !==
+                    selectedCollection.items[
+                      selectedCollection.items.length - 1
+                    ].id && <hr />}
+                </li>
+              </ul>
+            ))
+          ) : (
+            <Paragraph>
+              Ouups ! cette collection est vide pour le moment.
+            </Paragraph>
+          )} */}
+
+          {selectedCollection.items.length > 0 ? (
+            selectedCollection.items.map((collectible: Collectible) => (
               <ul className={styles.collectible} key={collectible.id}>
                 <li>
                   <p>{collectible.name}</p>

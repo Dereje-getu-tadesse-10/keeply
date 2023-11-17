@@ -2,6 +2,7 @@ import { ButtonLink, Paragraph } from '$/components/ui';
 import styles from './landing.module.css';
 import app from '../../../../public/app.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const Hero = () => (
   <div className={styles.hero__container}>
@@ -12,8 +13,14 @@ export const Hero = () => (
         trier et partager vos collections précieuses. Que vous soyez amateur de
         vinyles, de cartes ou de timbres !
       </p>
+      <Paragraph variant='p'>
+        <Link target='blanc' href='https://keeply-neon.vercel.app/dereje'>
+          https://keeply-neon.vercel.app/dereje
+        </Link>
+      </Paragraph>
     </div>
     <ButtonLink href='/login'>Commencer maintenant</ButtonLink>
+
     <Image
       priority
       src={

@@ -22,7 +22,6 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ) {
   const user: Session | null = await auth();
-  // const collection = await getCollection(collectionId, user?.user.id);
 
   const collection = await new CollectionsManager().getCollection(
     collectionId,

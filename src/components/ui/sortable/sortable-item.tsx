@@ -35,11 +35,7 @@ export const SortableItem = SortableElement(
             {name}
           </Heading>
           <Badge intent={rest.status === 'ACQUIRED' ? 'primary' : 'secondary'}>
-            {rest.status === 'ACQUIRED' ? (
-              <CheckCheck size='14px' />
-            ) : (
-              <X size='14px' />
-            )}
+            {rest.status === 'ACQUIRED' ? <p>Acquis</p> : <p>Manquant</p>}
           </Badge>
         </Card>
       </li>
