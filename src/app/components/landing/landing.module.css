@@ -1,5 +1,6 @@
 .hero__container,
-.explain {
+.explain,
+.start__now {
   padding: 8px;
   margin: 20px auto;
 }

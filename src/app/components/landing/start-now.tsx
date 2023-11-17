@@ -1,4 +1,4 @@
-import { ButtonLink, Heading, Paragraph } from '../../../components/ui';
+import { ButtonLink, Heading, Paragraph } from '$/components/ui';
 import styles from './landing.module.css';
 
 export const StratNow = () => (

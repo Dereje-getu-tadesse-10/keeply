@@ -15,27 +15,6 @@ Keeply est une application web qui permet de gérer ses collections de vinyles, 
 
 Pour lancer le projet, il faut créer un fichier `.env` à la racine du projet et y ajouter les variables d'environnement suivantes :
 
-**La base de données (serverless) du projet est hébergée sur [CockroachCloud](https://www.cockroachlabs.com/).**
-
-Pour exécuter le projet localement, utilisez une base de données PostgreSQL locale. Vous pouvez utiliser Docker pour configurer une base de données locale :
-
-```yml
-services:
-  postgres:
-    image: postgres:16
-    ports:
-      - 5432:5432
-    environment:
-      POSTGRES_DB: keeply_dev
-      POSTGRES_HOST_AUTH_METHOD: trust
-```
-
-Lancez le container Docker avec :
-
-```bash
-docker-compose up
-```
-
 ```plaintext
 GITHUB_CLIENT_ID=
 GITHUB_CLIENT_SECRET=
@@ -64,39 +43,8 @@ EMAIL_FROM=
 - Email
   - Utilisez un service SMTP (Mailtrap, Gmail, etc.) pour obtenir ces variables. [Voir la documentation nodemailer](https://nodemailer.com/about/).
 
-### Fonctionnalités (api)
-
-- [x] Authentification
-- [x] Création de compte
-- [x] Connexion
-- [x] Déconnexion
-- [x] Création d'une collection
-- [x] Suppression d'une collection
-- [x] Modification d'une collection
-- [x] Création d'un collectible
-- [x] Suppression d'un collectible
-- [x] Modification d'un collectible
-- [x] Drag and drop des collectibles
-- [x] Modification bio utilisateur
-- [x] Modification du nom d'utilisateur
-
-### Pages
-
-- [x] Page d'accueil
-- [x] Page de connexion / inscription
-- [x] Page tableau de bord
-- [x] Page verifications de l'email
-- [x] Modal de création d'une collection
-- [x] Modal de modification d'une collection
-- [x] Modal de création d'un collectible
-- [x] Modal de modification d'un collectible
-- [x] Page profil utilisateur public
-- [x] Page paramètres utilisateur
-- [x] Page mentions légales
-- [x] Page politique de confidentialité
-- [x] Page de politique de confidentialité
-
 ### Stack
 
 - [Next.js](https://nextjs.org/)
 - [CSS Modules](https://nextjs.org/docs/app/building-your-application/styling/css-modules)
+

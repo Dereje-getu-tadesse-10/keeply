@@ -25,13 +25,10 @@ export const Auth = () => {
     formState: { isSubmitting, isDirty, isValid, errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
-    defaultValues: {
-      email: sessionStorage.getItem('emailForSignIn') || '',
-    },
+    defaultValues: {},
   });
 
   const onSubmit = async (data: FormData) => {
-    sessionStorage.setItem('emailForSignIn', data.email);
     await signIn('email', { email: data.email });
   };
 
