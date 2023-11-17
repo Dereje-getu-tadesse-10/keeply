@@ -58,7 +58,7 @@ model User {
   accounts          Account[]
   sessions          Session[]
   collections       Collection[]
-  backgroundColorId String?           @default("clowtzl2x0001nojusnvn1ofj")      
+  backgroundColorId String?           @default("1")      
   backgroundColor   BackgroundColors? @relation(fields: [backgroundColorId], references: [id])
 }
 
@@ -83,7 +83,7 @@ model Collection {
 }
 
 model BackgroundColors {
-  id        String @id @default(cuid())
+  id        String @id 
   name      String
   colorCode String
   users     User[]
