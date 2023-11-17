@@ -1,7 +1,7 @@
-import { LoadingUI } from '$/components/loading/loading';
+ import { LoadingUI } from '$/components/loading/loading';
 
 const Loading = () => {
   return <LoadingUI />;
 };
 
-export default Loading;
+ export default Loading;

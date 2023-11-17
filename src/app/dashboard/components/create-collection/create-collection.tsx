@@ -13,7 +13,7 @@ import { createCollection } from '$/lib/fetchs';
 import { useMutation } from '@tanstack/react-query';
 import { ShieldAlert, Text } from 'lucide-react';
 
-type FormData = z.infer<typeof collectionWithoutUserIdSchema>;
+ type FormData = z.infer<typeof collectionWithoutUserIdSchema>;
 
 const MODAL_KEY = 'create-collection';
 

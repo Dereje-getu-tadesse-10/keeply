@@ -6,7 +6,7 @@ import { CreateCollection } from './components/create-collection/create-collecti
 import { DashboardHeader } from './components/dashboard-header/dashboard-header';
 import { Collections } from './components/collections/collections';
 
-import { Metadata } from 'next';
+ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Tableau de bord - Keeply',

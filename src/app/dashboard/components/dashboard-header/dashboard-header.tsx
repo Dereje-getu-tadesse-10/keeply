@@ -6,7 +6,7 @@ export const DashboardHeader = ({ lenght }: { lenght: number }) => {
   const { toggleModal } = useModalStore();
   return (
     <>
-      <Heading as='h1' variant='h1'>
+       <Heading as='h1' variant='h1'>
         Mes collections
       </Heading>
       <Paragraph variant='hightlight'>

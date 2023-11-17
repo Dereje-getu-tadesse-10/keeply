@@ -13,7 +13,7 @@ import { updateCollection, deleteCollection } from '$/lib/fetchs';
 import { useModalStore } from '$/stores/use-odalStore';
 import { CollectionCard } from '$/components/dashboard';
 import { useMutation } from '@tanstack/react-query';
-import { Collection } from '$/server/collections-manager';
+ import { Collection } from '$/server/collections-manager';
 
 type Props = Collection & {
   userId: string;

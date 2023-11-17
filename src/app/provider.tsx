@@ -10,7 +10,7 @@ type Props = {
 export const NextAuthProvider = ({ children }: Props) => {
   const [queryClient] = React.useState(() => new QueryClient());
   return (
-    <QueryClientProvider client={queryClient}>
+     <QueryClientProvider client={queryClient}>
       <SessionProvider>{children}</SessionProvider>
     </QueryClientProvider>
   );

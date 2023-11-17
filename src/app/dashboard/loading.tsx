@@ -4,4 +4,4 @@ const Loading = () => {
   return <LoadingUI />;
 };
 
-export default Loading;
+ export default Loading;

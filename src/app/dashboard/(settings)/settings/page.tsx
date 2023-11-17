@@ -7,7 +7,7 @@ import { Description } from './components/description/description';
 
 export const metadata: Metadata = {
   title: 'Paramètres - Keeply',
-};
+ }; 
 
 const SettingsPage = async () => {
   const user = await auth();

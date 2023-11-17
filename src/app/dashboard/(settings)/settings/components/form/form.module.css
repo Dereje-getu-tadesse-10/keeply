@@ -5,7 +5,7 @@
   grid-auto-rows: minmax(100px, auto);
 }
 
-.form > button {
+ .form > button {
   margin-top: 8px;
 }
 

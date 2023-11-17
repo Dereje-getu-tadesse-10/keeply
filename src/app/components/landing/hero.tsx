@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const Hero = () => (
   <div className={styles.hero__container}>
-    <div>
+      <div>
       <h1>Keeply</h1>
       <p>
         Gérez vos collections en un clin d&apos;œil! Keeply vous aide à suivre,

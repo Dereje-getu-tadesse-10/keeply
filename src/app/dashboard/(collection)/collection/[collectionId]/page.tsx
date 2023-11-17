@@ -44,7 +44,7 @@ const Page = async ({ params: { collectionId } }: PageProps) => {
     collectionId,
     userId
   );
-  const collectibles = await getCollectibles(collectionId);
+   const collectibles = await getCollectibles(collectionId);
 
   if (!collection) notFound();
 

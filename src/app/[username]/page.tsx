@@ -43,7 +43,7 @@ const Page = async ({ params }: { params: { username: string } }) => {
           <div>
             <Heading as='h2' variant='h2'>
               {userProfil.name}
-            </Heading>
+             </Heading>
             <Paragraph variant='hightlight'>{userProfil.description}</Paragraph>
           </div>
         </div>

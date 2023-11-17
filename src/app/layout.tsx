@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 
 export const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang='fr'>
+     <html lang='fr'>
       <body className={inter.className}>
         <NextAuthProvider>
           {children}

@@ -7,3 +7,4 @@ services:
       POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - 6500:5432
+

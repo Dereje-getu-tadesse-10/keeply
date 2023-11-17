@@ -4,7 +4,7 @@
   width: 100%;
   gap: 1rem;
 
-  & > .form__control {
+   & > .form__control {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

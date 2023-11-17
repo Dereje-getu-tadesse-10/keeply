@@ -3,7 +3,7 @@ import styles from './landing.module.css';
 
 const data = [
   {
-    title: 'Un contrôle total sur vos collections',
+     title: 'Un contrôle total sur vos collections',
     description:
       'Maintenez l‘ordre sur vos collections de vinyles, de cartes et de timbres. Plus jamais vous ne perdrez une pièce rare ou un vinyle précieux.',
   },

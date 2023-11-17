@@ -11,7 +11,7 @@ export const Description = ({
   userInfos,
   userId,
 }: {
-  userInfos: { username: string | null };
+   userInfos: { username: string | null };
   userId: string;
 }) => {
   const { mutate, isPending } = useMutation({

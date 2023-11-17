@@ -4,7 +4,7 @@ import { Collection } from '$/server/collections-manager';
 
 type CollectionsProps = Collection[];
 
-export const Collections = ({
+ export const Collections = ({
   collections,
 }: {
   collections: CollectionsProps;

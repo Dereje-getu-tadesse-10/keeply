@@ -6,7 +6,7 @@ import { StratNow } from '$/app/components/landing/start-now';
 const Home = () => {
   return (
     <main>
-      <Navbar />
+       <Navbar />
       <Hero />
       <Explain />
       <StratNow />

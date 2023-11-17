@@ -22,7 +22,7 @@ type Props = {
   backgroundColors: User['backgroundColor'][];
 };
 
-export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
+ export const Form = ({ userId, userInfos, backgroundColors }: Props) => {
   const router = useRouter();
 
   const [selectedBackground, setSelectedBackground] = useState(
