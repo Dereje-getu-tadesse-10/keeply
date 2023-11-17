@@ -14,6 +14,14 @@ export const Hero = () => (
       </p>
     </div>
     <ButtonLink href='/login'>Commencer maintenant</ButtonLink>
-    <Image priority src={app} alt='collections' width={1000} height={1000} />
+    <Image
+      priority
+      src={
+        'https://res.cloudinary.com/decneq2aj/image/upload/f_auto,q_auto/xkinpbvlh7j1ydbzbeka'
+      }
+      alt='collections'
+      width={600}
+      height={600}
+    />
   </div>
 );
