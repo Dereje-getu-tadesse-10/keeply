@@ -1,5 +1,8 @@
 # Keeply
 
+[Projet en live](https://keeply-neon.vercel.app/)
+[Page profil](https://keeply-neon.vercel.app/dereje)
+
 **Projet pour ma soutenance.**
 
 Keeply est une application web qui permet de gérer ses collections de vinyles, de cartes, de timbres, etc., et de partager ces collections sur son profil. Elle offre également la possibilité de visualiser l'avancée de ses collections en temps réel.
