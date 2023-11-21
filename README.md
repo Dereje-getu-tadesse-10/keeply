@@ -52,6 +52,7 @@ pnpm install
 ```
 
 Mettre en place la base de données : Utilisez le fichier `migration.sql` à la racine du projet, compatible uniquement avec PostgreSQL et CockroachDB (MySQL n'est pas supporté).
+>> Dans le fichier `schema.prisma`, changez le provider en postgresql ou cockroachdb, selon la base de données que vous utilisez.
 
 Pour migrer la base de données, utilisez :
 

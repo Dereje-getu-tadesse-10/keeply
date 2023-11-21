@@ -77,7 +77,7 @@ export const CreateCollectible = ({
               placeholder='Red Taylor’s Version est le quatrième album studio de la chanteuse américaine Taylor Swift, sorti le 9 novembre 2012 sur le label Big Machine Records. Il s’agit d’une réédition de son album Red, sorti en 2012, contenant 30 titres, dont 6 inédits.'
               {...register('description')}
             />
-            <Select label='Status' id='status' {...register('status')}>
+            <Select label='Statut' id='status' {...register('status')}>
               <option value='ACQUIRED'>Acquis</option>
               <option value='PLANNED'>Manquant</option>
             </Select>

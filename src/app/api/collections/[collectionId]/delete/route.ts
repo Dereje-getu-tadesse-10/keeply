@@ -84,7 +84,7 @@ export async function DELETE(
 
   // On renvoie une réponse
   return NextResponse.json(
-    { message: `La collection a bien été supprimée ! jhbjh` },
+    { message: `La collection a bien été supprimée !` },
     { status: 200 }
   );
 }
