@@ -23,13 +23,6 @@ export async function DELETE(
   const body = await req.json();
   const bodyResponse = bodySchema.safeParse(body);
 
-  if (!response.success) {
-    return NextResponse.json(
-      { message: "Oups, une erreur s'est produite" },
-      { status: 400 }
-    );
-  }
-
   if (!bodyResponse.success) {
     return NextResponse.json(
       { message: "Oups, une erreur s'est produite" },
@@ -49,6 +42,7 @@ export async function DELETE(
   const sessionError = verifySession(session, {
     userId: bodyResponse.data.userId,
   });
+  
   if (sessionError) {
     return NextResponse.json(sessionError, { status: sessionError.status });
   }

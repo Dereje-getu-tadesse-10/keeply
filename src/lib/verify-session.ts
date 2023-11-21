@@ -7,14 +7,14 @@ export const verifySession = (
   if (!session) {
     return {
       status: 401,
-      message: 'Vous devez être connecté pour supprimer une collection',
+      message: 'Vous devez être connecté',
     };
   }
 
   if (session?.user.id !== body.userId) {
     return {
       status: 401,
-      message: "Vous n'avez pas les droits pour supprimer cette collection",
+      message: "Vous n'avez pas les droits",
     };
   }
 

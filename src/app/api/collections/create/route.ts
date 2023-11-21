@@ -24,8 +24,8 @@ export async function POST(req: Request, res: Response) {
   const sessionError = verifySession(session, {
     userId: response.data.userId,
   });
+
   if (sessionError) {
-    console.log(sessionError);
     return NextResponse.json(sessionError, { status: sessionError.status });
   }
 

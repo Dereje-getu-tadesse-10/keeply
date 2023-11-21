@@ -58,7 +58,7 @@ export async function PUT(
   if (collection.userId !== response.data.userId) {
     return NextResponse.json(
       {
-        message: "Vous n'avez pas les droits pour supprimer cette collection",
+        message: "Vous n'avez pas les droits pour modifier cette collection",
       },
       { status: 401 }
     );
