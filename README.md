@@ -4,6 +4,8 @@ Projet en live [lien](https://keeply-neon.vercel.app/)
 
 Page profil [lien](https://keeply-neon.vercel.app/dereje)
 
+[Temp Mail - Disposable Temporary Email](https://temp-mail.org/en/) Pour tester rapidement l'authentification par e-mail.
+
 **Projet pour ma soutenance.**
 
 Keeply est une application web qui permet de gérer ses collections de vinyles, de cartes, de timbres, etc., et de partager ces collections sur son profil. Elle offre également la possibilité de visualiser l'avancée de ses collections en temps réel.
